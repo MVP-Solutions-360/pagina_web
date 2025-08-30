@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Dashboard - Agencia Principal</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="images/logo.png" alt="Agencia Principal" class="logo-img">
+                    <span class="logo-text">Agencia Principal</span>
+                </div>
+                
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.html#servicios" class="nav-link">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.html#destinos" class="nav-link">Destinos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.html#sobre-nosotros" class="nav-link">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.html#contacto" class="nav-link">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.html#cotizacion" class="nav-link btn-cotizacion">Nueva Cotización</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="header-auth">
+                    <button id="auth-button" class="auth-button">
+                        <i class="fas fa-user-circle"></i>
+                        Mi Cuenta
+                    </button>
+                    <div id="user-menu" class="user-menu"></div>
+                </div>
+                
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Dashboard Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <!-- Dashboard Header -->
+            <div class="dashboard-header">
+                <div class="dashboard-welcome">
+                    <h1>Bienvenido a tu Dashboard</h1>
+                    <p>Gestiona tus cotizaciones y mantén tu información actualizada</p>
+                </div>
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-file-invoice"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="total-quotations">0</span>
+                            <span class="stat-label">Cotizaciones</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="pending-quotations">0</span>
+                            <span class="stat-label">Pendientes</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="completed-quotations">0</span>
+                            <span class="stat-label">Completadas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Navigation -->
+            <div class="dashboard-nav">
+                <button class="nav-tab active" data-tab="quotations">
+                    <i class="fas fa-file-invoice"></i>
+                    Mis Cotizaciones
+                </button>
+                <button class="nav-tab" data-tab="profile">
+                    <i class="fas fa-user-cog"></i>
+                    Mi Perfil
+                </button>
+                <button class="nav-tab" data-tab="settings">
+                    <i class="fas fa-cog"></i>
+                    Configuración
+                </button>
+            </div>
+
+            <!-- Dashboard Content Tabs -->
+            <div class="dashboard-content">
+                <!-- Tab: Cotizaciones -->
+                <div class="tab-content active" id="quotations-tab">
+                    <div class="tab-header">
+                        <h2>Mis Cotizaciones</h2>
+                        <div class="tab-actions">
+                            <div class="search-box">
+                                <input type="text" id="quotation-search" placeholder="Buscar cotizaciones...">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <select id="status-filter">
+                                <option value="">Todos los estados</option>
+                                <option value="pending">Pendiente</option>
+                                <option value="in_progress">En Proceso</option>
+                                <option value="completed">Completada</option>
+                                <option value="cancelled">Cancelada</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="quotations-list" id="quotations-list">
+                        <!-- Las cotizaciones se cargarán dinámicamente -->
+                        <div class="loading-placeholder">
+                            <div class="loading-spinner"></div>
+                            <p>Cargando cotizaciones...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab: Perfil -->
+                <div class="tab-content" id="profile-tab">
+                    <div class="tab-header">
+                        <h2>Mi Perfil</h2>
+                    </div>
+                    
+                    <div class="profile-content">
+                        <div class="profile-section">
+                            <h3>Información Personal</h3>
+                            <form id="profile-form" class="profile-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="profile-name">Nombre Completo</label>
+                                        <input type="text" id="profile-name" name="name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profile-email">Email</label>
+                                        <input type="email" id="profile-email" name="email" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="profile-phone">Teléfono</label>
+                                        <input type="tel" id="profile-phone" name="phone" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profile-preference">Preferencia de Contacto</label>
+                                        <select id="profile-preference" name="contact_preference">
+                                            <option value="email">Email</option>
+                                            <option value="phone">Teléfono</option>
+                                            <option value="whatsapp">WhatsApp</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save"></i>
+                                        Guardar Cambios
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="profile-section">
+                            <h3>Cambiar Contraseña</h3>
+                            <form id="password-form" class="password-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="current-password">Contraseña Actual</label>
+                                        <input type="password" id="current-password" name="current_password" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="new-password">Nueva Contraseña</label>
+                                        <input type="password" id="new-password" name="new_password" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="confirm-password">Confirmar Nueva Contraseña</label>
+                                        <input type="password" id="confirm-password" name="confirm_password" required>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-secondary">
+                                        <i class="fas fa-key"></i>
+                                        Cambiar Contraseña
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab: Configuración -->
+                <div class="tab-content" id="settings-tab">
+                    <div class="tab-header">
+                        <h2>Configuración</h2>
+                    </div>
+                    
+                    <div class="settings-content">
+                        <div class="settings-section">
+                            <h3>Notificaciones</h3>
+                            <div class="setting-item">
+                                <label class="setting-label">
+                                    <input type="checkbox" id="email-notifications" checked>
+                                    <span class="setting-text">Recibir notificaciones por email</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label class="setting-label">
+                                    <input type="checkbox" id="sms-notifications">
+                                    <span class="setting-text">Recibir notificaciones por SMS</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label class="setting-label">
+                                    <input type="checkbox" id="whatsapp-notifications" checked>
+                                    <span class="setting-text">Recibir notificaciones por WhatsApp</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h3>Privacidad</h3>
+                            <div class="setting-item">
+                                <label class="setting-label">
+                                    <input type="checkbox" id="share-data" checked>
+                                    <span class="setting-text">Compartir datos para mejoras del servicio</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label class="setting-label">
+                                    <input type="checkbox" id="marketing-emails">
+                                    <span class="setting-text">Recibir emails de marketing</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h3>Cuenta</h3>
+                            <div class="setting-actions">
+                                <button class="btn btn-danger" onclick="confirmDeleteAccount()">
+                                    <i class="fas fa-trash"></i>
+                                    Eliminar Cuenta
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p>Cargando...</p>
+    </div>
+
+    <!-- Loading Indicator for Auth -->
+    <div id="loading-indicator" class="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fas fa-user-circle"></i>
+        </div>
+        <p>Procesando autenticación...</p>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

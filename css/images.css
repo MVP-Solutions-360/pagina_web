@@ -1,0 +1,318 @@
+/* ===== PLACEHOLDERS CSS PARA IMÁGENES ===== */
+/* Evita errores ERR_FILE_NOT_FOUND usando CSS en lugar de archivos físicos */
+
+/* Logo placeholder */
+.logo-placeholder {
+    width: 150px;
+    height: 50px;
+    background: linear-gradient(135deg, #0066CC, #00D4AA);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-placeholder::before {
+    content: "✈️";
+    font-size: 24px;
+    margin-right: 8px;
+}
+
+.logo-placeholder::after {
+    content: "VIAJES";
+    font-size: 14px;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.8;
+}
+
+/* Hero image placeholder */
+.hero-image {
+    width: 100%;
+    height: 500px;
+    background: linear-gradient(135deg, #0066CC, #00D4AA, #FF6B35);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hero-image::before {
+    content: "🏝️";
+    font-size: 80px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: float 3s ease-in-out infinite;
+}
+
+.hero-image::after {
+    content: "Caribe";
+    font-size: 36px;
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Destination image placeholders */
+.destination-image {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(135deg, #FF6B35, #00D4AA);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.destination-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+}
+
+.destination-image::before {
+    content: "🌴";
+    font-size: 48px;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.destination-image::after {
+    content: attr(data-destination);
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* About us image placeholder */
+.about-image {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, #0066CC, #00D4AA);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 102, 204, 0.3);
+}
+
+.about-image::before {
+    content: "🏢";
+    font-size: 64px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.about-image::after {
+    content: "Nuestra Agencia";
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* Team member photo placeholder */
+.member-photo {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #FF6B35, #00D4AA);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+    margin: 0 auto 15px;
+    transition: transform 0.3s ease;
+}
+
+.member-photo:hover {
+    transform: scale(1.1);
+}
+
+.member-photo::before {
+    content: "👤";
+    font-size: 60px;
+    animation: rotate 4s linear infinite;
+}
+
+/* Service icon placeholder */
+.service-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #0066CC, #00D4AA);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 32px;
+    margin: 0 auto 20px;
+    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.service-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Favicon placeholder */
+.favicon-placeholder {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #0066CC, #00D4AA);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.favicon-placeholder::before {
+    content: "✈️";
+    font-size: 18px;
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes float {
+    0%, 100% { transform: translateX(-50%) translateY(0px); }
+    50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.1); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-10px); }
+    60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .hero-image {
+        height: 300px;
+        font-size: 32px;
+    }
+    
+    .hero-image::before {
+        font-size: 60px;
+    }
+    
+    .hero-image::after {
+        font-size: 24px;
+    }
+    
+    .destination-image {
+        height: 200px;
+        font-size: 20px;
+    }
+    
+    .destination-image::before {
+        font-size: 36px;
+    }
+    
+    .destination-image::after {
+        font-size: 16px;
+    }
+    
+    .about-image {
+        height: 250px;
+        font-size: 28px;
+    }
+    
+    .about-image::before {
+        font-size: 48px;
+    }
+    
+    .about-image::after {
+        font-size: 18px;
+    }
+    
+    .member-photo {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .member-photo::before {
+        font-size: 48px;
+    }
+    
+    .service-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+}
+
+/* ===== DARK MODE ===== */
+@media (prefers-color-scheme: dark) {
+    .logo-placeholder,
+    .hero-image,
+    .destination-image,
+    .about-image,
+    .member-photo,
+    .service-icon,
+    .favicon-placeholder {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+}
