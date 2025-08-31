@@ -3,18 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalles del Paquete - Agencia de Viajes</title>
+    <title>Detalle del Paquete - Agencia de Viajes</title>
+    <meta name="description" content="Descubre todos los detalles de este increíble paquete turístico. Información completa, precios y reservas.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
     
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/images.css">
     <link rel="stylesheet" href="css/details-package.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
+    <header class="header" id="header">
         <nav class="navbar">
             <div class="nav-container">
                 <a href="index.html" class="nav-brand">
@@ -27,13 +38,21 @@
                         <i class="fas fa-home"></i>
                         Inicio
                     </a>
-                    <a href="packages.html" class="nav-link active">
+                    <a href="index.html#servicios" class="nav-link">
+                        <i class="fas fa-cogs"></i>
+                        Servicios
+                    </a>
+                    <a href="index.html#destinos" class="nav-link">
+                        <i class="fas fa-map-marked-alt"></i>
+                        Destinos
+                    </a>
+                    <a href="packages.html" class="nav-link">
                         <i class="fas fa-suitcase"></i>
                         Paquetes
                     </a>
-                    <a href="index.html#destinos" class="nav-link">
-                        <i class="fas fa-map-marker-alt"></i>
-                        Destinos
+                    <a href="index.html#sobre-nosotros" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        Nosotros
                     </a>
                     <a href="index.html#contacto" class="nav-link">
                         <i class="fas fa-envelope"></i>
@@ -47,515 +66,302 @@
                         Cotizar
                     </a>
                 </div>
+                
+                <div class="header-auth">
+                    <button id="auth-button" class="auth-button">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Login
+                    </button>
+                    <div id="user-menu" class="user-menu"></div>
+                </div>
+                
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="package-details-hero">
-        <div class="container">
-            <h1>Detalles del Paquete</h1>
-            <div class="subtitle">Descubre todos los detalles de tu próximo viaje</div>
-        </div>
-    </section>
-
     <!-- Main Content -->
-    <main class="package-details-container">
-        <!-- Botón Volver -->
-        <a href="packages.html" class="back-to-packages">
-            <i class="fas fa-arrow-left"></i>
-            Volver a Paquetes
-        </a>
+    <main class="main-content-full">
+        <!-- Package Detail Section -->
+        <section class="package-detail">
+            <!-- Package Header Banner -->
+            <div class="package-header-banner">
+                <h1 class="package-title" id="package-title">
+                    CUBA MÁGICA: ¡UN VIAJE INOLVIDABLE AL CORAZÓN DEL CARIBE!
+                </h1>
+            </div>
 
-        <!-- Loading Spinner -->
-        <div id="package-loading" class="loading-spinner">
-            <div class="spinner"></div>
-            <div class="loading-text">Cargando detalles del paquete...</div>
-        </div>
+            <!-- Package Content Grid -->
+            <div class="package-content-grid">
+                <!-- Left Side - Image with Overlay -->
+                <div class="package-image-section">
+                    <div class="package-image-container">
+                        <img src="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=800&h=600&fit=crop" alt="Cuba - La Habana" class="package-main-image" id="package-main-image">
+                        
+                        <!-- Logo Overlay -->
+                        <div class="package-logo-overlay">
+                            <div class="logo-content">
+                                <h3>Agencia de Viajes</h3>
+                                <p>Travel</p>
+                                <span class="rnt-number">RNT: 03564</span>
+                            </div>
+                        </div>
 
-        <!-- Contenido del Paquete -->
-        <div id="package-content" class="package-details-grid" style="display: none;">
-            <!-- Contenido Principal -->
-            <div class="package-main-content">
-                <!-- Carrusel de Imágenes -->
-                <div class="package-carousel">
-                    <div class="carousel-container" id="carousel-container">
-                        <!-- Las imágenes se cargarán dinámicamente -->
-                    </div>
-                    
-                    <!-- Navegación del Carrusel -->
-                    <button class="carousel-nav carousel-prev" id="carousel-prev" aria-label="Imagen anterior">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="carousel-nav carousel-next" id="carousel-next" aria-label="Imagen siguiente">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                    
-                    <!-- Indicadores -->
-                    <div class="carousel-indicators" id="carousel-indicators">
-                        <!-- Los indicadores se generarán dinámicamente -->
-                    </div>
-                </div>
-                
-                <!-- Título y Badge de Destino -->
-                <div class="package-header">
-                    <h2 class="package-title" id="detail-title">Cargando...</h2>
-                    <div class="destination-badge" id="destination-badge">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span id="destination-badge-text">Cargando...</span>
-                    </div>
-                </div>
-                
-                <!-- Información del Paquete -->
-                <div class="package-info-grid">
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <div class="label">Destino</div>
-                            <div class="value" id="detail-destination">Cargando...</div>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <i class="fas fa-plane-departure"></i>
-                        <div>
-                            <div class="label">Origen</div>
-                            <div class="value" id="detail-origin">Cargando...</div>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <i class="fas fa-calendar-alt"></i>
-                        <div>
-                            <div class="label">Duración</div>
-                            <div class="value" id="detail-duration">Cargando...</div>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <i class="fas fa-users"></i>
-                        <div>
-                            <div class="label">Grupo</div>
-                            <div class="value" id="detail-group">Cargando...</div>
+                        <!-- Navigation Arrows -->
+                        <button class="package-nav-arrow package-nav-prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="package-nav-arrow package-nav-next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+
+                        <!-- Includes Overlay -->
+                        <div class="package-includes-overlay">
+                            <div class="includes-header">
+                                <h3>Incluye:</h3>
+                            </div>
+                            <div class="includes-list">
+                                <ul id="includes-list">
+                                    <li><strong>Tiquetes aéreos:</strong> Medellín - Santa Clara / La Habana - Medellín, vía Panamá</li>
+                                    <li><strong>Horarios:</strong> Salida: 05:07 A.M. - Regreso: 03:01 P.M.</li>
+                                    <li><strong>Equipaje:</strong> Artículo personal (morral) + maleta de cabina (10 kg)</li>
+                                    <li><strong>Traslados:</strong> En servicio regular compartido</li>
+                                    <li><strong>Alojamiento 1:</strong> 2 noches en hotel Meliá Cayo Santa María, alimentación todo incluido</li>
+                                    <li><strong>Alojamiento 2:</strong> 2 noches en hotel Meliá Varadero, alimentación todo incluido</li>
+                                    <li><strong>Alojamiento 3:</strong> 2 noches en hotel Meliá Cohiba, La Habana, desayuno diario</li>
+                                    <li><strong>Actividad:</strong> City tour en La Habana, sin almuerzo</li>
+                                    <li><strong>Documentación:</strong> Tarjeta de ingreso a la Isla de Cuba</li>
+                                    <li><strong>Servicio:</strong> Asistencia médica</li>
+                                    <li><strong>Costo adicional:</strong> Fee bancario</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Sección Desplegable: Detalles del Paquete -->
-                <div class="collapsible-section">
-                    <div class="section-header" onclick="toggleSection('details')">
-                        <div class="section-title">
-                            <i class="fas fa-info-circle section-icon"></i>
-                            Detalles del Paquete
-                        </div>
-                        <i class="fas fa-chevron-down section-toggle" id="details-toggle"></i>
+
+                <!-- Right Side - Package Information -->
+                <div class="package-info-section">
+                    <!-- Price Card -->
+                    <div class="info-card price-card">
+                        <h3 class="card-title">Precio</h3>
+                        <div class="price-value" id="package-price">$3,999,000 COP</div>
                     </div>
-                    <div class="section-content" id="details-content">
-                        <div class="section-body">
-                            <div id="detail-full-description">Cargando detalles...</div>
+
+                    <!-- Dates Card -->
+                    <div class="info-card dates-card">
+                        <div class="card-icon">
+                            <i class="fas fa-calendar-alt"></i>
                         </div>
+                        <h3 class="card-title">Fecha de salida y regreso</h3>
+                        <div class="dates-info">
+                            <p class="date-range" id="date-range">Desde el 2025-08-28 Hasta el 2025-09-03</p>
+                            <p class="duration" id="duration">7 días / 6 noches</p>
+                        </div>
+                    </div>
+
+                    <!-- Availability Card -->
+                    <div class="info-card availability-card">
+                        <div class="card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="card-title">Unidades disponibles</h3>
+                        <div class="availability-info">
+                            <p class="units-available" id="units-available">6</p>
+                            <p class="availability-note">Disponibles solo en el tiempo establecido</p>
+                        </div>
+                    </div>
+
+                    <!-- Destination Card -->
+                    <div class="info-card destination-card">
+                        <div class="card-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="card-title">Destino</h3>
+                        <div class="destination-info">
+                            <p id="destination-info">Cuba: La Habana, Cayo y Varadero</p>
+                        </div>
+                    </div>
+
+                    <!-- Action Button -->
+                    <div class="package-action">
+                        <button class="reserve-btn" id="reserve-btn">
+                            Reservar ahora
+                        </button>
                     </div>
                 </div>
-                
-                <!-- Sección Desplegable: Incluye -->
-                <div class="collapsible-section">
-                    <div class="section-header" onclick="toggleSection('includes')">
-                        <div class="section-title">
-                            <i class="fas fa-check-circle section-icon" style="color: #28a745;"></i>
-                            Incluye
-                        </div>
-                        <i class="fas fa-chevron-down section-toggle" id="includes-toggle"></i>
-                    </div>
-                    <div class="section-content" id="includes-content">
-                        <div class="section-body">
-                            <div id="detail-includes">Cargando información...</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Sección Desplegable: No Incluye -->
-                <div class="collapsible-section">
-                    <div class="section-header" onclick="toggleSection('excludes')">
-                        <div class="section-title">
-                            <i class="fas fa-times-circle section-icon" style="color: #dc3545;"></i>
-                            No Incluye
-                        </div>
-                        <i class="fas fa-chevron-down section-toggle" id="excludes-toggle"></i>
-                    </div>
-                    <div class="section-content" id="excludes-content">
-                        <div class="section-body">
-                            <div id="detail-excludes">Cargando información...</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Sección Desplegable: Itinerario -->
-                <div class="collapsible-section">
-                    <div class="section-header" onclick="toggleSection('itinerary')">
-                        <div class="section-title">
-                            <i class="fas fa-calendar-alt section-icon"></i>
-                            Itinerario del Viaje
-                        </div>
-                        <i class="fas fa-chevron-down section-toggle" id="itinerary-toggle"></i>
-                    </div>
-                    <div class="section-content" id="itinerary-content">
-                        <div class="section-body">
-                            <div id="detail-itinerary">
-                                <div class="itinerary-day">
-                                    <div class="day-number">1</div>
-                                    <div class="day-content">
-                                        <h4>Llegada y Bienvenida</h4>
-                                        <p>Recibimiento en el aeropuerto y traslado al hotel. Cena de bienvenida.</p>
+            </div>
+
+            <!-- Package Description Section -->
+            <section class="package-description-section">
+                <div class="description-grid">
+                    <!-- Left Column - Package Description -->
+                    <div class="description-left">
+                        <div class="collapsible-section" data-section="description">
+                            <div class="section-header-collapsible">
+                                <h2 class="description-title">DESCRIPCIÓN DEL PAQUETE</h2>
+                                <button class="collapse-toggle" data-target="description">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div class="section-content" id="description-content">
+                                <div class="package-details">
+                                    <p class="destinations-info" id="destinations-info">Tres destinos Cuba: La Habana, Cayo y Varadero</p>
+                                    <h3 class="package-name" id="package-name">🌴 Cuba Mágica: ¡Un Viaje Inolvidable al Corazón del Caribe!</h3>
+                                    <p class="package-duration" id="package-duration"><strong>6 noches / 7 días</strong></p>
+                                    <p class="package-description" id="package-description">
+                                        Embárcate en una aventura inolvidable a Cuba, donde la historia, la cultura y la belleza natural se fusionan en un destino único. Descubre la Habana, una ciudad llena de vida y color, con sus coches clásicos y su arquitectura colonial. Relájate en Cayo Santa María, un paraíso de playas de ensueño, y disfruta de la diversión y el sol en Varadero. ¡Una experiencia que despertará tus sentidos! 🍹☀️🏖️
+                                    </p>
+                                </div>
+                                
+                                <div class="key-info">
+                                    <div class="info-item">
+                                        <span class="info-label">Fecha de viaje:</span>
+                                        <span class="info-value" id="travel-date">Del 28 de agosto al 03 de septiembre 2025</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Fecha de compra:</span>
+                                        <span class="info-value">Hasta agotar existencias</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Tarifa por persona:</span>
+                                        <span class="info-value">desde COP $3.999.000</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            
-            <!-- Sidebar -->
-            <div class="package-sidebar">
-                <!-- Precio -->
-                <div class="package-price-card">
-                    <div class="price-label">Precio por Persona</div>
-                    <div class="price-amount" id="detail-price">$0</div>
-                    <div class="price-note">Precios sujetos a disponibilidad</div>
-                </div>
-                
-                <!-- Acciones -->
-                <div class="package-actions">
-                    <button class="btn btn-success" id="btn-cotizar">
-                        <i class="fas fa-paper-plane"></i>
-                        Solicitar Cotización
-                    </button>
-                    
-                    <button class="btn btn-primary" id="btn-reservar">
-                        <i class="fas fa-calendar-check"></i>
-                        Reservar Ahora
-                    </button>
-                    
-                    <button class="btn btn-secondary" id="btn-contactar">
-                        <i class="fas fa-phone"></i>
-                        Contactar Asesor
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Mensaje de Error -->
-        <div id="package-error" class="error-message" style="display: none;">
-            <div class="error-icon">❌</div>
-            <h2>Error al Cargar el Paquete</h2>
-            <p id="error-text">No se pudo cargar la información del paquete.</p>
-            <a href="packages.html" class="back-to-packages">
-                <i class="fas fa-arrow-left"></i>
-                Volver a Paquetes
-            </a>
-        </div>
-    </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Agencia de Viajes</h3>
-                    <p>Tu compañero de confianza para explorar el mundo.</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Contacto</h3>
-                    <p><i class="fas fa-phone"></i> +57 300 123 4567</p>
-                    <p><i class="fas fa-envelope"></i> info@agenciaviajes.com</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Síguenos</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 Agencia de Viajes. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="config.js"></script>
-    <script src="js/api.js"></script>
-    
-    <script>
-        // Variables globales del carrusel
-        let currentSlide = 0;
-        let totalSlides = 1;
-        let packageImages = [];
-        
-        // Función para limpiar etiquetas HTML y mostrar solo texto
-        function stripHtmlTags(htmlString) {
-            if (!htmlString) return '';
-            
-            // Crear un elemento temporal para parsear el HTML
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = htmlString;
-            
-            // Extraer solo el texto
-            return tempDiv.textContent || tempDiv.innerText || '';
-        }
-        
-        // Función para formatear el itinerario
-        function formatItinerary(itineraryHtml) {
-            if (!itineraryHtml) return '<p>Itinerario no disponible</p>';
-            
-            // Limpiar etiquetas HTML y extraer solo texto
-            const cleanText = stripHtmlTags(itineraryHtml);
-            
-            // Dividir por días (buscar patrones como "DÍA 1", "DÍA 2", etc.)
-            const days = cleanText.split(/(?=DÍA\s+\d+)/);
-            
-            if (days.length <= 1) {
-                // Si no hay días claros, mostrar como párrafo simple
-                return `<p>${cleanText}</p>`;
-            }
-            
-            // Formatear cada día
-            return days.map((day, index) => {
-                if (!day.trim()) return '';
-                
-                const dayMatch = day.match(/DÍA\s+(\d+)[^:]*:\s*(.*)/);
-                if (dayMatch) {
-                    const dayNumber = dayMatch[1];
-                    const dayContent = dayMatch[2].trim();
-                    
-                    return `
-                        <div class="itinerary-day">
-                            <div class="day-number">${dayNumber}</div>
-                            <div class="day-content">
-                                <h4>Día ${dayNumber}</h4>
-                                <p>${dayContent}</p>
+                    <!-- Right Column - Includes and Conditions -->
+                    <div class="description-right">
+                        <div class="collapsible-section" data-section="includes">
+                            <div class="section-header-collapsible">
+                                <h2 class="description-title">INCLUYE</h2>
+                                <button class="collapse-toggle" data-target="includes">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div class="section-content" id="includes-content">
+                                <div class="includes-content">
+                                    <h3 class="includes-subtitle">Incluye:</h3>
+                                    <ul class="includes-list-detailed" id="includes-list-detailed">
+                                        <li>Tiquetes aéreos Medellín - Santa Clara / La Habana - Medellín, vía Panamá.</li>
+                                        <li>Salida: 05:07 A.M. - Regreso: 03:01 P.M.</li>
+                                        <li>Equipaje: artículo personal (morral) + maleta de cabina (10 kg).</li>
+                                        <li>Traslados en servicio regular compartido.</li>
+                                        <li>2 noches en hotel Meliá Cayo Santa María, alimentación todo incluido.</li>
+                                        <li>2 noches en hotel Meliá Varadero, alimentación todo incluido.</li>
+                                        <li>2 noches en hotel Meliá Cohiba, La Habana, desayuno diario.</li>
+                                        <li>City tour en La Habana, sin almuerzo.</li>
+                                        <li>Tarjeta de ingreso a la Isla de Cuba.</li>
+                                        <li>Asistencia médica.</li>
+                                        <li>Fee bancario.</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    `;
-                } else {
-                    return `<p>${day.trim()}</p>`;
-                }
-            }).join('');
-        }
-        
-        // Obtener ID del paquete de la URL
-        function getPackageId() {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get('id');
-        }
-        
-        // Función para alternar secciones desplegables
-        function toggleSection(sectionName) {
-            const content = document.getElementById(sectionName + '-content');
-            const toggle = document.getElementById(sectionName + '-toggle');
-            
-            if (content.classList.contains('expanded')) {
-                content.classList.remove('expanded');
-                toggle.classList.remove('expanded');
-            } else {
-                content.classList.add('expanded');
-                toggle.classList.add('expanded');
-            }
-        }
-        
-        // Función para crear el carrusel de imágenes
-        function createCarousel(images) {
-            const container = document.getElementById('carousel-container');
-            const indicators = document.getElementById('carousel-indicators');
-            
-            if (!images || images.length === 0) {
-                // Imagen por defecto
-                container.innerHTML = `
-                    <div class="carousel-slide">
-                        <div class="carousel-placeholder">
-                            <i class="fas fa-image"></i>
-                            <span>Imagen no disponible</span>
+
+                        <div class="collapsible-section" data-section="conditions">
+                            <div class="section-header-collapsible">
+                                <h2 class="description-title">CONDICIONES</h2>
+                                <button class="collapse-toggle" data-target="conditions">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div class="section-content" id="conditions-content">
+                                <div class="conditions-content">
+                                    <h3 class="conditions-subtitle">Condiciones:</h3>
+                                    <ul class="conditions-list" id="conditions-list">
+                                        <li>Tarifas por persona desde acomodación doble.</li>
+                                        <li>Mayores de 75 años pagan suplemento de asistencia médica.</li>
+                                        <li>Tarifas no reembolsables, itinerario, tarifas y disponibilidad sujetos a cambios.</li>
+                                        <li>Estamos comprometidos con la ley 679-2001 (Prev. ESCNNA).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="collapsible-section" data-section="itinerary">
+                            <div class="section-header-collapsible">
+                                <h2 class="description-title">ITINERARIO</h2>
+                                <button class="collapse-toggle" data-target="itinerary">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div class="section-content" id="itinerary-content">
+                                <div class="itinerary-content">
+                                    <h3 class="itinerary-subtitle">Itinerario del Viaje:</h3>
+                                    <div id="itinerary-details">
+                                        <p>Itinerario no disponible</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="collapsible-section" data-section="not-includes">
+                            <div class="section-header-collapsible">
+                                <h2 class="description-title">NO INCLUYE</h2>
+                                <button class="collapse-toggle" data-target="not-includes">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div class="section-content" id="not-includes-content">
+                                <div class="not-includes-content">
+                                    <ul class="not-includes-list" id="not-includes-list">
+                                        <li>Gastos personales</li>
+                                        <li>Propinas</li>
+                                        <li>Bebidas alcohólicas (excepto en todo incluido)</li>
+                                        <li>Excursiones opcionales</li>
+                                        <li>Seguro de viaje</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                `;
-                return;
-            }
-            
-            packageImages = images;
-            totalSlides = images.length;
-            
-            // Crear slides
-            container.innerHTML = images.map((image, index) => `
-                <div class="carousel-slide">
-                    <img src="${image}" alt="Imagen ${index + 1}" class="carousel-image" 
-                         onerror="this.parentElement.innerHTML='<div class=\\'carousel-placeholder\\'><i class=\\'fas fa-image\\'></i></div>'">
                 </div>
-            `).join('');
-            
-            // Crear indicadores
-            indicators.innerHTML = images.map((_, index) => `
-                <div class="carousel-indicator ${index === 0 ? 'active' : ''}" onclick="goToSlide(${index})"></div>
-            `).join('');
-            
-            // Configurar navegación
-            setupCarouselNavigation();
-        }
-        
-        // Configurar navegación del carrusel
-        function setupCarouselNavigation() {
-            document.getElementById('carousel-prev').addEventListener('click', () => {
-                goToSlide(currentSlide - 1);
-            });
-            
-            document.getElementById('carousel-next').addEventListener('click', () => {
-                goToSlide(currentSlide + 1);
-            });
-        }
-        
-        // Ir a slide específico
-        function goToSlide(slideIndex) {
-            if (slideIndex < 0) slideIndex = totalSlides - 1;
-            if (slideIndex >= totalSlides) slideIndex = 0;
-            
-            currentSlide = slideIndex;
-            
-            const container = document.getElementById('carousel-container');
-            const indicators = document.querySelectorAll('.carousel-indicator');
-            
-            // Mover carrusel
-            container.style.transform = `translateX(-${slideIndex * 100}%)`;
-            
-            // Actualizar indicadores
-            indicators.forEach((indicator, index) => {
-                indicator.classList.toggle('active', index === slideIndex);
-            });
-        }
-        
-        // Cargar detalles del paquete
-        async function loadPackageDetails(packageId) {
-            try {
-                console.log('📦 Cargando detalles del paquete ID:', packageId);
+            </section>
+
+            <!-- Related Packages Section -->
+            <section class="related-packages">
+                <h2 class="section-title">MÁS RECOMENDADOS PARA TI</h2>
+                <p class="section-subtitle">
+                    Viaja por Colombia con paquetes todo incluido y los mejores precios que trae nuestra agencia para ti
+                </p>
                 
-                if (!window.AgenciaAPI || !window.AgenciaAPI.getPackageById) {
-                    throw new Error('AgenciaAPI no disponible');
-                }
-                
-                const response = await window.AgenciaAPI.getPackageById(packageId);
-                console.log('📡 Respuesta de la API:', response);
-                
-                if (response && response.success && response.data) {
-                    // La API devuelve datos doble encapsulados
-                    const packageData = response.data.data || response.data;
-                    console.log('📦 Datos del paquete extraídos:', packageData);
-                    displayPackageDetails(packageData);
-                } else {
-                    throw new Error('No se pudieron cargar los detalles del paquete');
-                }
-                
-            } catch (error) {
-                console.error('❌ Error al cargar detalles:', error);
-                showError('Error al cargar los detalles del paquete: ' + error.message);
-            }
-        }
-        
-        // Mostrar detalles del paquete
-        function displayPackageDetails(package) {
-            console.log('🎨 Mostrando detalles del paquete:', package);
-            
-            // Ocultar loading y mostrar contenido
-            document.getElementById('package-loading').style.display = 'none';
-            document.getElementById('package-content').style.display = 'grid';
-            
-            // Actualizar contenido principal
-            document.getElementById('detail-title').textContent = package.title || 'Sin título';
-            document.getElementById('detail-destination').textContent = package.destination || 'No especificado';
-            document.getElementById('detail-origin').textContent = package.origin || 'No especificado';
-            document.getElementById('detail-duration').textContent = package.duration || '15 días';
-            document.getElementById('detail-group').textContent = package.group_size || 'Grupo turístico';
-            document.getElementById('detail-price').textContent = package.min_price ? '$' + package.min_price.toLocaleString() : 'Consultar';
-            
-            // Actualizar badge de destino
-            document.getElementById('destination-badge-text').textContent = package.destination || 'No especificado';
-            
-            // Actualizar secciones desplegables
-            // Detalles del paquete: mantener formato rico con viñetas
-            document.getElementById('detail-full-description').innerHTML = package.details || package.description || 'Descripción detallada no disponible';
-            document.getElementById('detail-includes').innerHTML = package.include || 'Información no disponible';
-            document.getElementById('detail-excludes').innerHTML = package.no_include || 'Información no disponible';
-            
-            // Actualizar itinerario
-            document.getElementById('detail-itinerary').innerHTML = formatItinerary(package.itinerary || 'Itinerario no disponible');
-            
-            // Crear carrusel de imágenes
-            let images = [];
-            if (package.main_image) {
-                images.push(package.main_image);
-            }
-            if (package.gallery_images && Array.isArray(package.gallery_images)) {
-                images = images.concat(package.gallery_images);
-            }
-            createCarousel(images);
-            
-            // Configurar botones
-            setupButtons(package.id);
-        }
-        
-        // Configurar botones de acción
-        function setupButtons(packageId) {
-            // Botón Cotizar
-            document.getElementById('btn-cotizar').addEventListener('click', function() {
-                window.location.href = `index.html#cotizacion?package=${packageId}`;
-            });
-            
-            // Botón Reservar
-            document.getElementById('btn-reservar').addEventListener('click', function() {
-                alert('Funcionalidad de reserva en desarrollo. Por favor, contacta a un asesor.');
-            });
-            
-            // Botón Contactar
-            document.getElementById('btn-contactar').addEventListener('click', function() {
-                window.location.href = `index.html#contacto?package=${packageId}`;
-            });
-        }
-        
-        // Mostrar error
-        function showError(message) {
-            document.getElementById('package-loading').style.display = 'none';
-            document.getElementById('package-error').style.display = 'block';
-            document.getElementById('error-text').textContent = message;
-        }
-        
-        // Inicializar página
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('🔄 Página de detalles cargada');
-            
-            const packageId = getPackageId();
-            
-            if (!packageId) {
-                showError('No se especificó el ID del paquete');
-                return;
-            }
-            
-            // Esperar a que AgenciaAPI esté disponible
-            const checkAgenciaAPI = setInterval(() => {
-                if (window.AgenciaAPI) {
-                    clearInterval(checkAgenciaAPI);
-                    loadPackageDetails(packageId);
-                }
-            }, 100);
-            
-            // Timeout después de 10 segundos
-            setTimeout(() => {
-                clearInterval(checkAgenciaAPI);
-                if (!window.AgenciaAPI) {
-                    showError('Error: AgenciaAPI no disponible');
-                }
-            }, 10000);
-        });
-    </script>
+                <div class="related-packages-grid">
+                    <!-- Related Package Cards will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Question Section -->
+            <section class="question-section">
+                <h3 class="question-title">¿Tienes alguna duda?</h3>
+                <p class="question-subtitle">Nuestro equipo está aquí para ayudarte</p>
+                <button class="contact-btn">
+                    <i class="fas fa-envelope"></i>
+                    Contactar
+                </button>
+            </section>
+        </section>
+    </main>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="auth-modal">
+        <div class="auth-content">
+            <span class="auth-close">&times;</span>
+            <div id="auth-forms"></div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/mock-api.js"></script>
+    <script src="js/package-detail.js"></script>
 </body>
 </html>
