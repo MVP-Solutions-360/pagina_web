@@ -13,6 +13,15 @@
     --border-radius: 20px;
     --border-radius-sm: 12px;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Text colors for better dark mode support */
+    --text-primary: #ffffff;
+    --text-secondary: #e2e8f0;
+    --text-tertiary: #94a3b8;
+    --text-muted: #64748b;
+    
+    /* Primary color RGB for transparency effects */
+    --primary-color-rgb: 59, 130, 246;
 }
 
 /* ===== LAYOUT PRINCIPAL - PÁGINA COMPLETA ===== */
@@ -140,7 +149,7 @@
 .services .section-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--text-primary);
     margin-bottom: var(--spacing-md);
 }
 
@@ -190,7 +199,7 @@
 .service-title {
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--primary-color);
+    color: var(--text-primary);
     margin-bottom: var(--spacing-md);
 }
 
@@ -219,7 +228,7 @@
 .destinations .section-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--text-primary);
     margin-bottom: var(--spacing-md);
 }
 
@@ -351,7 +360,7 @@
 .quotation-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--text-primary);
     margin-bottom: var(--spacing-md);
 }
 
@@ -396,7 +405,7 @@
 .about-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--text-primary);
     margin-bottom: var(--spacing-lg);
 }
 
@@ -466,7 +475,7 @@
 .contact .section-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--text-primary);
     margin-bottom: var(--spacing-md);
 }
 
@@ -478,87 +487,126 @@
     margin: 0 auto;
 }
 
-.contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-xxl);
-    align-items: start;
+.contact-form-container {
+    display: flex;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.contact-info {
-    padding-right: var(--spacing-xl);
+.contact-form {
+    background: var(--bg-card);
+    padding: var(--spacing-xxl) var(--spacing-xxl);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--bg-tertiary);
+    width: 100%;
 }
 
-.contact-title {
-    font-size: 2rem;
+.contact-form h3 {
+    font-size: 1.8rem;
     font-weight: 600;
-    color: var(--primary-color);
-    margin-bottom: var(--spacing-lg);
-}
-
-.contact-description {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    line-height: 1.6;
+    color: var(--text-primary);
     margin-bottom: var(--spacing-xl);
+    text-align: center;
 }
 
-.contact-methods {
+/* ===== FORM STYLES ===== */
+.contact-form .form {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-lg);
 }
 
-.contact-method {
+.contact-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--spacing-xl);
+}
+
+.contact-form .form-group {
     display: flex;
-    align-items: flex-start;
-    gap: var(--spacing-lg);
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.contact-form .form-group label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.contact-form .form-group input,
+.contact-form .form-group textarea {
     padding: var(--spacing-lg);
-    background: var(--bg-card);
+    border: 2px solid var(--bg-tertiary);
     border-radius: var(--border-radius-sm);
-    border: 1px solid var(--bg-tertiary);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 1rem;
     transition: var(--transition);
+    font-family: inherit;
 }
 
-.contact-method:hover {
-    border-color: var(--secondary-color);
-    transform: translateX(5px);
+.contact-form .form-group input:focus,
+.contact-form .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.1);
 }
 
-.contact-method i {
-    font-size: 1.5rem;
-    color: var(--secondary-color);
-    flex-shrink: 0;
-    margin-top: 2px;
+.contact-form .form-group input::placeholder,
+.contact-form .form-group textarea::placeholder {
+    color: var(--text-tertiary);
 }
 
-.contact-method-content h4 {
+.contact-form .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.5;
+}
+
+.contact-form .contact-submit {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    border: none;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border-radius: var(--border-radius);
     font-size: 1.1rem;
     font-weight: 600;
-    color: var(--primary-color);
-    margin-bottom: var(--spacing-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
 }
 
-.contact-method-content p {
-    color: var(--text-muted);
-    line-height: 1.5;
-    margin: 0;
+.contact-form .contact-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
 }
 
-.contact-form {
-    background: var(--bg-card);
-    padding: var(--spacing-xxl);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-soft);
-    border: 1px solid var(--bg-tertiary);
+.contact-form .contact-submit:active {
+    transform: translateY(0);
 }
 
-.contact-form h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--primary-color);
-    margin-bottom: var(--spacing-xl);
-    text-align: center;
+/* Responsive adjustments for contact form */
+@media (max-width: 768px) {
+    .contact-form .form-row {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .contact-form {
+        padding: var(--spacing-xl);
+    }
+    
+    .contact-form-container {
+        max-width: 95%;
+    }
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
@@ -647,5 +695,13 @@
     .about-title,
     .contact .section-title {
         font-size: 2rem;
+    }
+    
+    .contact-form-container {
+        max-width: 98%;
+    }
+    
+    .contact-form {
+        padding: var(--spacing-lg);
     }
 }
