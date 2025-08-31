@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Paquete - Agencia de Viajes</title>
+    <meta name="description" content="Descubre todos los detalles de este increíble paquete turístico. Información completa, precios y reservas.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/images.css">
+    <link rel="stylesheet" href="css/details-package.css">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="nav-brand">
+                    <i class="fas fa-plane"></i>
+                    <span>Agencia de Viajes</span>
+                </a>
+                
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        Inicio
+                    </a>
+                    <a href="index.html#servicios" class="nav-link">
+                        <i class="fas fa-cogs"></i>
+                        Servicios
+                    </a>
+                    <a href="index.html#destinos" class="nav-link">
+                        <i class="fas fa-map-marked-alt"></i>
+                        Destinos
+                    </a>
+                    <a href="packages.html" class="nav-link">
+                        <i class="fas fa-suitcase"></i>
+                        Paquetes
+                    </a>
+                    <a href="index.html#sobre-nosotros" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        Nosotros
+                    </a>
+                    <a href="index.html#contacto" class="nav-link">
+                        <i class="fas fa-envelope"></i>
+                        Contacto
+                    </a>
+                </div>
+                
+                <div class="nav-actions">
+                    <a href="index.html#cotizacion" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Cotizar
+                    </a>
+                </div>
+                
+                <div class="header-auth">
+                    <button id="auth-button" class="auth-button">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Login
+                    </button>
+                    <div id="user-menu" class="user-menu"></div>
+                </div>
+                
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content-full">
+        <!-- Package Detail Section -->
+        <section class="package-detail">
+            <!-- Package Header Banner -->
+            <div class="package-header-banner">
+                <h1 class="package-title" id="package-title">
+                    CUBA MÁGICA: ¡UN VIAJE INOLVIDABLE AL CORAZÓN DEL CARIBE!
+                </h1>
+            </div>
+
+            <!-- Package Content Grid -->
+            <div class="package-content-grid">
+                <!-- Left Side - Image with Overlay -->
+                <div class="package-image-section">
+                    <div class="package-image-container">
+                        <img src="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=800&h=600&fit=crop" alt="Cuba - La Habana" class="package-main-image" id="package-main-image">
+                        
+                        <!-- Logo Overlay -->
+                        <div class="package-logo-overlay">
+                            <div class="logo-content">
+                                <h3>Agencia de Viajes</h3>
+                                <p>Travel</p>
+                                <span class="rnt-number">RNT: 03564</span>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Arrows -->
+                        <button class="package-nav-arrow package-nav-prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="package-nav-arrow package-nav-next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+
+                        <!-- Includes Overlay -->
+                        <div class="package-includes-overlay">
+                            <div class="includes-header">
+                                <h3>Incluye:</h3>
+                            </div>
+                            <div class="includes-list">
+                                <ul id="includes-list">
+                                    <li><strong>Tiquetes aéreos:</strong> Medellín - Santa Clara / La Habana - Medellín, vía Panamá</li>
+                                    <li><strong>Horarios:</strong> Salida: 05:07 A.M. - Regreso: 03:01 P.M.</li>
+                                    <li><strong>Equipaje:</strong> Artículo personal (morral) + maleta de cabina (10 kg)</li>
+                                    <li><strong>Traslados:</strong> En servicio regular compartido</li>
+                                    <li><strong>Alojamiento 1:</strong> 2 noches en hotel Meliá Cayo Santa María, alimentación todo incluido</li>
+                                    <li><strong>Alojamiento 2:</strong> 2 noches en hotel Meliá Varadero, alimentación todo incluido</li>
+                                    <li><strong>Alojamiento 3:</strong> 2 noches en hotel Meliá Cohiba, La Habana, desayuno diario</li>
+                                    <li><strong>Actividad:</strong> City tour en La Habana, sin almuerzo</li>
+                                    <li><strong>Documentación:</strong> Tarjeta de ingreso a la Isla de Cuba</li>
+                                    <li><strong>Servicio:</strong> Asistencia médica</li>
+                                    <li><strong>Costo adicional:</strong> Fee bancario</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side - Package Information -->
+                <div class="package-info-section">
+                    <!-- Price Card -->
+                    <div class="info-card price-card">
+                        <h3 class="card-title">Precio</h3>
+                        <div class="price-value" id="package-price">$3,999,000 COP</div>
+                    </div>
+
+                    <!-- Dates Card -->
+                    <div class="info-card dates-card">
+                        <div class="card-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3 class="card-title">Fecha de salida y regreso</h3>
+                        <div class="dates-info">
+                            <p class="date-range" id="date-range">Desde el 2025-08-28 Hasta el 2025-09-03</p>
+                            <p class="duration" id="duration">7 días / 6 noches</p>
+                        </div>
+                    </div>
+
+                    <!-- Availability Card -->
+                    <div class="info-card availability-card">
+                        <div class="card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="card-title">Unidades disponibles</h3>
+                        <div class="availability-info">
+                            <p class="units-available" id="units-available">6</p>
+                            <p class="availability-note">Disponibles solo en el tiempo establecido</p>
+                        </div>
+                    </div>
+
+                    <!-- Destination Card -->
+                    <div class="info-card destination-card">
+                        <div class="card-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="card-title">Destino</h3>
+                        <div class="destination-info">
+                            <p id="destination-info">Cuba: La Habana, Cayo y Varadero</p>
+                        </div>
+                    </div>
+
+                    <!-- Action Button -->
+                    <div class="package-action">
+                        <button class="reserve-btn" id="reserve-btn">
+                            Reservar ahora
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package Description Section -->
+            <section class="package-description-section">
+                <div class="description-grid">
+                    <!-- Left Column - Package Description -->
+                    <div class="description-left">
+                        <div class="collapsible-section" data-section="description">
+                            <div class="section-header-collapsible">
+                                <h2 class="description-title">DESCRIPCIÓN DEL PAQUETE</h2>
+                                <button class="collapse-toggle" data-target="description">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div class="section-content" id="description-content">
+                                <div class="package-details">
+                                    <p class="destinations-info" id="destinations-info">Tres destinos Cuba: La Habana, Cayo y Varadero</p>
+                                    <h3 class="package-name" id="package-name">🌴 Cuba Mágica: ¡Un Viaje Inolvidable al Corazón del Caribe!</h3>
+                                    <p class="package-duration" id="package-duration"><strong>6 noches / 7 días</strong></p>
+                                    <p class="package-description" id="package-description">
+                                        Embárcate en una aventura inolvidable a Cuba, donde la historia, la cultura y la belleza natural se fusionan en un destino único. Descubre la Habana, una ciudad llena de vida y color, con sus coches clásicos y su arquitectura colonial. Relájate en Cayo Santa María, un paraíso de playas de ensueño, y disfruta de la diversión y el sol en Varadero. ¡Una experiencia que despertará tus sentidos! 🍹☀️🏖️
+                                    </p>
+                                </div>
+                                
+                                <div class="key-info">
+                                    <div class="info-item">
+                                        <span class="info-label">Fecha de viaje:</span>
+                                        <span class="info-value" id="travel-date">Del 28 de agosto al 03 de septiembre 2025</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Fecha de compra:</span>
+                                        <span class="info-value">Hasta agotar existencias</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Tarifa por persona:</span>
+                                        <span class="info-value">desde COP $3.999.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Includes and Conditions -->
+                    <div class="description-right">
+                        <div class="collapsible-section" data-section="includes">
+                            <div class="section-header-collapsible">
+                                <h2 class="description-title">INCLUYE</h2>
+                                <button class="collapse-toggle" data-target="includes">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div class="section-content" id="includes-content">
+                                <div class="includes-content">
+                                    <h3 class="includes-subtitle">Incluye:</h3>
+                                    <ul class="includes-list-detailed" id="includes-list-detailed">
+                                        <li>Tiquetes aéreos Medellín - Santa Clara / La Habana - Medellín, vía Panamá.</li>
+                                        <li>Salida: 05:07 A.M. - Regreso: 03:01 P.M.</li>
+                                        <li>Equipaje: artículo personal (morral) + maleta de cabina (10 kg).</li>
+                                        <li>Traslados en servicio regular compartido.</li>
+                                        <li>2 noches en hotel Meliá Cayo Santa María, alimentación todo incluido.</li>
+                                        <li>2 noches en hotel Meliá Varadero, alimentación todo incluido.</li>
+                                        <li>2 noches en hotel Meliá Cohiba, La Habana, desayuno diario.</li>
+                                        <li>City tour en La Habana, sin almuerzo.</li>
+                                        <li>Tarjeta de ingreso a la Isla de Cuba.</li>
+                                        <li>Asistencia médica.</li>
+                                        <li>Fee bancario.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="collapsible-section" data-section="conditions">
+                            <div class="section-header-collapsible">
+                                <h2 class="description-title">CONDICIONES</h2>
+                                <button class="collapse-toggle" data-target="conditions">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div class="section-content" id="conditions-content">
+                                <div class="conditions-content">
+                                    <h3 class="conditions-subtitle">Condiciones:</h3>
+                                    <ul class="conditions-list" id="conditions-list">
+                                        <li>Tarifas por persona desde acomodación doble.</li>
+                                        <li>Mayores de 75 años pagan suplemento de asistencia médica.</li>
+                                        <li>Tarifas no reembolsables, itinerario, tarifas y disponibilidad sujetos a cambios.</li>
+                                        <li>Estamos comprometidos con la ley 679-2001 (Prev. ESCNNA).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="collapsible-section" data-section="itinerary">
+                            <div class="section-header-collapsible">
+                                <h2 class="description-title">ITINERARIO</h2>
+                                <button class="collapse-toggle" data-target="itinerary">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div class="section-content" id="itinerary-content">
+                                <div class="itinerary-content">
+                                    <h3 class="itinerary-subtitle">Itinerario del Viaje:</h3>
+                                    <div id="itinerary-details">
+                                        <p>Itinerario no disponible</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="collapsible-section" data-section="not-includes">
+                            <div class="section-header-collapsible">
+                                <h2 class="description-title">NO INCLUYE</h2>
+                                <button class="collapse-toggle" data-target="not-includes">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div class="section-content" id="not-includes-content">
+                                <div class="not-includes-content">
+                                    <ul class="not-includes-list" id="not-includes-list">
+                                        <li>Gastos personales</li>
+                                        <li>Propinas</li>
+                                        <li>Bebidas alcohólicas (excepto en todo incluido)</li>
+                                        <li>Excursiones opcionales</li>
+                                        <li>Seguro de viaje</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Related Packages Section -->
+            <section class="related-packages">
+                <h2 class="section-title">MÁS RECOMENDADOS PARA TI</h2>
+                <p class="section-subtitle">
+                    Viaja por Colombia con paquetes todo incluido y los mejores precios que trae nuestra agencia para ti
+                </p>
+                
+                <div class="related-packages-grid">
+                    <!-- Related Package Cards will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Question Section -->
+            <section class="question-section">
+                <h3 class="question-title">¿Tienes alguna duda?</h3>
+                <p class="question-subtitle">Nuestro equipo está aquí para ayudarte</p>
+                <button class="contact-btn">
+                    <i class="fas fa-envelope"></i>
+                    Contactar
+                </button>
+            </section>
+        </section>
+    </main>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="auth-modal">
+        <div class="auth-content">
+            <span class="auth-close">&times;</span>
+            <div id="auth-forms"></div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/mock-api.js"></script>
+    <script src="js/package-detail.js"></script>
+</body>
+</html>
