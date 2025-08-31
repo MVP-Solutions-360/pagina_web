@@ -29,6 +29,7 @@ const PROJECT_CONFIG = {
         baseURL: 'http://localhost:8000/api/v1', // URL para desarrollo local (Laravel)
         timeout: 30000,
         retryAttempts: 3,
+        agencySlug: 'agencia-principal', // Agregar el agencySlug que falta
         endpoints: {
             agency: '/agency',
             quotations: '/quotation',

@@ -3,54 +3,54 @@
 
 /* ===== VARIABLES CSS ===== */
 :root {
-    /* Colores principales - Tema Caribe */
-    --primary-color: #0066CC;
-    --primary-dark: #004499;
-    --primary-light: #3399FF;
-    --secondary-color: #FF6B35;
-    --secondary-dark: #E55A2B;
-    --secondary-light: #FF8A5C;
-    --accent-color: #00D4AA;
-    --accent-dark: #00B894;
-    --accent-light: #33E0C2;
+    /* ===== PALETA "OCEANO NOCTURNO" - MODERNA Y TECNOLÓGICA ===== */
+    --primary-color: #0F172A;        /* Negro Profundo - Elegancia y Sofisticación */
+    --primary-dark: #020617;         /* Negro Absoluto - Tecnología Avanzada */
+    --primary-light: #1E293B;        /* Negro Suave - Profesionalismo */
+    --secondary-color: #0EA5E9;      /* Azul Oceánico - Calma y Confianza */
+    --secondary-dark: #0284C7;       /* Azul Profundo - Estabilidad */
+    --secondary-light: #38BDF8;      /* Azul Claro - Innovación */
+    --accent-color: #06B6D4;         /* Azul Eléctrico - Energía y Tecnología */
+    --accent-dark: #0891B2;          /* Azul Eléctrico Oscuro - Profundidad */
+    --accent-light: #22D3EE;         /* Azul Eléctrico Claro - Brillo */
     
-    /* Colores de estado */
-    --success-color: #28A745;
-    --warning-color: #FFC107;
-    --error-color: #DC3545;
-    --info-color: #17A2B8;
+    /* Colores de estado - Modernos */
+    --success-color: #10B981;        /* Verde Éxito - Confirmación */
+    --warning-color: #F59E0B;        /* Amarillo Advertencia - Atención */
+    --error-color: #EF4444;          /* Rojo Error - Alerta */
+    --info-color: #3B82F6;           /* Azul Información - Comunicación */
     
-    /* Colores de texto */
-    --text-color: #2C3E50;
-    --text-muted: #6C757D;
-    --text-light: #ADB5BD;
+    /* Colores de texto - Elegantes */
+    --text-color: #0F172A;           /* Texto Oscuro - Máxima Legibilidad */
+    --text-muted: #475569;           /* Texto Claro - Secundario */
+    --text-light: #64748B;           /* Texto Mudo - Terciario */
     
-    /* Colores de fondo */
-    --bg-primary: #FFFFFF;
-    --bg-secondary: #F8F9FA;
-    --bg-tertiary: #E9ECEF;
-    --bg-card: #FFFFFF;
+    /* Colores de fondo - Limpios */
+    --bg-primary: #FFFFFF;           /* Fondo Blanco - Pureza */
+    --bg-secondary: #F8FAFC;         /* Fondo Gris - Suavidad */
+    --bg-tertiary: #F1F5F9;          /* Fondo Gris - Delicadeza */
+    --bg-card: #FFFFFF;              /* Fondo Tarjeta - Limpieza */
     
-    /* Sombras y efectos */
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
-    --shadow-primary: 0 4px 15px rgba(0, 102, 204, 0.3);
-    --shadow-secondary: 0 4px 15px rgba(255, 107, 53, 0.3);
+    /* Sombras y efectos - Tecnológicos */
+    --shadow-sm: 0 1px 3px 0 rgba(15, 23, 42, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.1);
+    --shadow-primary: 0 4px 15px rgba(14, 165, 233, 0.25);
+    --shadow-secondary: 0 4px 15px rgba(6, 182, 212, 0.25);
     
-    /* Transiciones */
+    /* Transiciones - Fluidas */
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     
-    /* Bordes */
-    --border-radius: 12px;
-    --border-radius-sm: 8px;
-    --border-radius-lg: 20px;
-    --border-radius-xl: 30px;
+    /* Bordes - Modernos */
+    --border-radius: 16px;           /* Borde Principal - Elegante */
+    --border-radius-sm: 8px;         /* Borde Pequeño - Suave */
+    --border-radius-lg: 24px;        /* Borde Grande - Premium */
+    --border-radius-xl: 32px;        /* Borde Extra - Lujoso */
     
-    /* Espaciado */
+    /* Espaciado - Harmónico */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
@@ -59,25 +59,29 @@
     --spacing-xxl: 4rem;
 }
 
-/* ===== MODO OSCURO ===== */
+/* ===== MODO OSCURO - "OCEANO NOCTURNO" ===== */
 @media (prefers-color-scheme: dark) {
     :root {
-        /* Colores de fondo oscuros */
-        --bg-primary: #0F1419;
-        --bg-secondary: #1A1F2E;
-        --bg-tertiary: #2A2F3E;
-        --bg-card: #1E2332;
+        /* Colores de fondo oscuros - Elegantes */
+        --bg-primary: #0F172A;           /* Negro Profundo - Principal */
+        --bg-secondary: #1E293B;         /* Negro Suave - Secundario */
+        --bg-tertiary: #334155;          /* Gris Oscuro - Terciario */
+        --bg-card: #1E293B;              /* Negro Suave - Tarjetas */
         
-        /* Colores de texto oscuros */
-        --text-color: #E9ECEF;
-        --text-muted: #ADB5BD;
-        --text-light: #6C757D;
+        /* Colores de texto oscuros - Legibles */
+        --text-color: #F8FAFC;           /* Blanco Puro - Principal */
+        --text-muted: #CBD5E1;           /* Gris Claro - Secundario */
+        --text-light: #94A3B8;           /* Gris Medio - Terciario */
         
-        /* Sombras ajustadas para modo oscuro */
-        --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
-        --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
-        --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
-        --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.6);
+        /* Sombras ajustadas para modo oscuro - Profundas */
+        --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
+        
+        /* Sombras de acento - Azules brillantes */
+        --shadow-primary: 0 4px 15px rgba(14, 165, 233, 0.3);
+        --shadow-secondary: 0 4px 15px rgba(6, 182, 212, 0.3);
     }
 }
 
@@ -409,37 +413,45 @@ a:hover {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
     color: white;
     box-shadow: var(--shadow-primary);
+    border: 1px solid rgba(14, 165, 233, 0.3);
 }
 
 .btn-primary:hover {
+    background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
     transform: translateY(-3px);
     box-shadow: var(--shadow-xl);
+    border-color: rgba(14, 165, 233, 0.5);
 }
 
 .btn-secondary {
-    background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
     color: white;
     box-shadow: var(--shadow-secondary);
+    border: 1px solid rgba(6, 182, 212, 0.3);
 }
 
 .btn-secondary:hover {
+    background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
     transform: translateY(-3px);
     box-shadow: var(--shadow-xl);
+    border-color: rgba(6, 182, 212, 0.5);
 }
 
 .btn-outline {
     background: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    transition: var(--transition);
 }
 
 .btn-outline:hover {
-    background: var(--primary-color);
+    background: var(--secondary-color);
     color: white;
     transform: translateY(-3px);
+    box-shadow: var(--shadow-primary);
 }
 
 /* ===== SERVICIOS ===== */
@@ -472,7 +484,7 @@ a:hover {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
 }
 
 .service-card:hover {
@@ -483,7 +495,7 @@ a:hover {
 .service-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -492,6 +504,7 @@ a:hover {
     font-size: 2rem;
     color: white;
     transition: var(--transition);
+    box-shadow: var(--shadow-md);
 }
 
 .service-card:hover .service-icon {

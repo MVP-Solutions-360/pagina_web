@@ -212,6 +212,92 @@ class AgenciaAPI {
         }
     }
 
+    // ===== ENDPOINTS DE PAQUETES TURÍSTICOS =====
+    
+    /**
+     * Obtener lista de paquetes turísticos
+     * GET /api/v1/agency/agencia-principal/packages
+     */
+    async getPackages(filters = {}) {
+        try {
+            console.log('📦 Obteniendo paquetes con filtros:', filters);
+            
+            // Construir query string con filtros
+            const queryParams = new URLSearchParams();
+            
+            if (filters.destination) queryParams.append('destination', filters.destination);
+            if (filters.state) queryParams.append('state', filters.state);
+            if (filters.search) queryParams.append('search', filters.search);
+            if (filters.page) queryParams.append('page', filters.page);
+            if (filters.limit) queryParams.append('limit', filters.limit);
+            if (filters.minPrice) queryParams.append('min_price', filters.minPrice);
+            if (filters.maxPrice) queryParams.append('max_price', filters.maxPrice);
+            if (filters.departureDate) queryParams.append('departure_date', filters.departureDate);
+            if (filters.returnDate) queryParams.append('return_date', filters.returnDate);
+            
+            const queryString = queryParams.toString();
+            const endpoint = `/agency/${this.agencySlug}/packages${queryString ? `?${queryString}` : ''}`;
+            
+            const response = await this.request(endpoint);
+            console.log('✅ Paquetes obtenidos exitosamente:', response);
+            return response;
+        } catch (error) {
+            console.error('❌ Error al obtener paquetes:', error);
+            throw error;
+        }
+    }
+
+    /**
+     * Obtener paquete específico por ID
+     * GET /api/v1/agency/agencia-principal/packages/{id}
+     */
+    async getPackageById(packageId) {
+        try {
+            console.log('🔍 Obteniendo paquete con ID:', packageId);
+            
+            const response = await this.request(`/agency/${this.agencySlug}/packages/${packageId}`);
+            console.log('✅ Paquete obtenido exitosamente:', response);
+            return response;
+        } catch (error) {
+            console.error('❌ Error al obtener paquete:', error);
+            throw error;
+        }
+    }
+
+    /**
+     * Obtener destinos disponibles
+     * GET /api/v1/agency/agencia-principal/packages/destinations
+     */
+    async getPackageDestinations() {
+        try {
+            console.log('🌍 Obteniendo destinos de paquetes');
+            
+            const response = await this.request(`/agency/${this.agencySlug}/packages/destinations`);
+            console.log('✅ Destinos obtenidos exitosamente:', response);
+            return response;
+        } catch (error) {
+            console.error('❌ Error al obtener destinos:', error);
+            throw error;
+        }
+    }
+
+    /**
+     * Obtener paquetes destacados
+     * GET /api/v1/agency/agencia-principal/packages/featured
+     */
+    async getFeaturedPackages(limit = 6) {
+        try {
+            console.log('⭐ Obteniendo paquetes destacados, límite:', limit);
+            
+            const response = await this.request(`/agency/${this.agencySlug}/packages/featured?limit=${limit}`);
+            console.log('✅ Paquetes destacados obtenidos exitosamente:', response);
+            return response;
+        } catch (error) {
+            console.error('❌ Error al obtener paquetes destacados:', error);
+            throw error;
+        }
+    }
+
     // ===== ENDPOINTS DE CLIENTES =====
     
     /**
@@ -658,6 +744,28 @@ window.AgenciaAPI = {
     // Buscar cliente por email
     findClient: async function(email) {
         return await agenciaAPI.findClientByEmail(email);
+    },
+
+    // ===== FUNCIONES DE PAQUETES =====
+    
+    // Obtener lista de paquetes
+    getPackages: async function(filters = {}) {
+        return await agenciaAPI.getPackages(filters);
+    },
+
+    // Obtener paquete específico
+    getPackageById: async function(packageId) {
+        return await agenciaAPI.getPackageById(packageId);
+    },
+
+    // Obtener destinos de paquetes
+    getPackageDestinations: async function() {
+        return await agenciaAPI.getPackageDestinations();
+    },
+
+    // Obtener paquetes destacados
+    getFeaturedPackages: async function(limit = 6) {
+        return await agenciaAPI.getFeaturedPackages(limit);
     }
 };
 

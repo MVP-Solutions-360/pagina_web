@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test API Paquetes - Diagnóstico</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        .test-button:hover {
+            background: #0056b3;
+        }
+        .result {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .success { border-left: 4px solid #28a745; }
+        .error { border-left: 4px solid #dc3545; }
+        .info { border-left: 4px solid #17a2b8; }
+        .status {
+            padding: 5px 10px;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .status.success { background: #28a745; }
+        .status.error { background: #dc3545; }
+        .status.info { background: #17a2b8; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Diagnóstico de API de Paquetes</h1>
+    
+    <div class="test-section">
+        <h2>1. Verificar Configuración</h2>
+        <button class="test-button" onclick="checkConfig()">Verificar Config.js</button>
+        <div id="config-result" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>2. Verificar AgenciaAPI</h2>
+        <button class="test-button" onclick="checkAgenciaAPI()">Verificar AgenciaAPI</button>
+        <div id="api-result" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>3. Test de Conexión a Laravel</h2>
+        <button class="test-button" onclick="testLaravelConnection()">Probar Conexión Laravel</button>
+        <div id="laravel-result" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>4. Test de Endpoint de Paquetes</h2>
+        <button class="test-button" onclick="testPackagesEndpoint()">Probar /packages</button>
+        <div id="packages-result" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>5. Test de Endpoint de Destinos</h2>
+        <button class="test-button" onclick="testDestinationsEndpoint()">Probar /destinations</button>
+        <div id="destinations-result" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>6. Test Completo de Paquetes</h2>
+        <button class="test-button" onclick="testCompletePackages()">Test Completo</button>
+        <div id="complete-result" class="result"></div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="js/api.js"></script>
+    
+    <script>
+        function showResult(elementId, status, message, data = null) {
+            const element = document.getElementById(elementId);
+            const statusClass = status === 'success' ? 'success' : status === 'error' ? 'error' : 'info';
+            
+            let content = `<div class="status ${statusClass}">${status.toUpperCase()}</div>`;
+            content += `<div>${message}</div>`;
+            
+            if (data) {
+                content += `<div>Datos: ${JSON.stringify(data, null, 2)}</div>`;
+            }
+            
+            element.innerHTML = content;
+            element.className = `result ${statusClass}`;
+        }
+
+        function checkConfig() {
+            try {
+                if (window.PROJECT_CONFIG) {
+                    const config = window.PROJECT_CONFIG;
+                    showResult('config-result', 'success', 
+                        '✅ Config.js cargado correctamente', {
+                            baseURL: config.api?.baseURL,
+                            timeout: config.api?.timeout,
+                            agencySlug: config.agency?.slug
+                        });
+                } else {
+                    showResult('config-result', 'error', '❌ PROJECT_CONFIG no está disponible');
+                }
+            } catch (error) {
+                showResult('config-result', 'error', `❌ Error: ${error.message}`);
+            }
+        }
+
+        function checkAgenciaAPI() {
+            try {
+                if (window.AgenciaAPI) {
+                    showResult('api-result', 'success', 
+                        '✅ AgenciaAPI disponible', {
+                            methods: Object.keys(window.AgenciaAPI)
+                        });
+                } else {
+                    showResult('api-result', 'error', '❌ AgenciaAPI no está disponible');
+                }
+            } catch (error) {
+                showResult('api-result', 'error', `❌ Error: ${error.message}`);
+            }
+        }
+
+        async function testLaravelConnection() {
+            try {
+                showResult('laravel-result', 'info', '🔄 Probando conexión a Laravel...');
+                
+                const response = await fetch('http://127.0.0.1:8000/api/v1/agency/agencia-principal/packages');
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    showResult('laravel-result', 'success', 
+                        '✅ Conexión a Laravel exitosa', {
+                            status: response.status,
+                            statusText: response.statusText,
+                            dataKeys: Object.keys(data)
+                        });
+                } else {
+                    showResult('laravel-result', 'error', 
+                        `❌ Error HTTP: ${response.status} ${response.statusText}`);
+                }
+            } catch (error) {
+                showResult('laravel-result', 'error', 
+                    `❌ Error de conexión: ${error.message}`);
+            }
+        }
+
+        async function testPackagesEndpoint() {
+            try {
+                if (!window.AgenciaAPI) {
+                    showResult('packages-result', 'error', '❌ AgenciaAPI no disponible');
+                    return;
+                }
+
+                showResult('packages-result', 'info', '🔄 Probando endpoint de paquetes...');
+                
+                const response = await window.AgenciaAPI.getPackages();
+                
+                if (response && response.success) {
+                    showResult('packages-result', 'success', 
+                        '✅ Endpoint de paquetes funcionando', {
+                            packagesCount: response.data?.packages?.length || 0,
+                            total: response.data?.total || 'N/A',
+                            hasData: !!response.data
+                        });
+                } else {
+                    showResult('packages-result', 'error', 
+                        '❌ Endpoint de paquetes falló', response);
+                }
+            } catch (error) {
+                showResult('packages-result', 'error', 
+                    `❌ Error: ${error.message}`);
+            }
+        }
+
+        async function testDestinationsEndpoint() {
+            try {
+                if (!window.AgenciaAPI) {
+                    showResult('destinations-result', 'error', '❌ AgenciaAPI no disponible');
+                    return;
+                }
+
+                showResult('destinations-result', 'info', '🔄 Probando endpoint de destinos...');
+                
+                const response = await window.AgenciaAPI.getPackageDestinations();
+                
+                if (response && response.success) {
+                    showResult('destinations-result', 'success', 
+                        '✅ Endpoint de destinos funcionando', {
+                            destinationsCount: response.data?.length || 0,
+                            hasData: !!response.data
+                        });
+                } else {
+                    showResult('destinations-result', 'error', 
+                        '❌ Endpoint de destinos falló', response);
+                }
+            } catch (error) {
+                showResult('destinations-result', 'error', 
+                    `❌ Error: ${error.message}`);
+            }
+        }
+
+        async function testCompletePackages() {
+            try {
+                showResult('complete-result', 'info', '🔄 Ejecutando test completo...');
+                
+                let results = [];
+                
+                // Test 1: Verificar configuración
+                if (window.PROJECT_CONFIG) {
+                    results.push('✅ Config.js: OK');
+                } else {
+                    results.push('❌ Config.js: FALLO');
+                }
+                
+                // Test 2: Verificar AgenciaAPI
+                if (window.AgenciaAPI) {
+                    results.push('✅ AgenciaAPI: OK');
+                } else {
+                    results.push('❌ AgenciaAPI: FALLO');
+                }
+                
+                // Test 3: Probar conexión Laravel
+                try {
+                    const laravelResponse = await fetch('http://127.0.0.1:8000/api/v1/agency/agencia-principal/packages');
+                    if (laravelResponse.ok) {
+                        results.push('✅ Conexión Laravel: OK');
+                    } else {
+                        results.push(`❌ Conexión Laravel: HTTP ${laravelResponse.status}`);
+                    }
+                } catch (error) {
+                    results.push(`❌ Conexión Laravel: ${error.message}`);
+                }
+                
+                // Test 4: Probar endpoint de paquetes
+                if (window.AgenciaAPI) {
+                    try {
+                        const packagesResponse = await window.AgenciaAPI.getPackages();
+                        if (packagesResponse && packagesResponse.success) {
+                            results.push(`✅ Endpoint Paquetes: OK (${packagesResponse.data?.packages?.length || 0} paquetes)`);
+                        } else {
+                            results.push('❌ Endpoint Paquetes: FALLO');
+                        }
+                    } catch (error) {
+                        results.push(`❌ Endpoint Paquetes: ${error.message}`);
+                    }
+                }
+                
+                showResult('complete-result', 'success', 
+                    '📊 Test Completo Finalizado', {
+                        results: results,
+                        summary: `${results.filter(r => r.includes('✅')).length}/${results.length} tests pasaron`
+                    });
+                
+            } catch (error) {
+                showResult('complete-result', 'error', 
+                    `❌ Error en test completo: ${error.message}`);
+            }
+        }
+
+        // Auto-ejecutar verificación de configuración al cargar
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                checkConfig();
+                checkAgenciaAPI();
+            }, 500);
+        });
+    </script>
+</body>
+</html>

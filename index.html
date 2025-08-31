@@ -44,6 +44,9 @@
                             <a href="#destinos" class="nav-link">Destinos</a>
                         </li>
                         <li class="nav-item">
+                            <a href="packages.html" class="nav-link">Paquetes</a>
+                        </li>
+                        <li class="nav-item">
                             <a href="#sobre-nosotros" class="nav-link">Nosotros</a>
                         </li>
                         <li class="nav-item">
@@ -162,6 +165,81 @@
                     <h3 class="service-title">Seguros</h3>
                     <p class="service-description">Seguros de viaje para tu tranquilidad y protección durante tu aventura</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Paquetes Turísticos Section -->
+    <section class="packages" id="paquetes">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Paquetes Turísticos</h2>
+                <p class="section-subtitle">Descubre nuestras ofertas especiales y paquetes completos para el Caribe</p>
+            </div>
+            
+            <!-- Filtros de Paquetes -->
+            <div class="packages-filters">
+                <div class="filter-group">
+                    <label for="destination-filter">Destino:</label>
+                    <select id="destination-filter" class="filter-select">
+                        <option value="">Todos los destinos</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="price-filter">Precio:</label>
+                    <select id="price-filter" class="filter-select">
+                        <option value="">Todos los precios</option>
+                        <option value="0-1000000">Hasta $1,000,000 COP</option>
+                        <option value="1000000-2000000">$1,000,000 - $2,000,000 COP</option>
+                        <option value="2000000-3000000">$2,000,000 - $3,000,000 COP</option>
+                        <option value="3000000+">Más de $3,000,000 COP</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="search-packages">Buscar:</label>
+                    <input type="text" id="search-packages" class="filter-input" placeholder="Buscar paquetes...">
+                </div>
+                
+                <button id="apply-filters" class="btn btn-secondary">
+                    <i class="fas fa-filter"></i>
+                    Aplicar Filtros
+                </button>
+            </div>
+            
+            <!-- Loading para Paquetes -->
+            <div id="packages-loading" class="packages-loading" style="display: none;">
+                <div class="loading-spinner">
+                    <i class="fas fa-plane"></i>
+                </div>
+                <p>Cargando paquetes...</p>
+            </div>
+            
+            <!-- Grid de Paquetes -->
+            <div id="packages-grid" class="packages-grid">
+                <!-- Los paquetes se cargarán dinámicamente aquí -->
+            </div>
+            
+            <!-- Paginación -->
+            <div id="packages-pagination" class="packages-pagination" style="display: none;">
+                <button id="prev-page" class="btn btn-secondary">
+                    <i class="fas fa-chevron-left"></i>
+                    Anterior
+                </button>
+                <span id="page-info" class="page-info">Página 1 de 1</span>
+                <button id="next-page" class="btn btn-secondary">
+                    Siguiente
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <!-- Botón Ver Todos -->
+            <div class="packages-cta">
+                <a href="#cotizacion" class="btn btn-primary">
+                    <i class="fas fa-suitcase"></i>
+                    Solicitar Cotización Personalizada
+                </a>
             </div>
         </div>
     </section>
@@ -623,5 +701,6 @@
     <script src="js/forms.js"></script>
     <script src="js/api.js"></script>
     <script src="js/auth.js"></script>
+    <script src="js/packages.js"></script>
 </body>
 </html>

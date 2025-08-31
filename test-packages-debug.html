@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Debug - Paquetes</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; }
+        .output { background: #f5f5f5; padding: 15px; margin: 10px 0; font-family: monospace; white-space: pre-wrap; }
+        .success { color: #28a745; }
+        .error { color: #dc3545; }
+        .warning { color: #ffc107; }
+        .package-card { background: white; border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Test Debug - Paquetes</h1>
+    
+    <div class="test-section">
+        <h2>1. Verificar Archivos Cargados</h2>
+        <button onclick="checkFiles()">Verificar Archivos</button>
+        <div id="files-output" class="output"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>2. Verificar Configuración</h2>
+        <button onclick="checkConfig()">Verificar Config</button>
+        <div id="config-output" class="output"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>3. Verificar AgenciaAPI</h2>
+        <button onclick="checkAgenciaAPI()">Verificar AgenciaAPI</button>
+        <div id="api-output" class="output"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>4. Test API Directo</h2>
+        <button onclick="testDirectAPI()">Test API Directo</button>
+        <div id="direct-api-output" class="output"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>5. Test PackagesManager</h2>
+        <button onclick="testPackagesManager()">Test PackagesManager</button>
+        <div id="packages-manager-output" class="output"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>6. Grid de Paquetes</h2>
+        <div id="packages-grid">
+            <!-- Los paquetes se mostrarán aquí -->
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>7. Logs en Tiempo Real</h2>
+        <div id="realtime-logs" class="output"></div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/packages.js"></script>
+    
+    <script>
+        // Interceptar console.log para mostrar en la página
+        const originalLog = console.log;
+        const originalError = console.error;
+        const logsDiv = document.getElementById('realtime-logs');
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            const logEntry = document.createElement('div');
+            logEntry.className = 'success';
+            logEntry.textContent = `[LOG] ${args.join(' ')}`;
+            logsDiv.appendChild(logEntry);
+            logsDiv.scrollTop = logsDiv.scrollHeight;
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            const logEntry = document.createElement('div');
+            logEntry.className = 'error';
+            logEntry.textContent = `[ERROR] ${args.join(' ')}`;
+            logsDiv.appendChild(logEntry);
+            logsDiv.scrollTop = logsDiv.scrollHeight;
+        };
+        
+        function checkFiles() {
+            const output = document.getElementById('files-output');
+            output.innerHTML = 'Verificando archivos...\n';
+            
+            try {
+                if (window.PROJECT_CONFIG) {
+                    output.innerHTML += '✅ config.js cargado\n';
+                } else {
+                    output.innerHTML += '❌ config.js NO cargado\n';
+                }
+                
+                if (window.AgenciaAPI) {
+                    output.innerHTML += '✅ api.js cargado\n';
+                } else {
+                    output.innerHTML += '❌ api.js NO cargado\n';
+                }
+                
+                if (window.PackagesManager) {
+                    output.innerHTML += '✅ packages.js cargado\n';
+                } else {
+                    output.innerHTML += '❌ packages.js NO cargado\n';
+                }
+                
+                output.innerHTML += '\nEstado de carga:\n';
+                output.innerHTML += `PROJECT_CONFIG: ${typeof window.PROJECT_CONFIG}\n`;
+                output.innerHTML += `AgenciaAPI: ${typeof window.AgenciaAPI}\n`;
+                output.innerHTML += `PackagesManager: ${typeof window.PackagesManager}\n`;
+                
+            } catch (error) {
+                output.innerHTML += `❌ Error: ${error.message}\n`;
+            }
+        }
+        
+        function checkConfig() {
+            const output = document.getElementById('config-output');
+            output.innerHTML = 'Verificando configuración...\n';
+            
+            try {
+                if (window.PROJECT_CONFIG) {
+                    output.innerHTML += `✅ Config cargado\n`;
+                    output.innerHTML += `Base URL: ${window.PROJECT_CONFIG.api.baseURL}\n`;
+                    output.innerHTML += `Agency Slug: ${window.PROJECT_CONFIG.api.agencySlug}\n`;
+                    output.innerHTML += `Timeout: ${window.PROJECT_CONFIG.api.timeout}ms\n`;
+                } else {
+                    output.innerHTML += '❌ PROJECT_CONFIG no disponible\n';
+                }
+            } catch (error) {
+                output.innerHTML += `❌ Error: ${error.message}\n`;
+            }
+        }
+        
+        function checkAgenciaAPI() {
+            const output = document.getElementById('api-output');
+            output.innerHTML = 'Verificando AgenciaAPI...\n';
+            
+            try {
+                if (window.AgenciaAPI) {
+                    output.innerHTML += '✅ AgenciaAPI disponible\n';
+                    output.innerHTML += `Métodos: ${Object.getOwnPropertyNames(window.AgenciaAPI).join(', ')}\n`;
+                    
+                    // Verificar métodos específicos
+                    if (window.AgenciaAPI.getPackages) {
+                        output.innerHTML += '✅ getPackages disponible\n';
+                    } else {
+                        output.innerHTML += '❌ getPackages NO disponible\n';
+                    }
+                    
+                    if (window.AgenciaAPI.getPackageDestinations) {
+                        output.innerHTML += '✅ getPackageDestinations disponible\n';
+                    } else {
+                        output.innerHTML += '❌ getPackageDestinations NO disponible\n';
+                    }
+                    
+                } else {
+                    output.innerHTML += '❌ AgenciaAPI no disponible\n';
+                }
+            } catch (error) {
+                output.innerHTML += `❌ Error: ${error.message}\n`;
+            }
+        }
+        
+        async function testDirectAPI() {
+            const output = document.getElementById('direct-api-output');
+            output.innerHTML = 'Probando API directamente...\n';
+            
+            try {
+                const baseURL = window.PROJECT_CONFIG?.api?.baseURL || 'http://localhost:8000/api/v1';
+                const agencySlug = window.PROJECT_CONFIG?.api?.agencySlug || 'agencia-principal';
+                
+                const url = `${baseURL}/agency/${agencySlug}/packages`;
+                output.innerHTML += `🔗 URL: ${url}\n`;
+                
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                output.innerHTML += `📡 Status: ${response.status} ${response.statusText}\n`;
+                output.innerHTML += `📊 Datos: ${JSON.stringify(data, null, 2)}\n`;
+                
+                if (data.success && data.data && data.data.data) {
+                    const packages = data.data.data;
+                    output.innerHTML += `✅ Paquetes encontrados: ${packages.length}\n`;
+                    
+                    packages.forEach((pkg, index) => {
+                        output.innerHTML += `\n📦 Paquete ${index + 1}:\n`;
+                        output.innerHTML += `  ID: ${pkg.id}\n`;
+                        output.innerHTML += `  Título: ${pkg.title}\n`;
+                        output.innerHTML += `  Destino: ${pkg.destination}\n`;
+                    });
+                } else {
+                    output.innerHTML += '❌ No se encontraron paquetes en la respuesta\n';
+                }
+                
+            } catch (error) {
+                output.innerHTML += `❌ Error: ${error.message}\n`;
+            }
+        }
+        
+        function testPackagesManager() {
+            const output = document.getElementById('packages-manager-output');
+            output.innerHTML = 'Verificando PackagesManager...\n';
+            
+            try {
+                if (window.PackagesManager) {
+                    output.innerHTML += '✅ PackagesManager disponible\n';
+                    output.innerHTML += `Tipo: ${typeof window.PackagesManager}\n`;
+                    output.innerHTML += `Propiedades: ${Object.getOwnPropertyNames(window.PackagesManager).join(', ')}\n`;
+                    
+                    if (window.PackagesManager.instance) {
+                        output.innerHTML += '✅ Instancia disponible\n';
+                        output.innerHTML += `Métodos: ${Object.getOwnPropertyNames(window.PackagesManager.instance).join(', ')}\n`;
+                        
+                        // Intentar inicializar
+                        try {
+                            window.PackagesManager.instance.init();
+                            output.innerHTML += '✅ Inicialización exitosa\n';
+                        } catch (error) {
+                            output.innerHTML += `❌ Error en inicialización: ${error.message}\n`;
+                        }
+                        
+                    } else {
+                        output.innerHTML += '❌ Instancia NO disponible\n';
+                    }
+                    
+                } else {
+                    output.innerHTML += '❌ PackagesManager no disponible\n';
+                }
+            } catch (error) {
+                output.innerHTML += `❌ Error: ${error.message}\n`;
+            }
+        }
+        
+        // Auto-test al cargar
+        window.addEventListener('load', function() {
+            console.log('🔄 Página de test cargada');
+            setTimeout(() => {
+                checkFiles();
+                checkConfig();
+                checkAgenciaAPI();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

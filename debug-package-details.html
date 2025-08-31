@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug - Detalles del Paquete</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .debug-section {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .debug-title {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .debug-content {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .status-success { color: #28a745; }
+        .status-error { color: #dc3545; }
+        .status-warning { color: #ffc107; }
+        .btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .btn:hover { background: #5a6fd8; }
+        .package-id-input {
+            padding: 10px;
+            border: 2px solid #667eea;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Debug - Detalles del Paquete</h1>
+    
+    <!-- Input para ID del Paquete -->
+    <div class="debug-section">
+        <h2 class="debug-title">📝 ID del Paquete</h2>
+        <input type="text" id="package-id-input" class="package-id-input" placeholder="Ingresa el ID del paquete (ej: 1)" value="1">
+        <button class="btn" onclick="testPackageById()">🔍 Probar getPackageById</button>
+        <button class="btn" onclick="testAllPackages()">📦 Probar getPackages</button>
+        <button class="btn" onclick="clearResults()">🗑️ Limpiar</button>
+    </div>
+    
+    <!-- Estado de la API -->
+    <div class="debug-section">
+        <h2 class="debug-title">🔌 Estado de la API</h2>
+        <div id="api-status" class="debug-content">Verificando...</div>
+    </div>
+    
+    <!-- Test de getPackageById -->
+    <div class="debug-section">
+        <h2 class="debug-title">🎯 Test getPackageById</h2>
+        <div id="package-by-id-result" class="debug-content">Haz clic en "Probar getPackageById"</div>
+    </div>
+    
+    <!-- Test de getPackages -->
+    <div class="debug-section">
+        <h2 class="debug-title">📦 Test getPackages</h2>
+        <div id="packages-result" class="debug-content">Haz clic en "Probar getPackages"</div>
+    </div>
+    
+    <!-- Análisis de Datos -->
+    <div class="debug-section">
+        <h2 class="debug-title">📊 Análisis de Datos</h2>
+        <div id="data-analysis" class="debug-content">Los resultados aparecerán aquí...</div>
+    </div>
+    
+    <!-- Logs de Consola -->
+    <div class="debug-section">
+        <h2 class="debug-title">📝 Logs de Consola</h2>
+        <div id="console-logs" class="debug-content">Los logs aparecerán aquí...</div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="js/api.js"></script>
+    
+    <script>
+        // Capturar logs de consola
+        const originalLog = console.log;
+        const originalError = console.error;
+        const logs = [];
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            logs.push(`✅ LOG: ${args.join(' ')}`);
+            updateConsoleLogs();
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            logs.push(`❌ ERROR: ${args.join(' ')}`);
+            updateConsoleLogs();
+        };
+        
+        function updateConsoleLogs() {
+            document.getElementById('console-logs').textContent = logs.slice(-20).join('\n');
+        }
+        
+        // Verificar estado de la API
+        function checkAPIStatus() {
+            const statusDiv = document.getElementById('api-status');
+            
+            if (!window.AgenciaAPI) {
+                statusDiv.innerHTML = '❌ AgenciaAPI no disponible';
+                return;
+            }
+            
+            const methods = Object.keys(window.AgenciaAPI);
+            statusDiv.innerHTML = `✅ AgenciaAPI disponible\nMétodos: ${methods.join(', ')}`;
+        }
+        
+        // Test de getPackageById
+        async function testPackageById() {
+            const packageId = document.getElementById('package-id-input').value;
+            const resultDiv = document.getElementById('package-by-id-result');
+            
+            if (!packageId) {
+                resultDiv.innerHTML = '❌ Por favor ingresa un ID de paquete';
+                return;
+            }
+            
+            resultDiv.innerHTML = '🔄 Cargando...';
+            
+            try {
+                if (!window.AgenciaAPI || !window.AgenciaAPI.getPackageById) {
+                    throw new Error('AgenciaAPI.getPackageById no disponible');
+                }
+                
+                console.log(`🔍 Probando getPackageById(${packageId})`);
+                const response = await window.AgenciaAPI.getPackageById(packageId);
+                
+                resultDiv.innerHTML = `✅ Respuesta exitosa:\n\n${JSON.stringify(response, null, 2)}`;
+                
+                // Analizar datos
+                analyzePackageData(response);
+                
+            } catch (error) {
+                resultDiv.innerHTML = `❌ Error:\n${error.message}\n\nStack:\n${error.stack}`;
+                console.error('Error en testPackageById:', error);
+            }
+        }
+        
+        // Test de getPackages
+        async function testAllPackages() {
+            const resultDiv = document.getElementById('packages-result');
+            resultDiv.innerHTML = '🔄 Cargando...';
+            
+            try {
+                if (!window.AgenciaAPI || !window.AgenciaAPI.getPackages) {
+                    throw new Error('AgenciaAPI.getPackages no disponible');
+                }
+                
+                console.log('🔍 Probando getPackages()');
+                const response = await window.AgenciaAPI.getPackages();
+                
+                resultDiv.innerHTML = `✅ Respuesta exitosa:\n\n${JSON.stringify(response, null, 2)}`;
+                
+                // Analizar datos
+                analyzePackagesData(response);
+                
+            } catch (error) {
+                resultDiv.innerHTML = `❌ Error:\n${error.message}\n\nStack:\n${error.stack}`;
+                console.error('Error en testAllPackages:', error);
+            }
+        }
+        
+        // Analizar datos del paquete específico
+        function analyzePackageData(response) {
+            const analysisDiv = document.getElementById('data-analysis');
+            
+            if (!response || !response.success) {
+                analysisDiv.innerHTML = '❌ No hay datos para analizar';
+                return;
+            }
+            
+            const packageData = response.data;
+            let analysis = '📊 ANÁLISIS DEL PAQUETE:\n\n';
+            
+            // Información básica
+            analysis += `ID: ${packageData.id || 'N/A'}\n`;
+            analysis += `Título: ${packageData.title || 'N/A'}\n`;
+            analysis += `Destino: ${packageData.destination || 'N/A'}\n`;
+            analysis += `Origen: ${packageData.origin || 'N/A'}\n`;
+            analysis += `Descripción: ${packageData.description ? 'SÍ' : 'NO'}\n`;
+            analysis += `Precio: ${packageData.price ? 'SÍ' : 'NO'}\n`;
+            
+            // Campos adicionales
+            analysis += `\n📋 CAMPOS ADICIONALES:\n`;
+            analysis += `full_description: ${packageData.full_description ? 'SÍ' : 'NO'}\n`;
+            analysis += `includes: ${packageData.includes ? 'SÍ' : 'NO'}\n`;
+            analysis += `excludes: ${packageData.excludes ? 'SÍ' : 'NO'}\n`;
+            analysis += `images: ${packageData.images ? 'SÍ (' + packageData.images.length + ')' : 'NO'}\n`;
+            analysis += `image_urls: ${packageData.image_urls ? 'SÍ (' + packageData.image_urls.length + ')' : 'NO'}\n`;
+            
+            // Estructura completa
+            analysis += `\n🏗️ ESTRUCTURA COMPLETA:\n`;
+            analysis += `Campos disponibles: ${Object.keys(packageData).join(', ')}\n`;
+            
+            analysisDiv.innerHTML = analysis;
+        }
+        
+        // Analizar datos de todos los paquetes
+        function analyzePackagesData(response) {
+            const analysisDiv = document.getElementById('data-analysis');
+            
+            if (!response || !response.success) {
+                analysisDiv.innerHTML = '❌ No hay datos para analizar';
+                return;
+            }
+            
+            const packages = response.data.data || response.data || [];
+            let analysis = '📊 ANÁLISIS DE PAQUETES:\n\n';
+            
+            analysis += `Total de paquetes: ${packages.length}\n\n`;
+            
+            packages.forEach((pkg, index) => {
+                analysis += `📦 PAQUETE ${index + 1}:\n`;
+                analysis += `  ID: ${pkg.id}\n`;
+                analysis += `  Título: ${pkg.title || 'N/A'}\n`;
+                analysis += `  Destino: ${pkg.destination || 'N/A'}\n`;
+                analysis += `  Origen: ${pkg.origin || 'N/A'}\n`;
+                analysis += `  Descripción: ${pkg.description ? 'SÍ' : 'NO'}\n`;
+                analysis += `  Precio: ${pkg.price ? 'SÍ' : 'NO'}\n`;
+                analysis += `  Campos: ${Object.keys(pkg).join(', ')}\n\n`;
+            });
+            
+            analysisDiv.innerHTML = analysis;
+        }
+        
+        // Limpiar resultados
+        function clearResults() {
+            document.getElementById('package-by-id-result').innerHTML = 'Haz clic en "Probar getPackageById"';
+            document.getElementById('packages-result').innerHTML = 'Haz clic en "Probar getPackages"';
+            document.getElementById('data-analysis').innerHTML = 'Los resultados aparecerán aquí...';
+            document.getElementById('console-logs').innerHTML = 'Los logs aparecerán aquí...';
+            logs.length = 0;
+        }
+        
+        // Inicializar página
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🔄 Página de debug cargada');
+            
+            // Verificar estado inicial
+            checkAPIStatus();
+            
+            // Verificar cada 2 segundos
+            setInterval(checkAPIStatus, 2000);
+            
+            // Esperar a que AgenciaAPI esté disponible
+            const checkAgenciaAPI = setInterval(() => {
+                if (window.AgenciaAPI) {
+                    clearInterval(checkAgenciaAPI);
+                    console.log('✅ AgenciaAPI disponible');
+                    checkAPIStatus();
+                }
+            }, 100);
+            
+            // Timeout después de 10 segundos
+            setTimeout(() => {
+                clearInterval(checkAgenciaAPI);
+                if (!window.AgenciaAPI) {
+                    console.error('❌ AgenciaAPI no disponible después de 10 segundos');
+                }
+            }, 10000);
+        });
+    </script>
+</body>
+</html>
