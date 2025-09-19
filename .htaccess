@@ -1,0 +1,113 @@
+# ===== CONFIGURACIÓN PARA SERVIDOR WEB =====
+# Archivo .htaccess para optimización y seguridad
+
+# ===== HABILITAR COMPRESIÓN GZIP =====
+<IfModule mod_deflate.c>
+    # Comprimir archivos de texto
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+</IfModule>
+
+# ===== CONFIGURAR CACHE DE ARCHIVOS ESTÁTICOS =====
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Imágenes
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    
+    # CSS y JavaScript
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
+    
+    # Fuentes
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    
+    # HTML
+    ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+# ===== CONFIGURAR HEADERS DE CACHE =====
+<IfModule mod_headers.c>
+    # Cache para archivos estáticos
+    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|svg|woff|woff2)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+    
+    # Cache para HTML
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "public, max-age=3600"
+    </FilesMatch>
+    
+    # Headers de seguridad
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ===== CONFIGURAR PÁGINA DE ERROR PERSONALIZADA =====
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
+
+# ===== BLOQUEAR ACCESO A ARCHIVOS SENSIBLES =====
+<Files "config.js">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "config.production.js">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files ".htaccess">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# ===== HABILITAR REWRITE ENGINE =====
+RewriteEngine On
+
+# ===== REDIRIGIR HTTP A HTTPS (OPCIONAL) =====
+# Descomenta las siguientes líneas si quieres forzar HTTPS
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ===== CONFIGURAR PÁGINA PRINCIPAL =====
+DirectoryIndex index.html
+
+# ===== BLOQUEAR ACCESO A DIRECTORIOS =====
+Options -Indexes
+
+# ===== CONFIGURAR TIPOS MIME =====
+AddType application/javascript .js
+AddType text/css .css
+AddType image/svg+xml .svg
+
+# ===== CONFIGURAR CHARSET =====
+AddDefaultCharset UTF-8
+
+# ===== CONFIGURAR CORS PARA API (SI ES NECESARIO) =====
+# Descomenta si necesitas configurar CORS
+# <IfModule mod_headers.c>
+#     Header always set Access-Control-Allow-Origin "*"
+#     Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+#     Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+# </IfModule>
