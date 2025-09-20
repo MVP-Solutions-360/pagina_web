@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paquetes Destacados - Red de Agencias 360</title>
+    <meta name="description" content="Descubre los mejores paquetes turísticos de las agencias verificadas en Red de Agencias 360. Encuentra tu próxima aventura.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/images.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/packages.css">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="nav-brand">
+                    <i class="fas fa-globe"></i>
+                    <span>Red de Agencias 360</span>
+                </a>
+                
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        Inicio
+                    </a>
+                    <a href="paquetes-destacados.html" class="nav-link active">
+                        <i class="fas fa-suitcase"></i>
+                        Paquetes
+                    </a>
+                    <a href="muro-agencias.html" class="nav-link">
+                        <i class="fas fa-building"></i>
+                        Agencias
+                    </a>
+                    <a href="estadisticas.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        Estadísticas
+                    </a>
+                    <a href="blog.html" class="nav-link">
+                        <i class="fas fa-newspaper"></i>
+                        Blog
+                    </a>
+                    <a href="contacto.html" class="nav-link">
+                        <i class="fas fa-envelope"></i>
+                        Contacto
+                    </a>
+                </div>
+                
+                <div class="nav-actions">
+                    <a href="contacto.html" class="btn btn-primary">
+                        <i class="fas fa-handshake"></i>
+                        Únete
+                    </a>
+                </div>
+                
+                <div class="header-auth">
+                    <div class="user-info" id="user-info" style="display: none;">
+                        <img src="" alt="" class="user-avatar" id="user-avatar">
+                        <span class="user-name" id="user-name"></span>
+                    </div>
+                    <a href="https://mvpsolutions365.com/login" target="_blank" class="auth-button">
+                        <i class="fas fa-building"></i>
+                        Ingreso Agencias
+                    </a>
+                    <div id="user-menu" class="user-menu"></div>
+                </div>
+                
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content-full">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Paquetes Destacados</h1>
+                <p>Descubre los mejores paquetes turísticos de nuestras agencias verificadas</p>
+            </div>
+        </section>
+
+        <!-- Filters Section -->
+        <section class="filters-section">
+            <div class="container">
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label for="destination-filter">Destino</label>
+                        <select id="destination-filter" class="filter-select">
+                            <option value="">Todos los destinos</option>
+                            <option value="cartagena">Cartagena</option>
+                            <option value="san-andres">San Andrés</option>
+                            <option value="tayrona">Tayrona</option>
+                            <option value="cocora">Valle del Cocora</option>
+                            <option value="amazonas">Amazonas</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="price-filter">Precio</label>
+                        <select id="price-filter" class="filter-select">
+                            <option value="">Cualquier precio</option>
+                            <option value="0-500000">Hasta $500.000</option>
+                            <option value="500000-1000000">$500.000 - $1.000.000</option>
+                            <option value="1000000-2000000">$1.000.000 - $2.000.000</option>
+                            <option value="2000000+">Más de $2.000.000</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="duration-filter">Duración</label>
+                        <select id="duration-filter" class="filter-select">
+                            <option value="">Cualquier duración</option>
+                            <option value="1-2">1-2 días</option>
+                            <option value="3-4">3-4 días</option>
+                            <option value="5-7">5-7 días</option>
+                            <option value="8+">8+ días</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="search-input">Buscar</label>
+                        <input type="text" id="search-input" placeholder="Buscar paquetes..." class="search-input">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Packages Grid -->
+        <section class="packages-section">
+            <div class="container">
+                <div class="packages-grid" id="packages-grid">
+                    <!-- Los paquetes se cargarán dinámicamente -->
+                </div>
+                
+                <div class="load-more-container">
+                    <button class="btn btn-secondary" id="load-more-btn">
+                        <i class="fas fa-plus"></i>
+                        Cargar Más Paquetes
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Agencies -->
+        <section class="featured-agencies">
+            <div class="container">
+                <h2>Agencias Destacadas</h2>
+                <div class="agencies-carousel" id="agencies-carousel">
+                    <!-- Las agencias se cargarán dinámicamente -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Red de Agencias 360</h3>
+                    <p>Conectando agencias de viajes con viajeros de todo Colombia</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="paquetes-destacados.html">Paquetes</a></li>
+                        <li><a href="muro-agencias.html">Agencias</a></li>
+                        <li><a href="estadisticas.html">Estadísticas</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="#">API para Agencias</a></li>
+                        <li><a href="#">Documentación</a></li>
+                        <li><a href="#">Soporte</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-envelope"></i> info@redagencias360.com</p>
+                    <p><i class="fas fa-phone"></i> +57 (1) 234-5678</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Red de Agencias 360. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Package Modal -->
+    <div id="package-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Detalles del Paquete</h3>
+                <button class="btn-close-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Contenido dinámico -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/social-data.js"></script>
+    <script src="js/paquetes-destacados.js"></script>
+</body>
+</html>

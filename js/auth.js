@@ -160,7 +160,7 @@ class AuthManager {
             this.clearAuth();
             
             // Redireccionar a la página principal
-            window.location.href = './index.html';
+            window.location.href = 'index.html';
         }
     }
 
@@ -205,11 +205,11 @@ class AuthManager {
     // ===== NAVEGACIÓN =====
     
     redirectToDashboard() {
-        window.location.href = './dashboard.html';
+        window.location.href = 'dashboard.html';
     }
 
     redirectToLogin() {
-        window.location.href = './login.html';
+        window.location.href = 'login.html';
     }
 
     // ===== UI DEL HEADER =====
@@ -261,9 +261,9 @@ class AuthManager {
                 <div class="user-email">${this.currentUser.email}</div>
             </div>
             <ul class="user-actions">
-                <li><a href="./dashboard.html"><i class="fas fa-tachometer-alt"></i> Mi Dashboard</a></li>
-                <li><a href="./dashboard.html#quotations"><i class="fas fa-file-invoice"></i> Mis Cotizaciones</a></li>
-                <li><a href="./dashboard.html#profile"><i class="fas fa-user-cog"></i> Mi Perfil</a></li>
+                <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Mi Dashboard</a></li>
+                <li><a href="dashboard.html#quotations"><i class="fas fa-file-invoice"></i> Mis Cotizaciones</a></li>
+                <li><a href="dashboard.html#profile"><i class="fas fa-user-cog"></i> Mi Perfil</a></li>
                 <li class="divider"></li>
                 <li><a href="#" onclick="authManager.logout()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
             </ul>

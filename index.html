@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agencia de Viajes - Tu Experiencia Caribeña</title>
-    <meta name="description" content="Descubre el Caribe con Agencia de Viajes. Vuelos, hoteles, tours y paquetes turísticos a los mejores destinos del Caribe. ¡Tu aventura comienza aquí!">
+    <title>Red de Agencias 360 - La Primera Red Social de Agencias de Viajes</title>
+    <meta name="description" content="Conecta con las mejores agencias de viajes de Colombia. Descubre paquetes únicos, interactúa con otras agencias y encuentra tu próxima aventura en Red de Agencias 360.">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
     
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -29,49 +29,53 @@
         <nav class="navbar">
             <div class="nav-container">
                 <a href="index.html" class="nav-brand">
-                    <i class="fas fa-plane"></i>
-                    <span>Agencia de Viajes</span>
+                    <i class="fas fa-globe"></i>
+                    <span>Red de Agencias 360</span>
                 </a>
                 
                 <div class="nav-menu">
-                    <a href="#inicio" class="nav-link active">
+                    <a href="index.html" class="nav-link active">
                         <i class="fas fa-home"></i>
                         Inicio
                     </a>
-                    <a href="#servicios" class="nav-link">
-                        <i class="fas fa-cogs"></i>
-                        Servicios
-                    </a>
-                    <a href="#destinos" class="nav-link">
-                        <i class="fas fa-map-marked-alt"></i>
-                        Destinos
-                    </a>
-                    <a href="packages.html" class="nav-link">
+                    <a href="paquetes-destacados.html" class="nav-link">
                         <i class="fas fa-suitcase"></i>
                         Paquetes
                     </a>
-                    <a href="#sobre-nosotros" class="nav-link">
-                        <i class="fas fa-users"></i>
-                        Nosotros
+                    <a href="muro-agencias.html" class="nav-link">
+                        <i class="fas fa-building"></i>
+                        Agencias
                     </a>
-                    <a href="#contacto" class="nav-link">
+                    <a href="packages.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        Estadísticas
+                    </a>
+                    <a href="packages.html" class="nav-link">
+                        <i class="fas fa-newspaper"></i>
+                        Blog
+                    </a>
+                    <a href="packages.html" class="nav-link">
                         <i class="fas fa-envelope"></i>
                         Contacto
                     </a>
                 </div>
                 
                 <div class="nav-actions">
-                    <a href="#cotizacion" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i>
-                        Cotizar
+                    <a href="packages.html" class="btn btn-primary">
+                        <i class="fas fa-handshake"></i>
+                        Únete
                     </a>
                 </div>
                 
                 <div class="header-auth">
-                    <button id="auth-button" class="auth-button">
-                        <i class="fas fa-sign-in-alt"></i>
-                        Login
-                    </button>
+                    <div class="user-info" id="user-info" style="display: none;">
+                        <img src="" alt="" class="user-avatar" id="user-avatar">
+                        <span class="user-name" id="user-name"></span>
+                    </div>
+                    <a href="https://mvpsolutions365.com/login" target="_blank" class="auth-button">
+                        <i class="fas fa-building"></i>
+                        Ingreso Agencias
+                    </a>
                     <div id="user-menu" class="user-menu"></div>
                 </div>
                 
@@ -91,409 +95,151 @@
             <div class="hero-container">
                 <div class="hero-content">
                     <h1 class="hero-title">
-                        Descubre la <span class="highlight">Magia del Caribe</span>
+                        Bienvenido a <span class="highlight">Red de Agencias 360</span>
                     </h1>
                     <p class="hero-subtitle">
-                        Vive experiencias inolvidables con nuestros paquetes turísticos, vuelos y hoteles en los destinos más paradisíacos del Caribe
+                        La primera red social de agencias de viajes en Colombia. Conecta, descubre y comparte experiencias únicas con las mejores agencias del país.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#cotizacion" class="btn btn-primary">
-                            <i class="fas fa-plane"></i>
-                            Solicitar Cotización
+                        <a href="paquetes.html" class="btn btn-primary">
+                            <i class="fas fa-suitcase"></i>
+                            Explorar Paquetes
                         </a>
-                        <a href="#destinos" class="btn btn-secondary">
-                            <i class="fas fa-map-marked-alt"></i>
-                            Ver Destinos
+                        <a href="agencias.html" class="btn btn-secondary">
+                            <i class="fas fa-building"></i>
+                            Ver Agencias
                         </a>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop" alt="Viajero en el Caribe" class="hero-main-image">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop" alt="Red de Agencias 360" class="hero-main-image">
                 </div>
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section class="services" id="servicios">
+        <!-- Features Section -->
+        <section class="features" id="features">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Nuestros Servicios</h2>
-                    <p class="section-subtitle">Todo lo que necesitas para tu viaje perfecto al Caribe</p>
+                    <h2>¿Por qué elegir Red de Agencias 360?</h2>
+                    <p>Conectamos agencias de viajes con viajeros de todo Colombia</p>
                 </div>
-                
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-plane"></i>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
                         </div>
-                        <h3 class="service-title">Vuelos</h3>
-                        <p class="service-description">Vuelos directos y con escalas a los mejores destinos del Caribe con las mejores aerolíneas</p>
+                        <h3>Red Social</h3>
+                        <p>Interactúa con otras agencias, comparte experiencias y construye una red profesional sólida.</p>
                     </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-hotel"></i>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
                         </div>
-                        <h3 class="service-title">Hoteles</h3>
-                        <p class="service-description">Alojamiento en hoteles de lujo, resorts todo incluido y opciones económicas</p>
+                        <h3>Paquetes Verificados</h3>
+                        <p>Todos nuestros paquetes son de agencias verificadas con excelente reputación y calidad garantizada.</p>
                     </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-map-marked-alt"></i>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
                         </div>
-                        <h3 class="service-title">Tours</h3>
-                        <p class="service-description">Excursiones guiadas para descubrir la cultura, historia y belleza natural del Caribe</p>
+                        <h3>Estadísticas en Tiempo Real</h3>
+                        <p>Mantente al día con las tendencias del mercado y los destinos más populares.</p>
                     </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-car"></i>
-                        </div>
-                        <h3 class="service-title">Traslados</h3>
-                        <p class="service-description">Transporte privado desde y hacia aeropuertos, hoteles y destinos turísticos</p>
-                    </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-suitcase"></i>
-                        </div>
-                        <h3 class="service-title">Paquetes</h3>
-                        <p class="service-description">Paquetes turísticos completos con vuelo, hotel, traslados y actividades</p>
-                    </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">
+                    <div class="feature-card">
+                        <div class="feature-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
-                        <h3 class="service-title">Seguros</h3>
-                        <p class="service-description">Seguros de viaje para tu tranquilidad y protección durante tu aventura</p>
+                        <h3>Seguridad y Confianza</h3>
+                        <p>Sistema de calificaciones y comentarios para garantizar la mejor experiencia de viaje.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Destinations Section -->
-        <section class="destinations" id="destinos">
+        <!-- Quick Stats -->
+        <section class="quick-stats">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Destinos Caribeños</h2>
-                    <p class="section-subtitle">Explora los paraísos más hermosos del Caribe</p>
-                </div>
-                
-                <div class="destinations-grid">
-                    <div class="destination-card">
-                        <div class="destination-image"></div>
-                        <div class="destination-content">
-                            <h3 class="destination-title">Cancún, México</h3>
-                            <p class="destination-description">Playas de arena blanca, aguas turquesas y la fascinante cultura maya</p>
-                            <div class="destination-features">
-                                <span class="destination-feature"><i class="fas fa-sun"></i> Clima tropical</span>
-                                <span class="destination-feature"><i class="fas fa-umbrella-beach"></i> Playas paradisíacas</span>
-                            </div>
-                            <div class="destination-price">Desde $2,500,000 COP</div>
-                            <div class="destination-actions">
-                                <a href="#cotizacion" class="btn btn-primary">Cotizar</a>
-                                <a href="#destinos" class="btn btn-secondary">Ver más</a>
-                            </div>
-                        </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Agencias Verificadas</div>
                     </div>
-                    
-                    <div class="destination-card">
-                        <div class="destination-image"></div>
-                        <div class="destination-content">
-                            <h3 class="destination-title">Punta Cana, República Dominicana</h3>
-                            <p class="destination-description">Resorts de lujo, golf de clase mundial y aguas cristalinas del Atlántico</p>
-                            <div class="destination-features">
-                                <span class="destination-feature"><i class="fas fa-golf-ball"></i> Campos de golf</span>
-                                <span class="destination-feature"><i class="fas fa-cocktail"></i> Todo incluido</span>
-                            </div>
-                            <div class="destination-price">Desde $2,800,000 COP</div>
-                            <div class="destination-actions">
-                                <a href="#cotizacion" class="btn btn-primary">Cotizar</a>
-                                <a href="#destinos" class="btn btn-secondary">Ver más</a>
-                            </div>
-                        </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Paquetes Disponibles</div>
                     </div>
-                    
-                    <div class="destination-card">
-                        <div class="destination-image"></div>
-                        <div class="destination-content">
-                            <h3 class="destination-title">Jamaica</h3>
-                            <p class="destination-description">Cultura rastafari, música reggae y playas vírgenes del Caribe</p>
-                            <div class="destination-features">
-                                <span class="destination-feature"><i class="fas fa-music"></i> Cultura musical</span>
-                                <span class="destination-feature"><i class="fas fa-mountain"></i> Montañas verdes</span>
-                            </div>
-                            <div class="destination-price">Desde $3,200,000 COP</div>
-                            <div class="destination-actions">
-                                <a href="#cotizacion" class="btn btn-primary">Cotizar</a>
-                                <a href="#destinos" class="btn btn-secondary">Ver más</a>
-                            </div>
-                        </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label">Usuarios Activos</div>
                     </div>
-                    
-                    <div class="destination-card">
-                        <div class="destination-image"></div>
-                        <div class="destination-content">
-                            <h3 class="destination-title">Aruba</h3>
-                            <p class="destination-description">Isla feliz con vientos constantes, perfecta para windsurf y kitesurf</p>
-                            <div class="destination-features">
-                                <span class="destination-feature"><i class="fas fa-wind"></i> Deportes acuáticos</span>
-                                <span class="destination-feature"><i class="fas fa-palm-tree"></i> Palmeras y sol</span>
-                            </div>
-                            <div class="destination-price">Desde $2,900,000 COP</div>
-                            <div class="destination-actions">
-                                <a href="#cotizacion" class="btn btn-primary">Cotizar</a>
-                                <a href="#destinos" class="btn btn-secondary">Ver más</a>
-                            </div>
-                        </div>
+                    <div class="stat-item">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Satisfacción</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Cotización Section -->
-        <section class="quotation" id="cotizacion">
+        <!-- CTA Section -->
+        <section class="cta-section">
             <div class="container">
-                <div class="quotation-content">
-                    <h2 class="quotation-title">Solicita tu Cotización</h2>
-                    <p class="quotation-description">Cuéntanos sobre tu viaje soñado y te ayudaremos a hacerlo realidad</p>
-                    
-                    <div class="quotation-form">
-                        <form id="quotationForm" class="form">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="client_name">Nombre Completo *</label>
-                                    <input type="text" id="client_name" name="client_name" required>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="client_phone">Teléfono *</label>
-                                    <input type="tel" id="client_phone" name="client_phone" required>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="client_email">Email *</label>
-                                <input type="email" id="client_email" name="client_email" required>
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="request_type">Tipo de Servicio *</label>
-                                    <select id="request_type" name="request_type" required>
-                                        <option value="">Selecciona un servicio</option>
-                                        <option value="Vuelo">Vuelo</option>
-                                        <option value="Hotel">Hotel</option>
-                                        <option value="Paquete">Paquete</option>
-                                        <option value="Transfer">Transfer</option>
-                                        <option value="Otro">Otro</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="destination_type">Tipo de Destino *</label>
-                                    <select id="destination_type" name="destination_type" required>
-                                        <option value="">Selecciona el tipo</option>
-                                        <option value="Internacional">Internacional</option>
-                                        <option value="Nacional">Nacional</option>
-                                    </select>
-                                </div>
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="origin">Ciudad de Origen *</label>
-                                    <input type="text" id="origin" name="origin" placeholder="Ej: Medellín, Colombia" required>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="destination">Ciudad de Destino *</label>
-                                    <input type="text" id="destination" name="destination" placeholder="Ej: Cancún, México" required>
-                                </div>
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="departure_date">Fecha de Salida *</label>
-                                    <input type="date" id="departure_date" name="departure_date" required>
-                                </div>
-                                
-                                <div class="nav-toggle" id="nav-toggle">
-                                    <span class="bar"></span>
-                                    <span class="bar"></span>
-                                    <span class="bar"></span>
-                                </div>
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="adult">Adultos *</label>
-                                    <input type="number" id="adult" name="adult" min="1" max="10" value="1" required>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="children">Niños</label>
-                                    <input type="number" id="children" name="children" min="0" max="10" value="0">
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="description">Descripción del Viaje</label>
-                                <textarea id="description" name="description" rows="3" placeholder="Cuéntanos más sobre tu viaje soñado..."></textarea>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="budget_range">Rango de Presupuesto</label>
-                                <select id="budget_range" name="budget_range">
-                                    <option value="">Selecciona tu presupuesto</option>
-                                    <option value="0-500000">$0 - $500,000 COP</option>
-                                    <option value="500000-1000000">$500,000 - $1,000,000 COP</option>
-                                    <option value="1000000-2000000">$1,000,000 - $2,000,000 COP</option>
-                                    <option value="2000000+">Más de $2,000,000 COP</option>
-                                </select>
-                            </div>
-                            
-                            <button type="submit" class="quotation-submit">
-                                <i class="fas fa-paper-plane"></i>
-                                Enviar Solicitud de Cotización
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sobre Nosotros Section -->
-        <section class="about" id="sobre-nosotros">
-            <div class="container">
-                <div class="about-content">
-                    <div class="about-text">
-                        <h2 class="about-title">Sobre Agencia de Viajes</h2>
-                        <p class="about-description">
-                            Somos una agencia de viajes especializada en destinos caribeños, con años de experiencia 
-                            ayudando a viajeros a descubrir los lugares más hermosos del mundo. Nuestro compromiso es 
-                            ofrecerte experiencias únicas y memorables.
-                        </p>
-                        
-                        <div class="about-features">
-                            <div class="about-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Experiencia de más de 10 años en turismo</span>
-                            </div>
-                            <div class="about-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Asesores certificados y expertos</span>
-                            </div>
-                            <div class="about-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Precios competitivos y transparentes</span>
-                            </div>
-                            <div class="about-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Atención personalizada 24/7</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="about-image"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contacto Section -->
-        <section class="contact" id="contacto">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Contáctanos</h2>
-                    <p class="section-subtitle">Estamos aquí para ayudarte a planificar tu próxima aventura</p>
-                </div>
-                
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <h2 class="contact-title">Información de Contacto</h2>
-                        <p class="contact-description">
-                            Estamos aquí para ayudarte a planificar tu próxima aventura. Contáctanos y te responderemos lo antes posible.
-                        </p>
-                        
-                        <div class="contact-methods">
-                            <div class="contact-method">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div class="contact-method-content">
-                                    <h4>Dirección</h4>
-                                    <p>Cl. 98a #65-120, Castilla, Medellín, Antioquia, Colombia</p>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-method">
-                                <i class="fas fa-phone"></i>
-                                <div class="contact-method-content">
-                                    <h4>Teléfono</h4>
-                                    <p>+57 350 685 2261</p>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-method">
-                                <i class="fas fa-envelope"></i>
-                                <div class="contact-method-content">
-                                    <h4>Email</h4>
-                                    <p>maicol.londono@mvpsolutions.com</p>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-method">
-                                <i class="fas fa-clock"></i>
-                                <div class="contact-method-content">
-                                    <h4>Horarios de Atención</h4>
-                                    <p>Lunes a Viernes: 8:00 AM - 6:00 PM<br>
-                                    Sábados: 9:00 AM - 2:00 PM</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-form">
-                        <h3>Envíanos un Mensaje</h3>
-                        <form id="contactForm" class="form">
-                            <div class="form-group">
-                                <label for="contact_name">Nombre Completo *</label>
-                                <input type="text" id="contact_name" name="contact_name" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="contact_email">Email *</label>
-                                <input type="email" id="contact_email" name="contact_email" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="contact_subject">Asunto *</label>
-                                <input type="text" id="contact_subject" name="contact_subject" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="contact_message">Mensaje *</label>
-                                <textarea id="contact_message" name="contact_message" rows="4" required></textarea>
-                            </div>
-                            
-                            <button type="submit" class="contact-submit">
-                                <i class="fas fa-paper-plane"></i>
-                                Enviar Mensaje
-                            </button>
-                        </form>
-                    </div>
+                <div class="cta-content">
+                    <h2>¿Eres una agencia de viajes?</h2>
+                    <p>Únete a nuestra red y conecta con miles de viajeros en busca de experiencias únicas</p>
+                    <a href="packages.html" class="btn btn-primary">
+                        <i class="fas fa-handshake"></i>
+                        Únete Ahora
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Auth Modal -->
-    <div id="auth-modal" class="auth-modal">
-        <div class="auth-content">
-            <span class="auth-close">&times;</span>
-            <div id="auth-forms"></div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Red de Agencias 360</h3>
+                    <p>Conectando agencias de viajes con viajeros de todo Colombia</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="paquetes-destacados.html">Paquetes</a></li>
+                        <li><a href="muro-agencias.html">Agencias</a></li>
+                        <li><a href="packages.html">Estadísticas</a></li>
+                        <li><a href="packages.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="#">API para Agencias</a></li>
+                        <li><a href="#">Documentación</a></li>
+                        <li><a href="#">Soporte</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-envelope"></i> info@redagencias360.com</p>
+                    <p><i class="fas fa-phone"></i> +57 (1) 234-5678</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Bogotá, Colombia</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Red de Agencias 360. Todos los derechos reservados.</p>
+            </div>
         </div>
-    </div>
+    </footer>
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>
@@ -502,4 +248,3 @@
     <script src="js/forms.js"></script>
 </body>
 </html>
-

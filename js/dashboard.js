@@ -37,7 +37,7 @@ class DashboardManager {
     checkAuthentication() {
         if (!window.authManager || !window.authManager.isAuthenticated) {
             console.log('❌ Usuario no autenticado, redirigiendo al login');
-            window.location.href = './index.html';
+            window.location.href = 'index.html';
             return;
         }
         
@@ -469,7 +469,7 @@ class DashboardManager {
                 <i class="fas fa-inbox"></i>
                 <h3>${title}</h3>
                 <p>${message}</p>
-                <a href="./index.html#cotizacion" class="btn btn-primary">
+                <a href="index.html#cotizacion" class="btn btn-primary">
                     <i class="fas fa-plus"></i>
                     Solicitar Cotización
                 </a>
