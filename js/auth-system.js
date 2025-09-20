@@ -3,7 +3,7 @@
 
 class AuthSystem {
     constructor() {
-        this.baseUrl = 'https://mvpsolutions365.com/api/v1';
+        this.baseUrl = 'https://mvpsolutions365.com';
         this.token = localStorage.getItem('auth_token');
         this.user = null;
         this.init();
@@ -12,6 +12,7 @@ class AuthSystem {
     init() {
         this.checkAuthStatus();
         this.setupEventListeners();
+        this.testApiConnection();
     }
 
     setupEventListeners() {
@@ -47,7 +48,7 @@ class AuthSystem {
         }
 
         try {
-            const response = await fetch(`${this.baseUrl}/api/me`, {
+            const response = await fetch(`${this.baseUrl}/api/v1/api/me`, {
                 headers: {
                     'Authorization': `Bearer ${this.token}`,
                     'Accept': 'application/json'
@@ -73,7 +74,7 @@ class AuthSystem {
 
     async login(email, password) {
         try {
-            const response = await fetch(`${this.baseUrl}/api/login`, {
+            const response = await fetch(`${this.baseUrl}/api/v1/api/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -98,9 +99,18 @@ class AuthSystem {
             }
         } catch (error) {
             console.error('Error en login:', error);
+            
+            // Manejo específico de errores de CORS
+            if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
+                return { 
+                    success: false, 
+                    error: 'Error de conexión: Verifica que la API esté disponible y configurada para CORS' 
+                };
+            }
+            
             return { 
                 success: false, 
-                error: 'Error de conexión con el servidor' 
+                error: 'Error de conexión con el servidor: ' + error.message 
             };
         }
     }
@@ -108,7 +118,7 @@ class AuthSystem {
     async logout() {
         if (this.token) {
             try {
-                await fetch(`${this.baseUrl}/api/logout`, {
+                await fetch(`${this.baseUrl}/api/v1/api/logout`, {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${this.token}`,
@@ -354,6 +364,25 @@ class AuthSystem {
                 }
             });
         }, 100);
+    }
+
+    async testApiConnection() {
+        try {
+            // Probar conexión básica a la API
+            const response = await fetch(`${this.baseUrl}/api/v1/api/check`, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            console.log('API Status:', response.status);
+            console.log('API Response:', await response.text());
+            
+        } catch (error) {
+            console.error('Error de conexión con la API:', error);
+            console.log('URL probada:', `${this.baseUrl}/api/v1/api/check`);
+        }
     }
 
     showNotification(message, type = 'info') {
