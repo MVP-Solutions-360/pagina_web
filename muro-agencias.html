@@ -11,7 +11,7 @@
     
     <!-- CSS -->
     <link rel="stylesheet" href="css/logo-effects.css">
-    <link rel="stylesheet" href="css/travel-inspired.css">
+    <link rel="stylesheet" href="css/facebook-inspired.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/responsive.css">
@@ -27,167 +27,180 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header" id="header">
-        <nav class="navbar">
-            <div class="nav-container">
-                <a href="index.html" class="nav-brand">
-                    <i class="fas fa-globe"></i>
-                    <span>Red de Agencias 360</span>
-                </a>
-                
-                <div class="nav-menu">
-                    <a href="index.html" class="nav-link">
-                        <i class="fas fa-home"></i>
-                        Inicio
-                    </a>
-                    <a href="paquetes-destacados.html" class="nav-link">
-                        <i class="fas fa-suitcase"></i>
-                        Paquetes
-                    </a>
-                    <a href="muro-agencias.html" class="nav-link active">
-                        <i class="fas fa-building"></i>
-                        Agencias
-                    </a>
-                    <a href="estadisticas.html" class="nav-link">
-                        <i class="fas fa-chart-line"></i>
-                        Estadísticas
-                    </a>
-                    <a href="blog.html" class="nav-link">
-                        <i class="fas fa-newspaper"></i>
-                        Blog
-                    </a>
-                    <a href="contacto.html" class="nav-link">
-                        <i class="fas fa-envelope"></i>
-                        Contacto
-                    </a>
-                </div>
-                
-                <div class="nav-actions">
-                    <a href="contacto.html" class="btn btn-primary">
-                        <i class="fas fa-handshake"></i>
-                        Únete
-                    </a>
-                </div>
-                
-                <div class="header-auth">
-                    <div class="user-info" id="user-info" style="display: none;">
-                        <img src="" alt="" class="user-avatar" id="user-avatar">
-                        <span class="user-name" id="user-name"></span>
-                    </div>
-                    <a href="https://mvpsolutions365.com/login" target="_blank" class="auth-button">
-                        <i class="fas fa-building"></i>
-                        Ingreso Agencias
-                    </a>
-                    <div id="user-menu" class="user-menu"></div>
-                </div>
-                
-                <div class="nav-toggle" id="nav-toggle">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
+    <!-- Header Facebook Style -->
+    <header class="facebook-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo-icon">R</div>
+                <a href="index.html" class="logo-text">Red de Agencias 360</a>
             </div>
-        </nav>
+            
+            <div class="search-bar">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Buscar agencias, paquetes...">
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    Inicio
+                </a>
+                <a href="paquetes-destacados.html" class="nav-item">
+                    <i class="fas fa-suitcase"></i>
+                    Paquetes
+                </a>
+                <a href="muro-agencias.html" class="nav-item active">
+                    <i class="fas fa-building"></i>
+                    Agencias
+                </a>
+                <a href="packages.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    Destacados
+                </a>
+                <a href="packages.html" class="nav-item">
+                    <i class="fas fa-newspaper"></i>
+                    Blog
+                </a>
+            </nav>
+            
+            <div class="user-menu">
+                <div class="user-avatar">U</div>
+                <a href="https://mvpsolutions365.com/login" target="_blank" class="nav-item">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Ingreso
+                </a>
+            </div>
+        </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="main-content-full">
-        <!-- Page Header -->
-        <section class="page-header">
-            <div class="container">
-                <h1>Muro de Agencias</h1>
-                <p>Conecta, comparte y descubre con las mejores agencias de viajes de Colombia</p>
+    <!-- Main Layout Facebook Style -->
+    <main class="main-layout">
+        <!-- Sidebar Izquierdo -->
+        <aside class="left-sidebar">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Navegación</h3>
+                <a href="index.html" class="sidebar-item">
+                    <i class="fas fa-home"></i>
+                    Inicio
+                </a>
+                <a href="paquetes-destacados.html" class="sidebar-item">
+                    <i class="fas fa-suitcase"></i>
+                    Paquetes
+                </a>
+                <a href="muro-agencias.html" class="sidebar-item">
+                    <i class="fas fa-building"></i>
+                    Agencias
+                </a>
+                <a href="packages.html" class="sidebar-item">
+                    <i class="fas fa-chart-line"></i>
+                    Destacados
+                </a>
+                <a href="packages.html" class="sidebar-item">
+                    <i class="fas fa-newspaper"></i>
+                    Blog
+                </a>
             </div>
-        </section>
-
-        <!-- Social Feed -->
-        <section class="social-feed-section">
-            <div class="container">
-                <div class="feed-container">
-                    <!-- Sidebar -->
-                    <aside class="feed-sidebar">
-                        <div class="sidebar-widget">
-                            <h3>Filtros</h3>
-                            <div class="filter-options">
-                                <div class="filter-group">
-                                    <label for="agency-filter">Agencia</label>
-                                    <select id="agency-filter" class="filter-select">
-                                        <option value="">Todas las agencias</option>
-                                        <option value="caribe-dreams">Caribe Dreams Travel</option>
-                                        <option value="andes-adventure">Andes Adventure Tours</option>
-                                        <option value="pacific-paradise">Pacific Paradise</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="filter-group">
-                                    <label for="post-type-filter">Tipo de Publicación</label>
-                                    <select id="post-type-filter" class="filter-select">
-                                        <option value="">Todos los tipos</option>
-                                        <option value="package">Paquetes</option>
-                                        <option value="news">Noticias</option>
-                                        <option value="offer">Ofertas</option>
-                                        <option value="experience">Experiencias</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="filter-group">
-                                    <label for="date-filter">Fecha</label>
-                                    <select id="date-filter" class="filter-select">
-                                        <option value="">Cualquier fecha</option>
-                                        <option value="today">Hoy</option>
-                                        <option value="week">Esta semana</option>
-                                        <option value="month">Este mes</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="sidebar-widget">
-                            <h3>Estadísticas</h3>
-                            <div class="stats-widget">
-                                <div class="stat-item">
-                                    <span class="stat-number" id="total-posts">0</span>
-                                    <span class="stat-label">Publicaciones</span>
-                                </div>
-                                <div class="stat-item">
-                                    <span class="stat-number" id="total-likes">0</span>
-                                    <span class="stat-label">Likes</span>
-                                </div>
-                                <div class="stat-item">
-                                    <span class="stat-number" id="total-comments">0</span>
-                                    <span class="stat-label">Comentarios</span>
-                                </div>
-                            </div>
-                        </div>
-                    </aside>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Filtros</h3>
+                <div class="filter-options">
+                    <div class="filter-group">
+                        <label for="agency-filter">Agencia</label>
+                        <select id="agency-filter" class="filter-select">
+                            <option value="">Todas las agencias</option>
+                            <option value="caribe-dreams">Caribe Dreams Travel</option>
+                            <option value="andes-adventure">Andes Adventure Tours</option>
+                            <option value="pacific-paradise">Pacific Paradise</option>
+                        </select>
+                    </div>
                     
-                    <!-- Main Feed -->
-                    <div class="feed-main">
-                        <div class="feed-header">
-                            <h2>Publicaciones Recientes</h2>
-                            <div class="feed-actions">
-                                <button class="btn btn-primary" id="new-post-btn">
-                                    <i class="fas fa-plus"></i>
-                                    Nueva Publicación
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <div class="posts-container" id="posts-container">
-                            <!-- Las publicaciones se cargarán dinámicamente -->
-                        </div>
-                        
-                        <div class="load-more-container">
-                            <button class="btn btn-secondary" id="load-more-posts">
-                                <i class="fas fa-plus"></i>
-                                Cargar Más Publicaciones
-                            </button>
-                        </div>
+                    <div class="filter-group">
+                        <label for="post-type-filter">Tipo de Publicación</label>
+                        <select id="post-type-filter" class="filter-select">
+                            <option value="">Todos los tipos</option>
+                            <option value="package">Paquetes</option>
+                            <option value="news">Noticias</option>
+                            <option value="offer">Ofertas</option>
+                            <option value="experience">Experiencias</option>
+                        </select>
                     </div>
                 </div>
             </div>
-        </section>
+        </aside>
+        
+        <!-- Contenido Principal -->
+        <div class="main-content">
+            <!-- Crear Post -->
+            <div class="create-post">
+                <div class="create-post-header">
+                    <div class="create-post-avatar">U</div>
+                    <input type="text" class="create-post-input" placeholder="¿Qué quieres compartir con la comunidad de agencias?">
+                </div>
+                <div class="create-post-actions">
+                    <button class="create-post-btn">
+                        <i class="fas fa-image"></i>
+                        Foto
+                    </button>
+                    <button class="create-post-btn">
+                        <i class="fas fa-video"></i>
+                        Video
+                    </button>
+                    <button class="create-post-btn">
+                        <i class="fas fa-calendar"></i>
+                        Evento
+                    </button>
+                    <button class="create-post-btn primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Publicar
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Feed de Publicaciones -->
+            <div class="posts-feed" id="posts-feed">
+                <!-- Las publicaciones se cargarán dinámicamente aquí -->
+            </div>
+        </div>
+        
+        <!-- Sidebar Derecho -->
+        <aside class="right-sidebar">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Agencias en línea</h3>
+                <a href="#" class="contact-item">
+                    <div class="contact-avatar">CD</div>
+                    <span class="contact-name">Caribe Dreams</span>
+                    <div class="contact-status"></div>
+                </a>
+                <a href="#" class="contact-item">
+                    <div class="contact-avatar">AA</div>
+                    <span class="contact-name">Andes Adventure</span>
+                    <div class="contact-status"></div>
+                </a>
+                <a href="#" class="contact-item">
+                    <div class="contact-avatar">PP</div>
+                    <span class="contact-name">Pacific Paradise</span>
+                    <div class="contact-status"></div>
+                </a>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Estadísticas</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">24</span>
+                        <span class="stat-label">Agencias Activas</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">156</span>
+                        <span class="stat-label">Paquetes Publicados</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1,234</span>
+                        <span class="stat-label">Interacciones</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
     </main>
 
     <!-- Footer -->

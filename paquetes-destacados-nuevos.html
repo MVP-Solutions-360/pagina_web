@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paquetes Destacados - Red de Agencias 360</title>
+    <meta name="description" content="Descubre los paquetes más vendidos y destacados de las mejores agencias de viajes de Colombia.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/logo-effects.css">
+    <link rel="stylesheet" href="css/travel-inspired.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/images.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/packages.css">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Facebook Style -->
+    <header class="facebook-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo-icon">R</div>
+                <a href="index.html" class="logo-text">Red de Agencias 360</a>
+            </div>
+            
+            <div class="search-bar">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Buscar paquetes, destinos...">
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    Inicio
+                </a>
+                <a href="paquetes-destacados-nuevos.html" class="nav-item active">
+                    <i class="fas fa-suitcase"></i>
+                    Paquetes
+                </a>
+                <a href="muro-agencias.html" class="nav-item">
+                    <i class="fas fa-building"></i>
+                    Agencias
+                </a>
+                <a href="paquetes-destacados-nuevos.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    Destacados
+                </a>
+                <a href="blog.html" class="nav-item">
+                    <i class="fas fa-newspaper"></i>
+                    Blog
+                </a>
+            </nav>
+            
+            <div class="user-menu">
+                <div class="user-avatar">U</div>
+                <a href="https://mvpsolutions365.com/login" target="_blank" class="nav-item">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Ingreso
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <main class="main-layout">
+        <!-- Sidebar Izquierdo -->
+        <aside class="left-sidebar">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Filtros</h3>
+                <div class="filter-options">
+                    <div class="filter-group">
+                        <label for="destination-filter">Destino</label>
+                        <select id="destination-filter" class="filter-select">
+                            <option value="">Todos los destinos</option>
+                            <option value="caribe">Caribe</option>
+                            <option value="andes">Andes</option>
+                            <option value="pacifico">Pacífico</option>
+                            <option value="amazonas">Amazonas</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="price-filter">Precio</label>
+                        <select id="price-filter" class="filter-select">
+                            <option value="">Cualquier precio</option>
+                            <option value="0-500000">$0 - $500,000</option>
+                            <option value="500000-1000000">$500,000 - $1,000,000</option>
+                            <option value="1000000-2000000">$1,000,000 - $2,000,000</option>
+                            <option value="2000000+">$2,000,000+</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="duration-filter">Duración</label>
+                        <select id="duration-filter" class="filter-select">
+                            <option value="">Cualquier duración</option>
+                            <option value="1-3">1-3 días</option>
+                            <option value="4-7">4-7 días</option>
+                            <option value="8-15">8-15 días</option>
+                            <option value="15+">15+ días</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Categorías</h3>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-mountain"></i>
+                    Aventura
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-umbrella-beach"></i>
+                    Playa
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-city"></i>
+                    Ciudad
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-leaf"></i>
+                    Ecoturismo
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-heart"></i>
+                    Romántico
+                </a>
+            </div>
+        </aside>
+        
+        <!-- Contenido Principal -->
+        <div class="main-content">
+            <!-- Header de la página -->
+            <div class="page-header">
+                <h1>Paquetes Destacados</h1>
+                <p>Los paquetes más vendidos y populares de nuestras agencias</p>
+            </div>
+            
+            <!-- Tabs de categorías -->
+            <div class="tabs-container">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="trending">
+                        <i class="fas fa-fire"></i>
+                        Más Vendidos
+                    </button>
+                    <button class="tab-btn" data-tab="popular">
+                        <i class="fas fa-star"></i>
+                        Más Populares
+                    </button>
+                    <button class="tab-btn" data-tab="recent">
+                        <i class="fas fa-clock"></i>
+                        Recientes
+                    </button>
+                    <button class="tab-btn" data-tab="offers">
+                        <i class="fas fa-percentage"></i>
+                        Ofertas
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Grid de paquetes -->
+            <div class="packages-grid" id="packages-grid">
+                <!-- Los paquetes se cargarán dinámicamente -->
+            </div>
+            
+            <!-- Botón cargar más -->
+            <div class="load-more-container">
+                <button class="load-more-btn" id="load-more-packages">
+                    <i class="fas fa-plus"></i>
+                    Cargar más paquetes
+                </button>
+            </div>
+        </div>
+        
+        <!-- Sidebar Derecho -->
+        <aside class="right-sidebar">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Top Agencias</h3>
+                <div class="agency-list">
+                    <div class="agency-item">
+                        <div class="agency-avatar">CD</div>
+                        <div class="agency-info">
+                            <span class="agency-name">Caribe Dreams</span>
+                            <span class="agency-packages">24 paquetes</span>
+                        </div>
+                        <div class="agency-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.8</span>
+                        </div>
+                    </div>
+                    <div class="agency-item">
+                        <div class="agency-avatar">AA</div>
+                        <div class="agency-info">
+                            <span class="agency-name">Andes Adventure</span>
+                            <span class="agency-packages">18 paquetes</span>
+                        </div>
+                        <div class="agency-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.9</span>
+                        </div>
+                    </div>
+                    <div class="agency-item">
+                        <div class="agency-avatar">PP</div>
+                        <div class="agency-info">
+                            <span class="agency-name">Pacific Paradise</span>
+                            <span class="agency-packages">31 paquetes</span>
+                        </div>
+                        <div class="agency-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Estadísticas</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">156</span>
+                        <span class="stat-label">Paquetes Activos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24</span>
+                        <span class="stat-label">Agencias</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1,234</span>
+                        <span class="stat-label">Reservas</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-text">
+                <p>&copy; 2024 Red de Agencias 360. Todos los derechos reservados.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Términos y Condiciones</a>
+                <a href="#" class="footer-link">Política de Privacidad</a>
+                <a href="#" class="footer-link">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/social-data.js"></script>
+    <script src="js/paquetes-destacados.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
