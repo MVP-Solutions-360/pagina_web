@@ -319,6 +319,129 @@ CREATE TABLE package_likes (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 ```
 
+### 4.1. **Tabla: social_posts**
+
+```sql
+CREATE TABLE social_posts (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    agency_id BIGINT UNSIGNED NOT NULL,
+    package_id BIGINT UNSIGNED NULL,
+    title VARCHAR(255) NOT NULL,
+    content TEXT,
+    images JSON,
+    likes_count INT UNSIGNED DEFAULT 0,
+    comments_count INT UNSIGNED DEFAULT 0,
+    shares_count INT UNSIGNED DEFAULT 0,
+    views_count INT UNSIGNED DEFAULT 0,
+    status ENUM('draft', 'published', 'archived') DEFAULT 'draft',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (agency_id) REFERENCES agencies(id) ON DELETE CASCADE,
+    FOREIGN KEY (package_id) REFERENCES packages(id) ON DELETE SET NULL,
+    INDEX idx_agency_id (agency_id),
+    INDEX idx_package_id (package_id),
+    INDEX idx_status (status),
+    INDEX idx_created_at (created_at),
+    FULLTEXT idx_search (title, content)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+```
+
+### 4.2. **Tabla: post_comments**
+
+```sql
+CREATE TABLE post_comments (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    post_id BIGINT UNSIGNED NOT NULL,
+    user_id BIGINT UNSIGNED NOT NULL,
+    parent_id BIGINT UNSIGNED NULL,
+    comment TEXT NOT NULL,
+    likes_count INT UNSIGNED DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (post_id) REFERENCES social_posts(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (parent_id) REFERENCES post_comments(id) ON DELETE CASCADE,
+    INDEX idx_post_id (post_id),
+    INDEX idx_user_id (user_id),
+    INDEX idx_parent_id (parent_id),
+    INDEX idx_created_at (created_at),
+    FULLTEXT idx_comment (comment)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+```
+
+### 4.3. **Tabla: blog_posts**
+
+```sql
+CREATE TABLE blog_posts (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    slug VARCHAR(255) NOT NULL UNIQUE,
+    excerpt TEXT,
+    content LONGTEXT NOT NULL,
+    featured_image VARCHAR(500),
+    author_id BIGINT UNSIGNED NOT NULL,
+    category_id BIGINT UNSIGNED NULL,
+    status ENUM('draft', 'published', 'archived') DEFAULT 'draft',
+    views_count INT UNSIGNED DEFAULT 0,
+    likes_count INT UNSIGNED DEFAULT 0,
+    comments_count INT UNSIGNED DEFAULT 0,
+    published_at TIMESTAMP NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (category_id) REFERENCES blog_categories(id) ON DELETE SET NULL,
+    INDEX idx_author_id (author_id),
+    INDEX idx_category_id (category_id),
+    INDEX idx_status (status),
+    INDEX idx_published_at (published_at),
+    INDEX idx_created_at (created_at),
+    FULLTEXT idx_search (title, excerpt, content)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+```
+
+### 4.4. **Tabla: blog_categories**
+
+```sql
+CREATE TABLE blog_categories (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    slug VARCHAR(100) NOT NULL UNIQUE,
+    description TEXT,
+    color VARCHAR(7) DEFAULT '#2563eb',
+    posts_count INT UNSIGNED DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    
+    INDEX idx_slug (slug),
+    INDEX idx_posts_count (posts_count)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+```
+
+### 4.5. **Tabla: destination_popularity**
+
+```sql
+CREATE TABLE destination_popularity (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    destination VARCHAR(255) NOT NULL,
+    country VARCHAR(100) NOT NULL,
+    department VARCHAR(100),
+    city VARCHAR(100),
+    popularity_score DECIMAL(10,2) DEFAULT 0.00,
+    packages_count INT UNSIGNED DEFAULT 0,
+    total_sales INT UNSIGNED DEFAULT 0,
+    last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    
+    UNIQUE KEY unique_destination (destination, country, department, city),
+    INDEX idx_popularity_score (popularity_score),
+    INDEX idx_packages_count (packages_count),
+    INDEX idx_total_sales (total_sales),
+    INDEX idx_last_updated (last_updated)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+```
+
 ### 5. **Tabla: package_comments**
 
 ```sql

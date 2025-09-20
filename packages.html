@@ -3,19 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paquetes Turísticos - Agencia de Viajes</title>
-    <meta name="description" content="Descubre nuestros increíbles paquetes turísticos al Caribe. Vuelos, hoteles, tours y experiencias inolvidables.">
+    
+    <!-- SEO Meta Tags -->
+    <title>Paquetes Turísticos - Red de Agencias 360 | Los Mejores Destinos</title>
+    <meta name="description" content="Descubre los mejores paquetes turísticos en Red de Agencias 360. Filtra por nombre, ubicación y fechas. Destinos únicos con precios competitivos.">
+    <meta name="keywords" content="paquetes turísticos, destinos Colombia, viajes, turismo, agencias de viajes, Medellín, San Andrés, Cartagena, Madrid, Punta Cana">
+    <meta name="author" content="Red de Agencias 360">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://redagencias360.com/paquetes.html">
+    <meta property="og:title" content="Paquetes Turísticos - Red de Agencias 360">
+    <meta property="og:description" content="Descubre los mejores paquetes turísticos con filtros avanzados y precios competitivos.">
+    <meta property="og:image" content="https://redagencias360.com/images/paquetes-og.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://redagencias360.com/paquetes.html">
+    <meta property="twitter:title" content="Paquetes Turísticos - Red de Agencias 360">
+    <meta property="twitter:description" content="Descubre los mejores paquetes turísticos con filtros avanzados y precios competitivos.">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
     
     <!-- CSS -->
+    <link rel="stylesheet" href="css/logo-effects.css">
+    <link rel="stylesheet" href="css/travel-inspired.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/auth-modal.css">
     <link rel="stylesheet" href="css/images.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/carousel.css">
     <link rel="stylesheet" href="css/packages.css">
+    <link rel="stylesheet" href="css/packages-page.css">
     
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -25,52 +49,56 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="header" id="header">
-        <nav class="navbar">
+    <header class="header" id="header" role="banner">
+        <nav class="navbar" role="navigation" aria-label="Navegación principal">
             <div class="nav-container">
-                <a href="index.html" class="nav-brand">
-                    <i class="fas fa-plane"></i>
-                    <span>Agencia de Viajes</span>
+                <a href="index.html" class="nav-brand" aria-label="Red de Agencias 360 - Página de inicio">
+                    <i class="fas fa-globe" aria-hidden="true"></i>
+                    <span>Red de Agencias 360</span>
                 </a>
                 
-                <div class="nav-menu">
-                    <a href="index.html" class="nav-link">
-                        <i class="fas fa-home"></i>
-                        Inicio
+                <div class="nav-menu" role="menubar">
+                    <a href="index.html" class="nav-link" role="menuitem">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                        <span>Inicio</span>
                     </a>
-                    <a href="index.html#servicios" class="nav-link">
-                        <i class="fas fa-cogs"></i>
-                        Servicios
+                    <a href="packages.html" class="nav-link active" role="menuitem" aria-current="page">
+                        <i class="fas fa-suitcase" aria-hidden="true"></i>
+                        <span>Paquetes</span>
                     </a>
-                    <a href="index.html#destinos" class="nav-link">
-                        <i class="fas fa-map-marked-alt"></i>
-                        Destinos
+                    <a href="red-social.html" class="nav-link" role="menuitem">
+                        <i class="fas fa-users" aria-hidden="true"></i>
+                        <span>Red Social</span>
                     </a>
-                    <a href="packages.html" class="nav-link active">
-                        <i class="fas fa-suitcase"></i>
-                        Paquetes
+                    <a href="mas-vendidos.html" class="nav-link" role="menuitem">
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <span>Más Vendidos</span>
                     </a>
-                    <a href="index.html#sobre-nosotros" class="nav-link">
-                        <i class="fas fa-users"></i>
-                        Nosotros
+                    <a href="blog.html" class="nav-link" role="menuitem">
+                        <i class="fas fa-newspaper" aria-hidden="true"></i>
+                        <span>Blog</span>
                     </a>
-                    <a href="index.html#contacto" class="nav-link">
-                        <i class="fas fa-envelope"></i>
-                        Contacto
+                    <a href="contacto.html" class="nav-link" role="menuitem">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <span>Contacto</span>
                     </a>
                 </div>
                 
                 <div class="nav-actions">
-                    <a href="index.html#cotizacion" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i>
-                        Cotizar
+                    <a href="index.html" class="btn btn-primary">
+                        <i class="fas fa-handshake"></i>
+                        Únete
                     </a>
                 </div>
                 
                 <div class="header-auth">
-                    <button id="auth-button" class="auth-button">
-                        <i class="fas fa-sign-in-alt"></i>
-                        Login
+                    <div class="user-info" id="user-info" style="display: none;">
+                        <img src="" alt="" class="user-avatar" id="user-avatar">
+                        <span class="user-name" id="user-name"></span>
+                    </div>
+                    <button class="auth-button" onclick="authSystem.showLoginModal()">
+                        <i class="fas fa-building"></i>
+                        Ingreso Agencias
                     </button>
                     <div id="user-menu" class="user-menu"></div>
                 </div>
@@ -86,72 +114,97 @@
 
     <!-- Main Content -->
     <main class="main-content-full">
-        <!-- Hero Banner Section -->
-        <section class="hero-banner">
-            <div class="banner-content">
-                <h1 class="banner-title">
-                    Tus destinos favoritos están a un <span class="click-highlight">Click</span>
+        <!-- Hero Section -->
+        <section class="packages-hero">
+            <div class="hero-container">
+                <h1 class="hero-title" style="color: #2563eb; font-size: 3.5rem; font-weight: 700; margin-bottom: 1rem;">
+                    Paquetes Turísticos
                 </h1>
-                <p class="banner-subtitle">
-                    Encuentra los mejores paquetes turísticos con precios increíbles y destinos de ensueño
+                <p class="hero-subtitle" style="font-size: 1.25rem; color: #64748b; max-width: 600px; margin: 0 auto 2rem;">
+                    Descubre los mejores destinos y experiencias únicas
                 </p>
-                
-                <div class="banner-image">
-                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop" alt="Viajero" class="traveler-image">
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Destinos turísticos" class="hero-bg-image">
                 </div>
             </div>
-            
-            <div class="banner-navigation">
-                <button class="nav-arrow nav-prev">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="nav-arrow nav-next">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </section>
-
-        <!-- Package Category Buttons -->
-        <section class="package-categories">
-            <button class="category-btn category-international active">
-                Paquetes Internacionales
-            </button>
-            <button class="category-btn category-colombia">
-                Paquetes Colombia
-            </button>
         </section>
 
         <!-- Packages Section -->
         <section class="packages-section">
+            <div class="container">
             <div class="section-header">
-                <h2 class="section-title">PAQUETES TURÍSTICOS</h2>
+                    <h2 class="section-title">Paquetes Turísticos</h2>
                 <p class="section-subtitle">
-                    Viaja por el mundo con los mejores precios que trae nuestra agencia para ti
+                        Filtra y encuentra el paquete perfecto para tu próxima aventura
                 </p>
             </div>
 
-            <!-- Search and Filter -->
-            <div class="search-filter">
-                <div class="search-input">
-                    <input type="text" placeholder="¿Buscas algún destino en especial?" class="search-field">
+                <!-- Advanced Filters -->
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label for="name-filter" class="filter-label">Nombre del Paquete</label>
+                        <input type="text" id="name-filter" placeholder="Buscar por nombre..." class="filter-input">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="country-filter" class="filter-label">País</label>
+                        <select id="country-filter" class="filter-select">
+                            <option value="">Todos los países</option>
+                            <option value="colombia">Colombia</option>
+                            <option value="mexico">México</option>
+                            <option value="espana">España</option>
+                            <option value="republica-dominicana">República Dominicana</option>
+                            <option value="cuba">Cuba</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="department-filter" class="filter-label">Departamento/Estado</label>
+                        <select id="department-filter" class="filter-select">
+                            <option value="">Todos los departamentos</option>
+                            <option value="antioquia">Antioquia</option>
+                            <option value="cundinamarca">Cundinamarca</option>
+                            <option value="bolivar">Bolívar</option>
+                            <option value="san-andres">San Andrés</option>
+                        </select>
                 </div>
-                <div class="filter-dropdown">
-                    <select class="filter-select">
-                        <option value="todas">Todas</option>
-                        <option value="caribe">Caribe</option>
-                        <option value="europa">Europa</option>
-                        <option value="asia">Asia</option>
-                        <option value="america">América</option>
+                    
+                    <div class="filter-group">
+                        <label for="city-filter" class="filter-label">Ciudad</label>
+                        <select id="city-filter" class="filter-select">
+                            <option value="">Todas las ciudades</option>
+                            <option value="medellin">Medellín</option>
+                            <option value="bogota">Bogotá</option>
+                            <option value="cartagena">Cartagena</option>
+                            <option value="san-andres">San Andrés</option>
                     </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="date-from" class="filter-label">Fecha Desde</label>
+                        <input type="date" id="date-from" class="filter-input">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="date-to" class="filter-label">Fecha Hasta</label>
+                        <input type="date" id="date-to" class="filter-input">
+                    </div>
+                    
+                    <div class="filter-actions">
+                        <button class="btn btn-primary" onclick="applyFilters()">
+                            <i class="fas fa-search"></i>
+                            Filtrar
+                        </button>
+                        <button class="btn btn-secondary" onclick="clearFilters()">
+                            <i class="fas fa-times"></i>
+                            Limpiar
+                        </button>
+                    </div>
                 </div>
-                <button class="search-btn">
-                    <i class="fas fa-search"></i>
-                    Buscar
-                </button>
             </div>
 
             <!-- Loading State -->
-            <div id="packages-loading" class="packages-loading">
+            <div id="packages-loading" class="packages-loading" style="display: none;">
                 <div class="loading-spinner">
                     <i class="fas fa-plane"></i>
                 </div>
@@ -160,7 +213,197 @@
 
             <!-- Packages Grid -->
             <div class="packages-grid" id="packages-grid">
-                <!-- Package cards will be dynamically loaded here -->
+                <!-- Paquete 1 -->
+                <div class="package-card" data-package="punta-cana-4-dias">
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Punta Cana, República Dominicana">
+                        <div class="package-badge">Destacado</div>
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Punta Cana - Paraíso Caribeño</h3>
+                        <p class="package-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Punta Cana, República Dominicana
+                        </p>
+                        <p class="package-description">
+                            Relájate en las playas más hermosas del Caribe. Incluye hotel all-inclusive, actividades acuáticas y tours.
+                        </p>
+                        <div class="package-details">
+                            <div class="package-duration">
+                                <i class="fas fa-clock"></i>
+                                4 días / 3 noches
+                            </div>
+                            <div class="package-price">
+                                <span class="price-currency">$</span>
+                                <span class="price-amount">2,800,000</span>
+                                <span class="price-period">por persona</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary package-btn" onclick="viewPackageDetails('punta-cana-4-dias')">
+                            Ver Detalles
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Paquete 2 -->
+                <div class="package-card" data-package="san-andres-4-dias">
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="San Andrés, Colombia">
+                        <div class="package-badge">Popular</div>
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">San Andrés - Paraíso Caribeño</h3>
+                        <p class="package-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            San Andrés, Colombia
+                        </p>
+                        <p class="package-description">
+                            Relájate en las playas más hermosas del Caribe colombiano. Incluye snorkeling y tour por la isla.
+                        </p>
+                        <div class="package-details">
+                            <div class="package-duration">
+                                <i class="fas fa-clock"></i>
+                                4 días / 3 noches
+                            </div>
+                            <div class="package-price">
+                                <span class="price-currency">$</span>
+                                <span class="price-amount">1,800,000</span>
+                                <span class="price-period">por persona</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary package-btn" onclick="viewPackageDetails('san-andres-4-dias')">
+                            Ver Detalles
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Paquete 3 -->
+                <div class="package-card" data-package="cartagena-3-dias">
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Cartagena, Colombia">
+                        <div class="package-badge">Histórico</div>
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Cartagena - Ciudad Amurallada</h3>
+                        <p class="package-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Cartagena, Bolívar, Colombia
+                        </p>
+                        <p class="package-description">
+                            Recorre la ciudad patrimonio de la humanidad. Incluye tour por la ciudad amurallada y playas.
+                        </p>
+                        <div class="package-details">
+                            <div class="package-duration">
+                                <i class="fas fa-clock"></i>
+                                3 días / 2 noches
+                            </div>
+                            <div class="package-price">
+                                <span class="price-currency">$</span>
+                                <span class="price-amount">1,400,000</span>
+                                <span class="price-period">por persona</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary package-btn" onclick="viewPackageDetails('cartagena-3-dias')">
+                            Ver Detalles
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Paquete 4 -->
+                <div class="package-card" data-package="madrid-5-dias">
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Madrid, España">
+                        <div class="package-badge">Internacional</div>
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Madrid - Capital de España</h3>
+                        <p class="package-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Madrid, España
+                        </p>
+                        <p class="package-description">
+                            Explora la capital española con sus museos, plazas y gastronomía. Incluye tour por el Prado y Retiro.
+                        </p>
+                        <div class="package-details">
+                            <div class="package-duration">
+                                <i class="fas fa-clock"></i>
+                                5 días / 4 noches
+                            </div>
+                            <div class="package-price">
+                                <span class="price-currency">$</span>
+                                <span class="price-amount">3,500,000</span>
+                                <span class="price-period">por persona</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary package-btn" onclick="viewPackageDetails('madrid-5-dias')">
+                            Ver Detalles
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Paquete 5 -->
+                <div class="package-card" data-package="punta-cana-4-dias">
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Punta Cana, República Dominicana">
+                        <div class="package-badge">All Inclusive</div>
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Punta Cana - Caribe Dominicano</h3>
+                        <p class="package-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Punta Cana, República Dominicana
+                        </p>
+                        <p class="package-description">
+                            Disfruta del mejor all inclusive en el Caribe. Resort de lujo con playas paradisíacas.
+                        </p>
+                        <div class="package-details">
+                            <div class="package-duration">
+                                <i class="fas fa-clock"></i>
+                                4 días / 3 noches
+                            </div>
+                            <div class="package-price">
+                                <span class="price-currency">$</span>
+                                <span class="price-amount">2,800,000</span>
+                                <span class="price-period">por persona</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary package-btn" onclick="viewPackageDetails('punta-cana-4-dias')">
+                            Ver Detalles
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Paquete 6 -->
+                <div class="package-card" data-package="bogota-2-dias">
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Bogotá, Colombia">
+                        <div class="package-badge">Cultural</div>
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Bogotá - Capital Cultural</h3>
+                        <p class="package-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Bogotá, Cundinamarca, Colombia
+                        </p>
+                        <p class="package-description">
+                            Descubre la capital colombiana. Incluye tour por La Candelaria, Monserrate y museos.
+                        </p>
+                        <div class="package-details">
+                            <div class="package-duration">
+                                <i class="fas fa-clock"></i>
+                                2 días / 1 noche
+                            </div>
+                            <div class="package-price">
+                                <span class="price-currency">$</span>
+                                <span class="price-amount">850,000</span>
+                                <span class="price-period">por persona</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary package-btn" onclick="viewPackageDetails('bogota-2-dias')">
+                            Ver Detalles
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <!-- Packages Carousel (for many packages) -->
@@ -184,36 +427,71 @@
             </div>
 
             <!-- Pagination -->
-            <div class="pagination" id="packages-pagination" style="display: none;">
-                <button class="pagination-btn pagination-first">
+            <div class="pagination" id="packages-pagination">
+                <button class="pagination-btn pagination-first" onclick="goToPage(1)" disabled>
                     <i class="fas fa-angle-double-left"></i>
                 </button>
-                <button class="pagination-btn pagination-prev">
+                <button class="pagination-btn pagination-prev" onclick="goToPage(currentPage - 1)" disabled>
                     <i class="fas fa-angle-left"></i>
                 </button>
                 <div class="pagination-numbers" id="pagination-numbers">
-                    <!-- Pagination numbers will be generated here -->
+                    <button class="pagination-number active" onclick="goToPage(1)">1</button>
                 </div>
-                <button class="pagination-btn pagination-next">
+                <button class="pagination-btn pagination-next" onclick="goToPage(currentPage + 1)" disabled>
                     <i class="fas fa-angle-right"></i>
                 </button>
-                <button class="pagination-btn pagination-last">
+                <button class="pagination-btn pagination-last" onclick="goToPage(totalPages)" disabled>
                     <i class="fas fa-angle-double-right"></i>
                 </button>
             </div>
-            <p class="pagination-info" id="pagination-info">Página 1 de 1</p>
-        </section>
-
-        <!-- Question Section -->
-        <section class="question-section">
-            <h3 class="question-title">¿Tienes alguna duda?</h3>
-            <p class="question-subtitle">Nuestro equipo está aquí para ayudarte</p>
-            <button class="contact-btn">
-                <i class="fas fa-envelope"></i>
-                Contactar
-            </button>
+            <p class="pagination-info" id="pagination-info">Mostrando 6 paquetes</p>
         </section>
     </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Red de Agencias 360</h3>
+                    <p>Conectando agencias de viajes con viajeros de todo Colombia</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="paquetes.html">Paquetes</a></li>
+                        <li><a href="red-social.html">Red Social</a></li>
+                        <li><a href="mas-vendidos.html">Más Vendidos</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="#">API para Agencias</a></li>
+                        <li><a href="#">Documentación</a></li>
+                        <li><a href="#">Soporte</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-envelope"></i> info@redagencias360.com</p>
+                    <p><i class="fas fa-phone"></i> +57 (1) 234-5678</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Bogotá, Colombia</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Red de Agencias 360. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- Auth Modal -->
     <div id="auth-modal" class="auth-modal">
@@ -226,8 +504,129 @@
     <!-- JavaScript -->
     <script src="js/main.js"></script>
     <script src="js/auth.js"></script>
+    <script src="js/auth-system.js"></script>
+    <script src="js/api-tester.js"></script>
     <script src="js/api.js"></script>
     <script src="js/forms.js"></script>
-    <script src="js/packages-working.js"></script>
+    
+    <!-- JavaScript para funcionalidades de paquetes -->
+    <script>
+        let currentPage = 1;
+        let totalPages = 1;
+        let filteredPackages = [];
+
+        // Aplicar filtros
+        function applyFilters() {
+            const nameFilter = document.getElementById('name-filter').value.toLowerCase();
+            const countryFilter = document.getElementById('country-filter').value;
+            const departmentFilter = document.getElementById('department-filter').value;
+            const cityFilter = document.getElementById('city-filter').value;
+            const dateFrom = document.getElementById('date-from').value;
+            const dateTo = document.getElementById('date-to').value;
+
+            const packages = document.querySelectorAll('.package-card');
+            let visibleCount = 0;
+
+            packages.forEach(package => {
+                let show = true;
+
+                // Filtro por nombre
+                if (nameFilter) {
+                    const title = package.querySelector('.package-title').textContent.toLowerCase();
+                    if (!title.includes(nameFilter)) show = false;
+                }
+
+                // Filtro por ubicación jerárquica
+                if (countryFilter || departmentFilter || cityFilter) {
+                    const location = package.querySelector('.package-location').textContent.toLowerCase();
+                    let locationMatch = true;
+                    
+                    // Si hay filtro de país, debe coincidir
+                    if (countryFilter && !location.includes(countryFilter.toLowerCase())) {
+                        locationMatch = false;
+                    }
+                    
+                    // Si hay filtro de departamento, debe coincidir
+                    if (departmentFilter && !location.includes(departmentFilter.toLowerCase())) {
+                        locationMatch = false;
+                    }
+                    
+                    // Si hay filtro de ciudad, debe coincidir
+                    if (cityFilter && !location.includes(cityFilter.toLowerCase())) {
+                        locationMatch = false;
+                    }
+                    
+                    if (!locationMatch) show = false;
+                }
+
+                // Filtro por fechas (simulado - en una implementación real se conectaría con datos reales)
+                if (dateFrom || dateTo) {
+                    // Para demo, asumimos que todos los paquetes están disponibles
+                    // En una implementación real, aquí se verificarían las fechas de disponibilidad
+                    console.log('Filtro de fechas aplicado:', dateFrom, 'a', dateTo);
+                }
+
+                if (show) {
+                    package.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    package.style.display = 'none';
+                }
+            });
+
+            // Actualizar información de paginación
+            document.getElementById('pagination-info').textContent = `Mostrando ${visibleCount} paquetes`;
+        }
+
+        // Limpiar filtros
+        function clearFilters() {
+            document.getElementById('name-filter').value = '';
+            document.getElementById('country-filter').value = '';
+            document.getElementById('department-filter').value = '';
+            document.getElementById('city-filter').value = '';
+            document.getElementById('date-from').value = '';
+            document.getElementById('date-to').value = '';
+
+            // Mostrar todos los paquetes
+            const packages = document.querySelectorAll('.package-card');
+            packages.forEach(package => {
+                package.style.display = 'block';
+            });
+
+            document.getElementById('pagination-info').textContent = `Mostrando ${packages.length} paquetes`;
+        }
+
+        // Ver detalles del paquete
+        function viewPackageDetails(packageId) {
+            alert(`Ver detalles del paquete: ${packageId}`);
+            // Aquí se implementaría la lógica para mostrar los detalles del paquete
+        }
+
+        // Navegación de paginación
+        function goToPage(page) {
+            if (page < 1 || page > totalPages) return;
+            currentPage = page;
+            // Aquí se implementaría la lógica de paginación
+        }
+
+        // Detección automática de modo oscuro/claro
+        function detectSystemTheme() {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                return 'dark';
+            }
+            return 'light';
+        }
+
+        function applyTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const systemTheme = detectSystemTheme();
+            const theme = savedTheme || systemTheme;
+            
+            document.documentElement.setAttribute('data-theme', theme);
+        }
+
+        // Aplicar tema al cargar la página
+        document.addEventListener('DOMContentLoaded', applyTheme);
+    </script>
 </body>
 </html>

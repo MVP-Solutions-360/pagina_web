@@ -3,8 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Red de Agencias 360 - La Primera Red Social de Agencias de Viajes</title>
-    <meta name="description" content="Conecta con las mejores agencias de viajes de Colombia. Descubre paquetes únicos, interactúa con otras agencias y encuentra tu próxima aventura en Red de Agencias 360.">
+    
+    <!-- SEO Meta Tags -->
+    <title>Red de Agencias 360 - La Primera Red Social de Agencias de Viajes en Colombia</title>
+    <meta name="description" content="Conecta con las mejores agencias de viajes de Colombia. Descubre paquetes únicos, interactúa con otras agencias y encuentra tu próxima aventura en Red de Agencias 360. Plataforma líder en turismo colombiano.">
+    <meta name="keywords" content="agencias de viajes, turismo Colombia, paquetes turísticos, red social viajes, destinos Colombia, Medellín, San Andrés, Cartagena, Madrid, Punta Cana">
+    <meta name="author" content="Red de Agencias 360">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://redagencias360.com/">
+    <meta property="og:title" content="Red de Agencias 360 - La Primera Red Social de Agencias de Viajes">
+    <meta property="og:description" content="Conecta con las mejores agencias de viajes de Colombia. Descubre paquetes únicos y encuentra tu próxima aventura.">
+    <meta property="og:image" content="https://redagencias360.com/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Red de Agencias 360">
+    <meta property="og:locale" content="es_CO">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://redagencias360.com/">
+    <meta property="twitter:title" content="Red de Agencias 360 - La Primera Red Social de Agencias de Viajes">
+    <meta property="twitter:description" content="Conecta con las mejores agencias de viajes de Colombia. Descubre paquetes únicos y encuentra tu próxima aventura.">
+    <meta property="twitter:image" content="https://redagencias360.com/images/twitter-image.jpg">
+    
+    <!-- Additional SEO -->
+    <meta name="theme-color" content="#2563eb">
+    <meta name="msapplication-TileColor" content="#2563eb">
+    <meta name="application-name" content="Red de Agencias 360">
+    <meta name="apple-mobile-web-app-title" content="Red Agencias 360">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://redagencias360.com/">
+    
+    <!-- Language -->
+    <meta http-equiv="content-language" content="es-CO">
+    
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="CO">
+    <meta name="geo.country" content="Colombia">
+    <meta name="geo.placename" content="Bogotá">
+    <meta name="ICBM" content="4.6097, -74.0817">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
@@ -19,47 +63,131 @@
     <link rel="stylesheet" href="css/auth-modal.css">
     <link rel="stylesheet" href="css/images.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/carousel.css">
     
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Red de Agencias 360",
+        "alternateName": "Red Agencias 360",
+        "url": "https://redagencias360.com",
+        "logo": "https://redagencias360.com/images/logo.png",
+        "description": "La primera red social de agencias de viajes en Colombia. Conectamos agencias de viajes con viajeros para ofrecer experiencias únicas.",
+        "foundingDate": "2025",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bogotá",
+            "addressCountry": "CO"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+57-1-234-5678",
+            "contactType": "customer service",
+            "email": "info@redagencias360.com"
+        },
+        "sameAs": [
+            "https://www.facebook.com/redagencias360",
+            "https://www.instagram.com/redagencias360",
+            "https://www.twitter.com/redagencias360",
+            "https://www.linkedin.com/company/redagencias360"
+        ],
+        "serviceType": "Travel Agency Network",
+        "areaServed": "Colombia",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Paquetes Turísticos",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "TouristTrip",
+                        "name": "Paquetes a Medellín",
+                        "description": "Descubre la ciudad de la eterna primavera"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "TouristTrip",
+                        "name": "Paquetes a San Andrés",
+                        "description": "Paraíso caribeño colombiano"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "TouristTrip",
+                        "name": "Paquetes a Cartagena",
+                        "description": "Ciudad amurallada patrimonio de la humanidad"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
+    
+    <!-- Website Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Red de Agencias 360",
+        "url": "https://redagencias360.com",
+        "description": "Plataforma líder en turismo colombiano que conecta agencias de viajes con viajeros",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Red de Agencias 360"
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://redagencias360.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
 </head>
 <body>
     <!-- Header -->
-    <header class="header" id="header">
-        <nav class="navbar">
+    <header class="header" id="header" role="banner">
+        <nav class="navbar" role="navigation" aria-label="Navegación principal">
             <div class="nav-container">
-                <a href="index.html" class="nav-brand">
-                    <i class="fas fa-globe"></i>
+                <a href="index.html" class="nav-brand" aria-label="Red de Agencias 360 - Página de inicio">
+                    <i class="fas fa-globe" aria-hidden="true"></i>
                     <span>Red de Agencias 360</span>
                 </a>
                 
-                <div class="nav-menu">
-                    <a href="index.html" class="nav-link active">
-                        <i class="fas fa-home"></i>
-                        Inicio
+                <div class="nav-menu" role="menubar">
+                    <a href="index.html" class="nav-link active" role="menuitem" aria-current="page">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                        <span>Inicio</span>
                     </a>
-                    <a href="paquetes-destacados-nuevos.html" class="nav-link protected-link">
-                        <i class="fas fa-suitcase"></i>
-                        Paquetes
+                    <a href="packages.html" class="nav-link" role="menuitem">
+                        <i class="fas fa-suitcase" aria-hidden="true"></i>
+                        <span>Paquetes</span>
                     </a>
-                    <a href="muro-agencias.html" class="nav-link protected-link">
-                        <i class="fas fa-building"></i>
-                        Agencias
+                    <a href="red-social.html" class="nav-link" role="menuitem">
+                        <i class="fas fa-users" aria-hidden="true"></i>
+                        <span>Red Social</span>
                     </a>
-                    <a href="packages.html" class="nav-link">
-                        <i class="fas fa-chart-line"></i>
-                        Estadísticas
+                    <a href="mas-vendidos.html" class="nav-link" role="menuitem">
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <span>Más Vendidos</span>
                     </a>
-                    <a href="packages.html" class="nav-link">
-                        <i class="fas fa-newspaper"></i>
-                        Blog
+                    <a href="blog.html" class="nav-link" role="menuitem">
+                        <i class="fas fa-newspaper" aria-hidden="true"></i>
+                        <span>Blog</span>
                     </a>
-                    <a href="packages.html" class="nav-link">
-                        <i class="fas fa-envelope"></i>
-                        Contacto
+                    <a href="contacto.html" class="nav-link" role="menuitem">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <span>Contacto</span>
                     </a>
                 </div>
                 
@@ -107,19 +235,74 @@
                     </div>
                 </div>
                 
-                <h1 class="hero-title">
-                    DISCOVER
+                <h1 class="hero-title" style="color: #2563eb; font-size: 3.5rem; font-weight: 700; margin-bottom: 1rem;">
+                    Red de Agencias 360
                 </h1>
-                <h2 class="hero-title">
-                    AMAZING PLACES
-                </h2>
-                <p class="hero-subtitle">
-                    Explore the world with us
+                <p class="hero-subtitle" style="font-size: 1.25rem; color: #64748b; max-width: 600px; margin: 0 auto 2rem;">
+                    Esta plataforma conecta agencias de viajes con viajeros para ofrecer experiencias únicas
                 </p>
                 <div class="hero-buttons">
-                    <a href="paquetes-destacados.html" class="hero-btn hero-btn-primary">
+                    <a href="packages.html" class="hero-btn hero-btn-primary">
                         Get Started
                     </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Carrusel de Imágenes Infinitas -->
+        <section class="destinations-carousel" aria-label="Carrusel de destinos turísticos">
+            <div class="carousel-container">
+                <div class="carousel-track" id="carousel-track" role="region" aria-live="polite" aria-label="Carrusel de destinos">
+                    <div class="carousel-slide active" role="group" aria-label="Medellín - La ciudad de la eterna primavera">
+                        <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Vista panorámica de Medellín, Colombia - La ciudad de la eterna primavera con montañas verdes y arquitectura moderna">
+                        <div class="slide-overlay">
+                            <h3>Medellín</h3>
+                            <p>La ciudad de la eterna primavera</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" role="group" aria-label="San Andrés - Paraíso caribeño colombiano">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Playa paradisíaca de San Andrés, Colombia - Aguas cristalinas del Caribe con palmeras">
+                        <div class="slide-overlay">
+                            <h3>San Andrés</h3>
+                            <p>Paraíso caribeño colombiano</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" role="group" aria-label="Punta Cana - Caribe dominicano">
+                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Resort de lujo en Punta Cana, República Dominicana - Playa de arena blanca y aguas turquesas">
+                        <div class="slide-overlay">
+                            <h3>Punta Cana</h3>
+                            <p>Caribe dominicano</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" role="group" aria-label="Madrid - Capital de España">
+                        <img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Vista aérea de Madrid, España - Arquitectura histórica y moderna de la capital española">
+                        <div class="slide-overlay">
+                            <h3>Madrid</h3>
+                            <p>Capital de España</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" role="group" aria-label="Cartagena - Ciudad amurallada">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Ciudad amurallada de Cartagena, Colombia - Patrimonio de la humanidad con arquitectura colonial">
+                        <div class="slide-overlay">
+                            <h3>Cartagena</h3>
+                            <p>Ciudad amurallada</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-prev" onclick="previousSlide()" aria-label="Imagen anterior" title="Ver imagen anterior">
+                        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <button class="carousel-next" onclick="nextSlide()" aria-label="Imagen siguiente" title="Ver imagen siguiente">
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="carousel-indicators" role="tablist" aria-label="Seleccionar imagen del carrusel">
+                    <button class="indicator active" onclick="currentSlide(1)" role="tab" aria-label="Medellín" aria-selected="true" title="Ver imagen de Medellín"></button>
+                    <button class="indicator" onclick="currentSlide(2)" role="tab" aria-label="San Andrés" aria-selected="false" title="Ver imagen de San Andrés"></button>
+                    <button class="indicator" onclick="currentSlide(3)" role="tab" aria-label="Punta Cana" aria-selected="false" title="Ver imagen de Punta Cana"></button>
+                    <button class="indicator" onclick="currentSlide(4)" role="tab" aria-label="Madrid" aria-selected="false" title="Ver imagen de Madrid"></button>
+                    <button class="indicator" onclick="currentSlide(5)" role="tab" aria-label="Cartagena" aria-selected="false" title="Ver imagen de Cartagena"></button>
                 </div>
             </div>
         </section>
@@ -131,58 +314,41 @@
                     <h2>¿Por qué elegir Red de Agencias 360?</h2>
                     <p>Conectamos agencias de viajes con viajeros de todo Colombia</p>
                 </div>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">
+                <div class="features-grid" role="list" aria-label="Opciones de la plataforma">
+                    <div class="feature-card" data-section="paquetes" onclick="navigateToSection('paquetes')" role="listitem" tabindex="0" aria-label="Paquetes Turísticos - Descubre los mejores destinos y experiencias">
+                        <div class="card-icon" aria-hidden="true">
+                            <i class="fas fa-suitcase"></i>
+                        </div>
+                        <h3>Paquetes Turísticos</h3>
+                        <p>Descubre los mejores destinos y experiencias</p>
+                        <a href="packages.html" class="card-link" aria-label="Explorar paquetes turísticos">Explorar</a>
+                    </div>
+                    
+                    <div class="feature-card" data-section="red-social" onclick="navigateToSection('red-social')" role="listitem" tabindex="0" aria-label="Red Social - Conecta con otras agencias y viajeros">
+                        <div class="card-icon" aria-hidden="true">
                             <i class="fas fa-users"></i>
                         </div>
-                        <h3 class="service-title">Red Social</h3>
-                        <p class="service-description">Interactúa con otras agencias, comparte experiencias y construye una red profesional sólida.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Perfiles de agencias verificadas</li>
-                            <li><i class="fas fa-check"></i> Sistema de calificaciones</li>
-                            <li><i class="fas fa-check"></i> Chat en tiempo real</li>
-                        </ul>
-                        <a href="muro-agencias.html" class="service-btn">Explorar Red</a>
+                        <h3>Red Social</h3>
+                        <p>Conecta con otras agencias y viajeros</p>
+                        <a href="red-social.html" class="card-link" aria-label="Conectar con la red social">Conectar</a>
                     </div>
-                    <div class="service-card">
-                        <div class="service-icon">
+                    
+                    <div class="feature-card" data-section="mas-vendidos" onclick="navigateToSection('mas-vendidos')" role="listitem" tabindex="0" aria-label="Lo Más Vendido - Los destinos más populares del momento">
+                        <div class="card-icon" aria-hidden="true">
                             <i class="fas fa-star"></i>
                         </div>
-                        <h3 class="service-title">Paquetes Verificados</h3>
-                        <p class="service-description">Todos nuestros paquetes son de agencias verificadas con excelente reputación y calidad garantizada.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Verificación de calidad</li>
-                            <li><i class="fas fa-check"></i> Precios competitivos</li>
-                            <li><i class="fas fa-check"></i> Garantía de satisfacción</li>
-                        </ul>
-                        <a href="paquetes-destacados.html" class="service-btn">Ver Paquetes</a>
+                        <h3>Lo Más Vendido</h3>
+                        <p>Los destinos más populares del momento</p>
+                        <a href="mas-vendidos.html" class="card-link" aria-label="Ver destinos más vendidos">Ver Top</a>
                     </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-chart-line"></i>
+                    
+                    <div class="feature-card" data-section="blog" onclick="navigateToSection('blog')" role="listitem" tabindex="0" aria-label="Blog - Consejos y conceptos para asesores">
+                        <div class="card-icon" aria-hidden="true">
+                            <i class="fas fa-newspaper"></i>
                         </div>
-                        <h3 class="service-title">Estadísticas en Tiempo Real</h3>
-                        <p class="service-description">Mantente al día con las tendencias del mercado y los destinos más populares.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Tendencias del mercado</li>
-                            <li><i class="fas fa-check"></i> Destinos populares</li>
-                            <li><i class="fas fa-check"></i> Análisis de precios</li>
-                        </ul>
-                        <a href="packages.html" class="service-btn">Ver Estadísticas</a>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3 class="service-title">Seguridad y Confianza</h3>
-                        <p class="service-description">Sistema de calificaciones y comentarios para garantizar la mejor experiencia de viaje.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Sistema de calificaciones</li>
-                            <li><i class="fas fa-check"></i> Comentarios verificados</li>
-                            <li><i class="fas fa-check"></i> Soporte 24/7</li>
-                        </ul>
-                        <a href="packages.html" class="service-btn">Más Información</a>
+                        <h3>Blog</h3>
+                        <p>Consejos y conceptos para asesores</p>
+                        <a href="blog.html" class="card-link" aria-label="Leer artículos del blog">Leer</a>
                     </div>
                 </div>
             </div>
@@ -218,13 +384,61 @@
                 <div class="cta-content">
                     <h2>¿Eres una agencia de viajes?</h2>
                     <p>Únete a nuestra red y conecta con miles de viajeros en busca de experiencias únicas</p>
-                    <a href="packages.html" class="btn btn-primary">
+                    <button class="btn btn-primary" onclick="openAgencyForm()">
                         <i class="fas fa-handshake"></i>
                         Únete Ahora
-                    </a>
+                    </button>
                 </div>
             </div>
         </section>
+
+        <!-- Modal de Formulario de Agencia -->
+        <div id="agency-form-modal" class="modal" style="display: none;" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+            <div class="modal-content">
+                <button class="close" onclick="closeAgencyForm()" aria-label="Cerrar formulario de registro">&times;</button>
+                <h3 id="modal-title">Registro de Agencia</h3>
+                <form id="agency-registration-form" role="form" aria-label="Formulario de registro de agencia">
+                    <div class="form-group">
+                        <label for="agency-name">Nombre de la Agencia *</label>
+                        <input type="text" id="agency-name" name="agency_name" required aria-required="true" aria-describedby="agency-name-help">
+                        <small id="agency-name-help" class="form-help">Ingrese el nombre completo de su agencia de viajes</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="agency-nit">NIT *</label>
+                        <input type="text" id="agency-nit" name="agency_nit" required aria-required="true" aria-describedby="agency-nit-help" pattern="[0-9]{9}-[0-9]">
+                        <small id="agency-nit-help" class="form-help">Formato: 123456789-0</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-name">Nombre de la Persona de Contacto *</label>
+                        <input type="text" id="contact-name" name="contact_name" required aria-required="true" aria-describedby="contact-name-help">
+                        <small id="contact-name-help" class="form-help">Nombre completo de la persona responsable</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-phone">Teléfono *</label>
+                        <input type="tel" id="contact-phone" name="contact_phone" required aria-required="true" aria-describedby="contact-phone-help" pattern="[0-9]{10}">
+                        <small id="contact-phone-help" class="form-help">Número de 10 dígitos sin espacios</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-email">Correo Electrónico *</label>
+                        <input type="email" id="contact-email" name="contact_email" required aria-required="true" aria-describedby="contact-email-help">
+                        <small id="contact-email-help" class="form-help">Correo electrónico válido para contacto</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="observations">Observaciones</label>
+                        <textarea id="observations" name="observations" rows="4" aria-describedby="observations-help"></textarea>
+                        <small id="observations-help" class="form-help">Información adicional sobre su agencia (opcional)</small>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" aria-describedby="submit-help">Enviar Solicitud</button>
+                    <small id="submit-help" class="form-help">Al enviar, nos pondremos en contacto contigo en las próximas 24 horas</small>
+                </form>
+            </div>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -244,10 +458,10 @@
                 <div class="footer-section">
                     <h4>Enlaces Rápidos</h4>
                     <ul>
-                        <li><a href="paquetes-destacados.html">Paquetes</a></li>
-                        <li><a href="muro-agencias.html">Agencias</a></li>
-                        <li><a href="packages.html">Estadísticas</a></li>
-                        <li><a href="packages.html">Blog</a></li>
+                        <li><a href="packages.html">Paquetes</a></li>
+                        <li><a href="red-social.html">Red Social</a></li>
+                        <li><a href="mas-vendidos.html">Más Vendidos</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -279,5 +493,115 @@
     <script src="js/api-tester.js"></script>
     <script src="js/api.js"></script>
     <script src="js/forms.js"></script>
+    
+    <!-- JavaScript para funcionalidades específicas -->
+    <script>
+        // Carrusel de destinos
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.indicator');
+        const totalSlides = slides.length;
+
+        // Auto-play del carrusel
+        function autoPlay() {
+            nextSlide();
+        }
+
+        // Cambiar a la siguiente slide
+        function nextSlide() {
+            slides[currentSlideIndex].classList.remove('active');
+            indicators[currentSlideIndex].classList.remove('active');
+            
+            currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+            
+            slides[currentSlideIndex].classList.add('active');
+            indicators[currentSlideIndex].classList.add('active');
+        }
+
+        // Cambiar a la slide anterior
+        function previousSlide() {
+            slides[currentSlideIndex].classList.remove('active');
+            indicators[currentSlideIndex].classList.remove('active');
+            
+            currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
+            
+            slides[currentSlideIndex].classList.add('active');
+            indicators[currentSlideIndex].classList.add('active');
+        }
+
+        // Ir a una slide específica
+        function currentSlide(n) {
+            slides[currentSlideIndex].classList.remove('active');
+            indicators[currentSlideIndex].classList.remove('active');
+            
+            currentSlideIndex = n - 1;
+            
+            slides[currentSlideIndex].classList.add('active');
+            indicators[currentSlideIndex].classList.add('active');
+        }
+
+        // Iniciar auto-play
+        setInterval(autoPlay, 5000);
+
+        // Funciones para el formulario de agencias
+        function openAgencyForm() {
+            document.getElementById('agency-form-modal').style.display = 'block';
+        }
+
+        function closeAgencyForm() {
+            document.getElementById('agency-form-modal').style.display = 'none';
+        }
+
+        // Cerrar modal al hacer clic fuera
+        window.onclick = function(event) {
+            const modal = document.getElementById('agency-form-modal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Navegación de cards
+        function navigateToSection(section) {
+            // Esta función se puede expandir para animaciones o scroll
+            console.log('Navegando a sección:', section);
+        }
+
+        // Detección automática de modo oscuro/claro
+        function detectSystemTheme() {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                return 'dark';
+            }
+            return 'light';
+        }
+
+        function applyTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const systemTheme = detectSystemTheme();
+            const theme = savedTheme || systemTheme;
+            
+            document.documentElement.setAttribute('data-theme', theme);
+        }
+
+        // Aplicar tema al cargar la página
+        document.addEventListener('DOMContentLoaded', applyTheme);
+
+        // Manejo del formulario de registro
+        document.getElementById('agency-registration-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Aquí se enviaría la data a la API
+            console.log('Datos del formulario:', data);
+            
+            // Mostrar mensaje de éxito
+            alert('¡Solicitud enviada correctamente! Nos pondremos en contacto contigo pronto.');
+            
+            // Cerrar modal y limpiar formulario
+            closeAgencyForm();
+            this.reset();
+        });
+    </script>
 </body>
 </html>
