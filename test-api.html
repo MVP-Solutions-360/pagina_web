@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de API - Red de Agencias 360</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-section h3 {
+            color: #333;
+            margin-top: 0;
+        }
+        .result {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background: #0056b3; }
+        input {
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            width: 300px;
+        }
+        .url-list {
+            list-style: none;
+            padding: 0;
+        }
+        .url-list li {
+            padding: 5px;
+            margin: 2px 0;
+            background: #f8f9fa;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Test de API - Red de Agencias 360</h1>
+        <p>Herramienta para diagnosticar la conectividad con la API del CRM</p>
+
+        <div class="test-section">
+            <h3>1. Información del Usuario de Prueba</h3>
+            <div class="result info">
+Email: maicol.londono@mvpsolutions.com
+Password: [Ingresa la contraseña para probar]
+            </div>
+            <input type="password" id="test-password" placeholder="Contraseña de prueba">
+            <button onclick="updateTestUser()">Actualizar Contraseña</button>
+        </div>
+
+        <div class="test-section">
+            <h3>2. URLs que se van a probar</h3>
+            <ul class="url-list">
+                <li>https://mvpsolutions365.com/api/v1/api/login</li>
+                <li>https://mvpsolutions365.com/api/login</li>
+                <li>https://mvpsolutions365.com/api/v1/login</li>
+                <li>https://mvpsolutions365.com/login</li>
+                <li>https://www.mvpsolutions365.com/api/v1/api/login</li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h3>3. Pruebas de Conectividad</h3>
+            <button onclick="testBasicConnectivity()">Probar Conectividad Básica</button>
+            <button onclick="testAllEndpoints()">Probar Todos los Endpoints</button>
+            <button onclick="testLoginWithUser()">Probar Login con Usuario</button>
+            <button onclick="clearResults()">Limpiar Resultados</button>
+        </div>
+
+        <div class="test-section">
+            <h3>4. Resultados</h3>
+            <div id="results"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>5. Comandos para Probar Manualmente</h3>
+            <div class="result info" id="curl-commands">
+                Ejecuta las pruebas para ver los comandos curl
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let testUser = {
+            email: 'maicol.londono@mvpsolutions.com',
+            password: ''
+        };
+
+        function updateTestUser() {
+            testUser.password = document.getElementById('test-password').value;
+            console.log('Usuario de prueba actualizado:', testUser);
+        }
+
+        function addResult(message, type = 'info') {
+            const resultsDiv = document.getElementById('results');
+            const resultDiv = document.createElement('div');
+            resultDiv.className = `result ${type}`;
+            resultDiv.textContent = message;
+            resultsDiv.appendChild(resultDiv);
+            resultsDiv.scrollTop = resultsDiv.scrollHeight;
+        }
+
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+        }
+
+        async function testBasicConnectivity() {
+            addResult('🔍 Probando conectividad básica...', 'info');
+            
+            const baseUrls = [
+                'https://mvpsolutions365.com',
+                'https://www.mvpsolutions365.com'
+            ];
+
+            for (const url of baseUrls) {
+                try {
+                    const response = await fetch(url, { method: 'GET', mode: 'no-cors' });
+                    addResult(`✅ ${url} - Accesible`, 'success');
+                } catch (error) {
+                    addResult(`❌ ${url} - Error: ${error.message}`, 'error');
+                }
+            }
+        }
+
+        async function testAllEndpoints() {
+            addResult('🔍 Probando todos los endpoints...', 'info');
+            
+            const endpoints = [
+                '/api/v1/api/login',
+                '/api/login',
+                '/api/v1/login',
+                '/login',
+                '/api/v1/api/check',
+                '/api/check',
+                '/api/v1/check'
+            ];
+
+            const baseUrls = [
+                'https://mvpsolutions365.com',
+                'https://www.mvpsolutions365.com'
+            ];
+
+            for (const baseUrl of baseUrls) {
+                addResult(`\nProbando base URL: ${baseUrl}`, 'info');
+                
+                for (const endpoint of endpoints) {
+                    const fullUrl = baseUrl + endpoint;
+                    
+                    try {
+                        // Probar GET primero
+                        const getResponse = await fetch(fullUrl, {
+                            method: 'GET',
+                            headers: { 'Accept': 'application/json' }
+                        });
+                        
+                        if (getResponse.ok) {
+                            addResult(`✅ GET ${fullUrl} - Status: ${getResponse.status}`, 'success');
+                        } else {
+                            addResult(`❌ GET ${fullUrl} - Status: ${getResponse.status}`, 'error');
+                        }
+                        
+                        // Probar POST para endpoints de login
+                        if (endpoint.includes('login')) {
+                            const postResponse = await fetch(fullUrl, {
+                                method: 'POST',
+                                headers: {
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(testUser)
+                            });
+                            
+                            if (postResponse.ok) {
+                                addResult(`✅ POST ${fullUrl} - Status: ${postResponse.status}`, 'success');
+                            } else {
+                                addResult(`❌ POST ${fullUrl} - Status: ${postResponse.status}`, 'error');
+                            }
+                        }
+                        
+                    } catch (error) {
+                        addResult(`❌ ${fullUrl} - Error: ${error.message}`, 'error');
+                    }
+                }
+            }
+        }
+
+        async function testLoginWithUser() {
+            if (!testUser.password) {
+                addResult('❌ Por favor ingresa la contraseña primero', 'error');
+                return;
+            }
+
+            addResult('🔍 Probando login con usuario real...', 'info');
+            
+            const loginUrls = [
+                'https://mvpsolutions365.com/api/v1/api/login',
+                'https://mvpsolutions365.com/api/login',
+                'https://mvpsolutions365.com/api/v1/login',
+                'https://www.mvpsolutions365.com/api/v1/api/login'
+            ];
+
+            for (const url of loginUrls) {
+                try {
+                    addResult(`Probando: ${url}`, 'info');
+                    
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(testUser)
+                    });
+
+                    const responseText = await response.text();
+                    
+                    if (response.ok) {
+                        addResult(`✅ LOGIN EXITOSO en ${url}`, 'success');
+                        addResult(`Respuesta: ${responseText}`, 'success');
+                        
+                        // Generar comandos curl
+                        generateCurlCommands(url);
+                        return;
+                    } else {
+                        addResult(`❌ ${url} - Status: ${response.status}`, 'error');
+                        addResult(`Error: ${responseText}`, 'error');
+                    }
+                    
+                } catch (error) {
+                    addResult(`❌ ${url} - Error: ${error.message}`, 'error');
+                    
+                    if (error.message.includes('CORS')) {
+                        addResult('💡 Posible problema de CORS - El servidor necesita configurar CORS', 'info');
+                    }
+                }
+            }
+        }
+
+        function generateCurlCommands(workingUrl) {
+            const curlCommand = `curl -X POST "${workingUrl}" \\
+  -H "Content-Type: application/json" \\
+  -H "Accept: application/json" \\
+  -d '{"email":"${testUser.email}","password":"${testUser.password}"}'`;
+
+            document.getElementById('curl-commands').textContent = curlCommand;
+        }
+
+        // Ejecutar prueba básica al cargar
+        window.addEventListener('load', () => {
+            addResult('🚀 Herramienta de test cargada. Ingresa la contraseña y haz clic en "Probar Login con Usuario"', 'info');
+        });
+    </script>
+</body>
+</html>
