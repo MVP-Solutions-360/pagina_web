@@ -3,7 +3,7 @@
 
 class AuthSystem {
     constructor() {
-        this.baseUrl = 'http://127.0.0.1:8000/api/v1';
+        this.baseUrl = 'https://mvpsolutions365.com/api/v1';
         this.token = localStorage.getItem('auth_token');
         this.user = JSON.parse(localStorage.getItem('user_data') || 'null');
         this.isAuthenticated = false;

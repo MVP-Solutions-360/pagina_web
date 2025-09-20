@@ -4,7 +4,7 @@
 
 // Configuración de la API
 const API_CONFIG = {
-    baseUrl: 'http://127.0.0.1:8000/api/v1',
+    baseUrl: 'https://mvpsolutions365.com/api/v1',
     endpoints: {
         login: '/auth/login',
         clientLogin: '/client/login',

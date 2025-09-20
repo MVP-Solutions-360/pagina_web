@@ -26,7 +26,7 @@ const PROJECT_CONFIG = {
 
     // ===== CONFIGURACIÓN DE LA API =====
     api: {
-        baseURL: 'http://localhost:8000/api/v1', // URL para desarrollo local (Laravel)
+        baseURL: 'https://mvpsolutions365.com/api/v1', // URL para servidor de producción
         timeout: 30000,
         retryAttempts: 3,
         agencySlug: 'agencia-principal', // Agregar el agencySlug que falta

@@ -1,6 +1,6 @@
 // ===== CONFIGURACIÓN DE LA API =====
 const API_CONFIG = {
-    baseURL: window.PROJECT_CONFIG?.api?.baseURL || 'http://localhost:8000/api/v1', // Usar config.js o fallback local
+    baseURL: window.PROJECT_CONFIG?.api?.baseURL || 'https://mvpsolutions365.com/api/v1', // Usar config.js o fallback servidor
     timeout: window.PROJECT_CONFIG?.api?.timeout || 30000,
     headers: {
         'Content-Type': 'application/json',
