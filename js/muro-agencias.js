@@ -165,10 +165,13 @@ class MuroAgencias {
             this.filterPosts();
         });
 
-        document.getElementById('date-filter').addEventListener('change', (e) => {
-            this.currentFilters.date = e.target.value;
-            this.filterPosts();
-        });
+        const dateFilter = document.getElementById('date-filter');
+        if (dateFilter) {
+            dateFilter.addEventListener('change', (e) => {
+                this.currentFilters.date = e.target.value;
+                this.filterPosts();
+            });
+        }
 
         // Nueva publicación
         document.getElementById('new-post-btn').addEventListener('click', () => {

@@ -113,28 +113,28 @@ class SocialFeed {
         this.setupPackageInteractions();
     }
 
-    renderPackageCard(package) {
-        const agency = socialData.getAgencyById(package.agencyId);
-        const isLiked = this.currentUser ? socialData.isLikedByUser(package.id, this.currentUser.id) : false;
-        const comments = socialData.getComments(package.id);
-        const discount = package.originalPrice ? Math.round(((package.originalPrice - package.price) / package.originalPrice) * 100) : 0;
+    renderPackageCard(packageItem) {
+        const agency = socialData.getAgencyById(packageItem.agencyId);
+        const isLiked = this.currentUser ? socialData.isLikedByUser(packageItem.id, this.currentUser.id) : false;
+        const comments = socialData.getComments(packageItem.id);
+        const discount = packageItem.originalPrice ? Math.round(((packageItem.originalPrice - packageItem.price) / packageItem.originalPrice) * 100) : 0;
 
         return `
-            <div class="package-card" data-package-id="${package.id}">
+            <div class="package-card" data-package-id="${packageItem.id}">
                 <div class="package-image-container">
-                    <img src="${package.images[0]}" alt="${package.title}" class="package-image">
-                    ${package.featured ? '<div class="featured-badge">⭐ Destacado</div>' : ''}
+                    <img src="${packageItem.images[0]}" alt="${packageItem.title}" class="package-image">
+                    ${packageItem.featured ? '<div class="featured-badge">⭐ Destacado</div>' : ''}
                     ${discount > 0 ? `<div class="discount-badge">-${discount}%</div>` : ''}
                     <div class="package-overlay">
-                        <button class="btn-like ${isLiked ? 'liked' : ''}" data-package-id="${package.id}">
+                        <button class="btn-like ${isLiked ? 'liked' : ''}" data-package-id="${packageItem.id}">
                             <i class="fas fa-heart"></i>
-                            <span class="like-count">${package.likes}</span>
+                            <span class="like-count">${packageItem.likes}</span>
                         </button>
-                        <button class="btn-comment" data-package-id="${package.id}">
+                        <button class="btn-comment" data-package-id="${packageItem.id}">
                             <i class="fas fa-comment"></i>
-                            <span class="comment-count">${package.comments}</span>
+                            <span class="comment-count">${packageItem.comments}</span>
                         </button>
-                        <button class="btn-share" data-package-id="${package.id}">
+                        <button class="btn-share" data-package-id="${packageItem.id}">
                             <i class="fas fa-share"></i>
                         </button>
                     </div>
@@ -156,53 +156,53 @@ class SocialFeed {
                         ${agency.verified ? '<span class="verified-badge">✓ Verificada</span>' : ''}
                     </div>
 
-                    <h3 class="package-title">${package.title}</h3>
-                    <p class="package-route">${package.origin} → ${package.destination}</p>
-                    <p class="package-description">${package.description}</p>
+                    <h3 class="package-title">${packageItem.title}</h3>
+                    <p class="package-route">${packageItem.origin} → ${packageItem.destination}</p>
+                    <p class="package-description">${packageItem.description}</p>
                     
                     <div class="package-tags">
-                        ${package.tags.map(tag => `<span class="tag">#${tag}</span>`).join('')}
+                        ${packageItem.tags.map(tag => `<span class="tag">#${tag}</span>`).join('')}
                     </div>
 
                     <div class="package-details">
                         <div class="detail-item">
                             <i class="fas fa-calendar"></i>
-                            <span>${package.duration} días</span>
+                            <span>${packageItem.duration} días</span>
                         </div>
                         <div class="detail-item">
                             <i class="fas fa-users"></i>
-                            <span>${package.availability} disponibles</span>
+                            <span>${packageItem.availability} disponibles</span>
                         </div>
                         <div class="detail-item">
                             <i class="fas fa-eye"></i>
-                            <span>${package.views} vistas</span>
+                            <span>${packageItem.views} vistas</span>
                         </div>
                     </div>
 
                     <div class="package-pricing">
                         <div class="price-container">
-                            <span class="current-price">$${this.formatPrice(package.price)}</span>
-                            ${package.originalPrice ? `<span class="original-price">$${this.formatPrice(package.originalPrice)}</span>` : ''}
+                            <span class="current-price">$${this.formatPrice(packageItem.price)}</span>
+                            ${packageItem.originalPrice ? `<span class="original-price">$${this.formatPrice(packageItem.originalPrice)}</span>` : ''}
                         </div>
                         <div class="price-per-person">por persona</div>
                     </div>
 
                     <div class="package-actions">
-                        <button class="btn-primary btn-quote" data-package-id="${package.id}">
+                        <button class="btn-primary btn-quote" data-package-id="${packageItem.id}">
                             <i class="fas fa-paper-plane"></i>
                             Solicitar Cotización
                         </button>
-                        <button class="btn-secondary btn-details" data-package-id="${package.id}">
+                        <button class="btn-secondary btn-details" data-package-id="${packageItem.id}">
                             <i class="fas fa-info-circle"></i>
                             Ver Detalles
                         </button>
                     </div>
                 </div>
 
-                <div class="package-comments" id="comments-${package.id}" style="display: none;">
+                <div class="package-comments" id="comments-${packageItem.id}" style="display: none;">
                     <div class="comments-header">
-                        <h4>Comentarios (${package.comments})</h4>
-                        <button class="btn-close-comments" data-package-id="${package.id}">
+                        <h4>Comentarios (${packageItem.comments})</h4>
+                        <button class="btn-close-comments" data-package-id="${packageItem.id}">
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
@@ -210,8 +210,8 @@ class SocialFeed {
                         ${comments.map(comment => this.renderComment(comment)).join('')}
                     </div>
                     <div class="comment-form">
-                        <input type="text" placeholder="Escribe un comentario..." class="comment-input" data-package-id="${package.id}">
-                        <button class="btn-send-comment" data-package-id="${package.id}">
+                        <input type="text" placeholder="Escribe un comentario..." class="comment-input" data-package-id="${packageItem.id}">
+                        <button class="btn-send-comment" data-package-id="${packageItem.id}">
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </div>
@@ -306,7 +306,7 @@ class SocialFeed {
 
         // Actualizar contador
         const package = socialData.getPackageById(packageId);
-        likeCount.textContent = package.likes;
+        likeCount.textContent = packageItem.likes;
 
         // Animación
         likeBtn.style.transform = 'scale(1.2)';
@@ -355,7 +355,7 @@ class SocialFeed {
             // Actualizar contador
             const commentBtn = document.querySelector(`[data-package-id="${packageId}"].btn-comment .comment-count`);
             const package = socialData.getPackageById(packageId);
-            commentBtn.textContent = package.comments;
+            commentBtn.textContent = packageItem.comments;
             
             // Limpiar input
             commentInput.value = '';
@@ -366,7 +366,7 @@ class SocialFeed {
 
     showQuoteModal(packageId) {
         const package = socialData.getPackageById(packageId);
-        const agency = socialData.getAgencyById(package.agencyId);
+        const agency = socialData.getAgencyById(packageItem.agencyId);
         
         const modal = document.createElement('div');
         modal.className = 'modal-overlay';
@@ -378,11 +378,11 @@ class SocialFeed {
                 </div>
                 <div class="modal-body">
                     <div class="quote-package-info">
-                        <img src="${package.images[0]}" alt="${package.title}" class="quote-package-image">
+                        <img src="${packageItem.images[0]}" alt="${packageItem.title}" class="quote-package-image">
                         <div class="quote-package-details">
-                            <h4>${package.title}</h4>
-                            <p>${package.origin} → ${package.destination}</p>
-                            <p class="quote-price">$${this.formatPrice(package.price)} por persona</p>
+                            <h4>${packageItem.title}</h4>
+                            <p>${packageItem.origin} → ${packageItem.destination}</p>
+                            <p class="quote-price">$${this.formatPrice(packageItem.price)} por persona</p>
                         </div>
                     </div>
                     
@@ -453,7 +453,7 @@ class SocialFeed {
 
     showPackageDetails(packageId) {
         const package = socialData.getPackageById(packageId);
-        const agency = socialData.getAgencyById(package.agencyId);
+        const agency = socialData.getAgencyById(packageItem.agencyId);
         
         // Crear modal de detalles
         const modal = document.createElement('div');
@@ -461,31 +461,31 @@ class SocialFeed {
         modal.innerHTML = `
             <div class="modal-content large">
                 <div class="modal-header">
-                    <h3>${package.title}</h3>
+                    <h3>${packageItem.title}</h3>
                     <button class="btn-close-modal">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="package-detail-images">
-                        ${package.images.map(img => `<img src="${img}" alt="${package.title}" class="detail-image">`).join('')}
+                        ${packageItem.images.map(img => `<img src="${img}" alt="${packageItem.title}" class="detail-image">`).join('')}
                     </div>
                     
                     <div class="package-detail-content">
                         <div class="detail-section">
                             <h4>Descripción</h4>
-                            <p>${package.description}</p>
+                            <p>${packageItem.description}</p>
                         </div>
                         
                         <div class="detail-section">
                             <h4>Incluye</h4>
                             <ul>
-                                ${package.includes.map(item => `<li>${item}</li>`).join('')}
+                                ${packageItem.includes.map(item => `<li>${item}</li>`).join('')}
                             </ul>
                         </div>
                         
                         <div class="detail-section">
                             <h4>No incluye</h4>
                             <ul>
-                                ${package.excludes.map(item => `<li>${item}</li>`).join('')}
+                                ${packageItem.excludes.map(item => `<li>${item}</li>`).join('')}
                             </ul>
                         </div>
                         

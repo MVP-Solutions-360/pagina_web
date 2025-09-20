@@ -3,9 +3,10 @@
 
 class AuthSystem {
     constructor() {
-        this.baseUrl = 'https://mvpsolutions365.com';
+        this.baseUrl = 'http://127.0.0.1:8000/api/v1';
         this.token = localStorage.getItem('auth_token');
-        this.user = null;
+        this.user = JSON.parse(localStorage.getItem('user_data') || 'null');
+        this.isAuthenticated = false;
         this.init();
     }
 
@@ -48,7 +49,7 @@ class AuthSystem {
         }
 
         try {
-            const response = await fetch(`${this.baseUrl}/api/v1/api/me`, {
+            const response = await fetch(`${this.baseUrl}/auth/me`, {
                 headers: {
                     'Authorization': `Bearer ${this.token}`,
                     'Accept': 'application/json'
@@ -74,7 +75,7 @@ class AuthSystem {
 
     async login(email, password) {
         try {
-            const response = await fetch(`${this.baseUrl}/api/v1/api/login`, {
+            const response = await fetch(`${this.baseUrl}/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -118,7 +119,7 @@ class AuthSystem {
     async logout() {
         if (this.token) {
             try {
-                await fetch(`${this.baseUrl}/api/v1/api/logout`, {
+                await fetch(`${this.baseUrl}/auth/logout`, {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${this.token}`,
@@ -369,7 +370,7 @@ class AuthSystem {
     async testApiConnection() {
         try {
             // Probar conexión básica a la API
-            const response = await fetch(`${this.baseUrl}/api/v1/api/check`, {
+            const response = await fetch(`${this.baseUrl}/auth/check`, {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json'
@@ -381,7 +382,7 @@ class AuthSystem {
             
         } catch (error) {
             console.error('Error de conexión con la API:', error);
-            console.log('URL probada:', `${this.baseUrl}/api/v1/api/check`);
+            console.log('URL probada:', `${this.baseUrl}/auth/check`);
         }
     }
 

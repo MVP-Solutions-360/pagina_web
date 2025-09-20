@@ -1,0 +1,200 @@
+<!-- Publicación 1 -->
+<div class="post-card" data-post-id="1">
+    <div class="post-header">
+        <div class="agency-info">
+            <img src="https://via.placeholder.com/50x50/3B82F6/FFFFFF?text=CD" alt="Agencia Logo" class="agency-avatar">
+            <div class="agency-details">
+                <h4 class="agency-name">Caribe Dreams Travel</h4>
+                <span class="post-time">Hace 2 horas</span>
+            </div>
+        </div>
+        <button class="follow-btn">Seguir</button>
+    </div>
+    
+    <div class="post-content">
+        <h3 class="post-title" onclick="viewPackageDetails('punta-cana-4-dias')">
+            ¡Nuevo paquete a Punta Cana! 🏖️
+        </h3>
+        
+        <div class="post-images">
+            <div class="main-image">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Punta Cana">
+            </div>
+            <div class="secondary-images">
+                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Punta Cana 2">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Punta Cana 3">
+                <img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Punta Cana 4">
+                <div class="more-images">+5</div>
+            </div>
+        </div>
+        
+        <div class="post-description">
+            <div class="description-preview">
+                <p>Descubre la magia del Caribe con nuestro paquete todo incluido...</p>
+            </div>
+            <button class="expand-description" onclick="toggleDescription(1)">
+                <span class="expand-text">Ver más</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="description-full" style="display: none;">
+                <p>Descubre la magia del Caribe con nuestro paquete todo incluido. Incluye vuelos, hotel 5 estrellas, comidas, bebidas y actividades recreativas. ¡No te lo pierdas!</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="post-actions">
+        <button class="action-btn like-btn" onclick="togglePostLike(1)">
+            <i class="far fa-heart"></i>
+            <span class="like-count">24</span>
+        </button>
+        <button class="action-btn comment-btn" onclick="toggleComments(1)">
+            <i class="far fa-comment"></i>
+            <span class="comment-count">8</span>
+        </button>
+        <button class="action-btn share-btn" onclick="sharePost(1)">
+            <i class="fas fa-share"></i>
+            Compartir
+        </button>
+    </div>
+    
+    <div class="comments-section" style="display: none;">
+        <div class="comments-list">
+            <div class="comment">
+                <img src="https://via.placeholder.com/40x40/10B981/FFFFFF?text=MG" alt="Usuario" class="comment-avatar">
+                <div class="comment-content">
+                    <div class="comment-header">
+                        <span class="comment-author">María González</span>
+                        <span class="comment-agency">Agencia Viajes del Sol</span>
+                    </div>
+                    <p class="comment-text">¡Se ve increíble! ¿Cuál es el precio?</p>
+                    <div class="comment-actions">
+                        <button class="comment-like-btn" onclick="toggleCommentLike(1)">
+                            <i class="far fa-heart"></i>
+                            <span>3</span>
+                        </button>
+                        <button class="reply-btn" onclick="replyToComment(1)">Responder</button>
+                    </div>
+                </div>
+            </div>
+            <div class="comment">
+                <img src="https://via.placeholder.com/40x40/F59E0B/FFFFFF?text=JL" alt="Usuario" class="comment-avatar">
+                <div class="comment-content">
+                    <div class="comment-header">
+                        <span class="comment-author">Juan López</span>
+                        <span class="comment-agency">Tours Andinos</span>
+                    </div>
+                    <p class="comment-text">Excelente destino, lo recomiendo totalmente</p>
+                    <div class="comment-actions">
+                        <button class="comment-like-btn" onclick="toggleCommentLike(2)">
+                            <i class="far fa-heart"></i>
+                            <span>1</span>
+                        </button>
+                        <button class="reply-btn" onclick="replyToComment(2)">Responder</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="comment-form">
+            <img src="https://via.placeholder.com/40x40/8B5CF6/FFFFFF?text=TU" alt="Tu avatar" class="comment-avatar">
+            <div class="comment-input-container">
+                <input type="text" placeholder="Escribe un comentario..." class="comment-input">
+                <button class="comment-submit-btn" onclick="submitComment(1)">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Publicación 2 -->
+<div class="post-card" data-post-id="2">
+    <div class="post-header">
+        <div class="agency-info">
+            <img src="https://via.placeholder.com/50x50/10B981/FFFFFF?text=AA" alt="Agencia Logo" class="agency-avatar">
+            <div class="agency-details">
+                <h4 class="agency-name">Andes Adventure Tours</h4>
+                <span class="post-time">Hace 4 horas</span>
+            </div>
+        </div>
+        <button class="follow-btn">Seguir</button>
+    </div>
+    
+    <div class="post-content">
+        <h3 class="post-title" onclick="viewPackageDetails('medellin-3-dias')">
+            Aventura en Medellín - Ciudad de la Eterna Primavera 🌸
+        </h3>
+        
+        <div class="post-images">
+            <div class="main-image">
+                <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Medellín">
+            </div>
+            <div class="secondary-images">
+                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Medellín 2">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Medellín 3">
+                <img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Medellín 4">
+                <div class="more-images">+3</div>
+            </div>
+        </div>
+        
+        <div class="post-description">
+            <div class="description-preview">
+                <p>Explora la vibrante cultura paisa y sus hermosos paisajes...</p>
+            </div>
+            <button class="expand-description" onclick="toggleDescription(2)">
+                <span class="expand-text">Ver más</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="description-full" style="display: none;">
+                <p>Explora la vibrante cultura paisa y sus hermosos paisajes. Incluye tour por el centro histórico, cable aéreo, comuna 13 y gastronomía local. Una experiencia única en la ciudad de la eterna primavera.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="post-actions">
+        <button class="action-btn like-btn" onclick="togglePostLike(2)">
+            <i class="far fa-heart"></i>
+            <span class="like-count">18</span>
+        </button>
+        <button class="action-btn comment-btn" onclick="toggleComments(2)">
+            <i class="far fa-comment"></i>
+            <span class="comment-count">5</span>
+        </button>
+        <button class="action-btn share-btn" onclick="sharePost(2)">
+            <i class="fas fa-share"></i>
+            Compartir
+        </button>
+    </div>
+    
+    <div class="comments-section" style="display: none;">
+        <div class="comments-list">
+            <div class="comment">
+                <img src="https://via.placeholder.com/40x40/EF4444/FFFFFF?text=AS" alt="Usuario" class="comment-avatar">
+                <div class="comment-content">
+                    <div class="comment-header">
+                        <span class="comment-author">Ana Silva</span>
+                        <span class="comment-agency">Travel Colombia</span>
+                    </div>
+                    <p class="comment-text">Medellín es una ciudad increíble, ¡excelente elección!</p>
+                    <div class="comment-actions">
+                        <button class="comment-like-btn" onclick="toggleCommentLike(3)">
+                            <i class="far fa-heart"></i>
+                            <span>2</span>
+                        </button>
+                        <button class="reply-btn" onclick="replyToComment(3)">Responder</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="comment-form">
+            <img src="https://via.placeholder.com/40x40/8B5CF6/FFFFFF?text=TU" alt="Tu avatar" class="comment-avatar">
+            <div class="comment-input-container">
+                <input type="text" placeholder="Escribe un comentario..." class="comment-input">
+                <button class="comment-submit-btn" onclick="submitComment(2)">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

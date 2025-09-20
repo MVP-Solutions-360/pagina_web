@@ -16,14 +16,19 @@ Esta API permite a los usuarios autenticarse en el sistema CRM utilizando sus cr
 ## Base URL
 
 ```
+http://127.0.0.1:8000/api/v1
+```
+
+**Para producción, reemplazar con tu dominio:**
+```
 https://tu-dominio.com/api/v1
 ```
 
 ## Endpoints Disponibles
 
-### 1. Login de Usuario
+### 1. Login de Usuario (Web)
 
-**Endpoint:** `POST /api/login`
+**Endpoint:** `POST /auth/login`
 
 **Descripción:** Permite a un usuario autenticarse en el sistema.
 
@@ -45,36 +50,75 @@ Accept: application/json
 ```json
 {
     "success": true,
-    "message": "Inicio de sesión exitoso",
+    "message": "Login exitoso",
     "data": {
         "user": {
             "id": 1,
-            "name": "Juan Pérez",
-            "email": "usuario@ejemplo.com",
-            "phone": "+1234567890",
+            "name": "Maicol Londoño",
+            "email": "maicol.londono@mvpsolutions.com",
+            "phone": "3506852261",
             "avatar": null,
-            "status": "activo",
-            "type": "client",
-            "user_type": "client",
-            "email_verified_at": "2024-01-15T10:30:00.000000Z",
-            "created_at": "2024-01-01T00:00:00.000000Z",
-            "updated_at": "2024-01-15T10:30:00.000000Z",
-            "agency": null,
-            "personnel": null,
-            "client": {
+            "user_type": "basic_user",
+            "has_agency": true,
+            "permissions": [
+                "ver agencias",
+                "crear agencias",
+                "editar agencias",
+                "eliminar agencias",
+                "ver oficinas",
+                "crear oficinas",
+                "editar oficinas",
+                "eliminar oficinas",
+                "ver personal",
+                "crear personal",
+                "editar personal",
+                "eliminar personal",
+                "ver usuarios",
+                "crear usuarios",
+                "editar usuarios",
+                "eliminar usuarios",
+                "ver configuración",
+                "editar configuración",
+                "gestionar backup",
+                "ver logs sistema",
+                "gestionar agencias",
+                "ver lista agencias",
+                "gestionar tenants",
+                "acceso superadmin",
+                "menu_dashboard",
+                "menu_mis_tareas",
+                "menu_administracion",
+                "menu_agencias",
+                "menu_mi_agencia",
+                "menu_gestion_roles",
+                "menu_oficinas",
+                "menu_colaboradores",
+                "menu_proveedores",
+                "menu_clientes",
+                "menu_lista_clientes",
+                "menu_mis_cotizaciones",
+                "menu_mis_ventas",
+                "menu_contabilidad",
+                "menu_solicitudes_pago",
+                "menu_pagos_pendientes",
+                "menu_historico_pagos",
+                "menu_productos",
+                "menu_paquetes",
+                "menu_hoteles",
+                "menu_tours"
+            ],
+            "roles": ["super-admin"],
+            "created_at": "2025-09-14T20:23:01.000000Z",
+            "agency": {
                 "id": 1,
-                "slug": "juan-perez-12345678",
-                "document_type": "DNI",
-                "document_number": "12345678",
-                "client_type": "individual",
-                "address": "Calle Principal 123",
-                "city": "Lima",
-                "country": "Perú"
-            },
-            "permissions": [],
-            "roles": ["client"]
+                "name": "Agencia Principal",
+                "slug": "agencia-principal",
+                "status": "activo",
+                "logo": "https://via.placeholder.com/150",
+                "main_image": null
+            }
         },
-        "token": "1|abcdef1234567890...",
+        "token": "1|i48G0a8wLBc9OtrshNPUMoo1MXC6HDr15sk2HBOY058c87ca",
         "token_type": "Bearer",
         "expires_in": 10080
     }
@@ -114,9 +158,31 @@ Accept: application/json
 }
 ```
 
-### 2. Verificar Autenticación
+### 2. Login de Clientes
 
-**Endpoint:** `GET /api/check`
+**Endpoint:** `POST /client/login`
+
+**Descripción:** Permite a un cliente autenticarse en el sistema.
+
+**Headers:**
+```
+Content-Type: application/json
+Accept: application/json
+```
+
+**Body:**
+```json
+{
+    "email": "cliente@ejemplo.com",
+    "password": "contraseña123"
+}
+```
+
+**Respuesta:** Similar a la del login web, pero específica para clientes.
+
+### 3. Verificar Autenticación
+
+**Endpoint:** `GET /auth/check`
 
 **Descripción:** Verifica si el usuario está autenticado sin requerir token.
 
@@ -132,10 +198,13 @@ Accept: application/json
     "authenticated": true,
     "data": {
         "id": 1,
-        "name": "Juan Pérez",
-        "email": "usuario@ejemplo.com",
-        "status": "activo",
-        "user_type": "client"
+        "name": "Maicol Londoño",
+        "email": "maicol.londono@mvpsolutions.com",
+        "user_type": "basic_user",
+        "has_agency": true,
+        "agency_id": 1,
+        "is_client": false,
+        "is_personnel": false
     }
 }
 ```
@@ -149,9 +218,9 @@ Accept: application/json
 }
 ```
 
-### 3. Obtener Información del Usuario
+### 4. Obtener Información del Usuario
 
-**Endpoint:** `GET /api/me`
+**Endpoint:** `GET /auth/me`
 
 **Descripción:** Obtiene la información completa del usuario autenticado.
 
@@ -195,9 +264,9 @@ Accept: application/json
 }
 ```
 
-### 4. Cerrar Sesión
+### 5. Cerrar Sesión
 
-**Endpoint:** `POST /api/logout`
+**Endpoint:** `POST /auth/logout`
 
 **Descripción:** Cierra la sesión del usuario y revoca el token.
 
@@ -215,9 +284,9 @@ Accept: application/json
 }
 ```
 
-### 5. Refrescar Token
+### 6. Refrescar Token
 
-**Endpoint:** `POST /api/refresh`
+**Endpoint:** `POST /auth/refresh`
 
 **Descripción:** Refresca el token de autenticación del usuario.
 
@@ -271,9 +340,12 @@ La API identifica diferentes tipos de usuarios:
 ### JavaScript (Fetch API)
 
 ```javascript
+// Configuración base
+const API_BASE_URL = 'http://127.0.0.1:8000/api/v1';
+
 // Login
 const login = async (email, password) => {
-    const response = await fetch('/api/v1/api/login', {
+    const response = await fetch(`${API_BASE_URL}/auth/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -287,6 +359,7 @@ const login = async (email, password) => {
     if (data.success) {
         // Guardar token
         localStorage.setItem('token', data.data.token);
+        localStorage.setItem('user', JSON.stringify(data.data.user));
         return data.data.user;
     } else {
         throw new Error(data.message);
@@ -297,9 +370,21 @@ const login = async (email, password) => {
 const getMe = async () => {
     const token = localStorage.getItem('token');
     
-    const response = await fetch('/api/v1/api/me', {
+    const response = await fetch(`${API_BASE_URL}/auth/me`, {
         headers: {
             'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json'
+        }
+    });
+    
+    const data = await response.json();
+    return data;
+};
+
+// Verificar autenticación
+const checkAuth = async () => {
+    const response = await fetch(`${API_BASE_URL}/auth/check`, {
+        headers: {
             'Accept': 'application/json'
         }
     });
@@ -312,7 +397,7 @@ const getMe = async () => {
 const logout = async () => {
     const token = localStorage.getItem('token');
     
-    const response = await fetch('/api/v1/api/logout', {
+    const response = await fetch(`${API_BASE_URL}/auth/logout`, {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${token}`,
@@ -324,6 +409,28 @@ const logout = async () => {
     
     if (data.success) {
         localStorage.removeItem('token');
+        localStorage.removeItem('user');
+    }
+    
+    return data;
+};
+
+// Refrescar token
+const refreshToken = async () => {
+    const token = localStorage.getItem('token');
+    
+    const response = await fetch(`${API_BASE_URL}/auth/refresh`, {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json'
+        }
+    });
+    
+    const data = await response.json();
+    
+    if (data.success) {
+        localStorage.setItem('token', data.data.token);
     }
     
     return data;
@@ -334,9 +441,13 @@ const logout = async () => {
 
 ```php
 <?php
+// Configuración base
+$API_BASE_URL = 'http://127.0.0.1:8000/api/v1';
+
 // Login
 function login($email, $password) {
-    $url = 'https://tu-dominio.com/api/v1/api/login';
+    global $API_BASE_URL;
+    $url = $API_BASE_URL . '/auth/login';
     
     $data = [
         'email' => $email,
@@ -361,10 +472,49 @@ function login($email, $password) {
 
 // Obtener información del usuario
 function getMe($token) {
-    $url = 'https://tu-dominio.com/api/v1/api/me';
+    global $API_BASE_URL;
+    $url = $API_BASE_URL . '/auth/me';
     
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Authorization: Bearer ' . $token,
+        'Accept: application/json'
+    ]);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    
+    $response = curl_exec($ch);
+    curl_close($ch);
+    
+    return json_decode($response, true);
+}
+
+// Verificar autenticación
+function checkAuth() {
+    global $API_BASE_URL;
+    $url = $API_BASE_URL . '/auth/check';
+    
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Accept: application/json'
+    ]);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    
+    $response = curl_exec($ch);
+    curl_close($ch);
+    
+    return json_decode($response, true);
+}
+
+// Logout
+function logout($token) {
+    global $API_BASE_URL;
+    $url = $API_BASE_URL . '/auth/logout';
+    
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
         'Authorization: Bearer ' . $token,
         'Accept: application/json'
@@ -385,9 +535,12 @@ function getMe($token) {
 import requests
 import json
 
+# Configuración base
+API_BASE_URL = 'http://127.0.0.1:8000/api/v1'
+
 # Login
 def login(email, password):
-    url = 'https://tu-dominio.com/api/v1/api/login'
+    url = f'{API_BASE_URL}/auth/login'
     
     data = {
         'email': email,
@@ -404,7 +557,7 @@ def login(email, password):
 
 # Obtener información del usuario
 def get_me(token):
-    url = 'https://tu-dominio.com/api/v1/api/me'
+    url = f'{API_BASE_URL}/auth/me'
     
     headers = {
         'Authorization': f'Bearer {token}',
@@ -414,9 +567,32 @@ def get_me(token):
     response = requests.get(url, headers=headers)
     return response.json()
 
+# Verificar autenticación
+def check_auth():
+    url = f'{API_BASE_URL}/auth/check'
+    
+    headers = {
+        'Accept': 'application/json'
+    }
+    
+    response = requests.get(url, headers=headers)
+    return response.json()
+
 # Logout
 def logout(token):
-    url = 'https://tu-dominio.com/api/v1/api/logout'
+    url = f'{API_BASE_URL}/auth/logout'
+    
+    headers = {
+        'Authorization': f'Bearer {token}',
+        'Accept': 'application/json'
+    }
+    
+    response = requests.post(url, headers=headers)
+    return response.json()
+
+# Refrescar token
+def refresh_token(token):
+    url = f'{API_BASE_URL}/auth/refresh'
     
     headers = {
         'Authorization': f'Bearer {token}',

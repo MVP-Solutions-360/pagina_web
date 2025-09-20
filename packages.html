@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="css/carousel.css">
     <link rel="stylesheet" href="css/packages.css">
     <link rel="stylesheet" href="css/packages-page.css">
+    <link rel="stylesheet" href="css/modern-cards.css">
     
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -66,7 +67,7 @@
                         <i class="fas fa-suitcase" aria-hidden="true"></i>
                         <span>Paquetes</span>
                     </a>
-                    <a href="red-social.html" class="nav-link" role="menuitem">
+                    <a href="muro-agencias.html" class="nav-link" role="menuitem">
                         <i class="fas fa-users" aria-hidden="true"></i>
                         <span>Red Social</span>
                     </a>
@@ -178,7 +179,7 @@
                             <option value="cartagena">Cartagena</option>
                             <option value="san-andres">San Andrés</option>
                     </select>
-                    </div>
+                </div>
                     
                     <div class="filter-group">
                         <label for="date-from" class="filter-label">Fecha Desde</label>
@@ -192,13 +193,13 @@
                     
                     <div class="filter-actions">
                         <button class="btn btn-primary" onclick="applyFilters()">
-                            <i class="fas fa-search"></i>
+                    <i class="fas fa-search"></i>
                             Filtrar
                         </button>
                         <button class="btn btn-secondary" onclick="clearFilters()">
                             <i class="fas fa-times"></i>
                             Limpiar
-                        </button>
+                </button>
                     </div>
                 </div>
             </div>
@@ -215,194 +216,233 @@
             <div class="packages-grid" id="packages-grid">
                 <!-- Paquete 1 -->
                 <div class="package-card" data-package="punta-cana-4-dias">
-                    <div class="package-image">
-                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Punta Cana, República Dominicana">
-                        <div class="package-badge">Destacado</div>
+                    <div class="package-header">
+                        <div class="agency-logo">
+                            <img src="https://via.placeholder.com/50x25/3B82F6/FFFFFF?text=AG" alt="Agencia Logo" class="logo-img">
+                        </div>
                     </div>
-                    <div class="package-content">
-                        <h3 class="package-title">Punta Cana - Paraíso Caribeño</h3>
-                        <p class="package-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            Punta Cana, República Dominicana
-                        </p>
-                        <p class="package-description">
-                            Relájate en las playas más hermosas del Caribe. Incluye hotel all-inclusive, actividades acuáticas y tours.
-                        </p>
-                        <div class="package-details">
-                            <div class="package-duration">
-                                <i class="fas fa-clock"></i>
-                                4 días / 3 noches
+                    <div class="package-background" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+                        <div class="package-overlay">
+                            <h3 class="package-title">Punta Cana - Paraíso Caribeño</h3>
+                            <p class="package-description">
+                                Relájate en las playas más hermosas del Caribe. Incluye hotel all-inclusive, actividades acuáticas y tours por la isla.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="package-footer">
+                        <div class="footer-row">
+                            <div class="package-badge">Destacado</div>
+                        </div>
+                        <div class="footer-row">
+                            <div class="package-validity">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Válido hasta 31 Dic 2024</span>
                             </div>
+                        </div>
+                        <div class="footer-row">
                             <div class="package-price">
                                 <span class="price-currency">$</span>
                                 <span class="price-amount">2,800,000</span>
                                 <span class="price-period">por persona</span>
                             </div>
                         </div>
-                        <button class="btn btn-primary package-btn" onclick="viewPackageDetails('punta-cana-4-dias')">
-                            Ver Detalles
-                        </button>
                     </div>
+                    <button class="btn btn-primary package-btn" onclick="viewPackageDetails('punta-cana-4-dias')">
+                        Ver Detalles
+                    </button>
                 </div>
 
                 <!-- Paquete 2 -->
                 <div class="package-card" data-package="san-andres-4-dias">
-                    <div class="package-image">
-                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="San Andrés, Colombia">
-                        <div class="package-badge">Popular</div>
+                    <div class="package-header">
+                        <div class="agency-logo">
+                            <img src="https://via.placeholder.com/50x25/10B981/FFFFFF?text=SA" alt="Agencia Logo" class="logo-img">
+                        </div>
                     </div>
-                    <div class="package-content">
-                        <h3 class="package-title">San Andrés - Paraíso Caribeño</h3>
-                        <p class="package-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            San Andrés, Colombia
-                        </p>
-                        <p class="package-description">
-                            Relájate en las playas más hermosas del Caribe colombiano. Incluye snorkeling y tour por la isla.
-                        </p>
-                        <div class="package-details">
-                            <div class="package-duration">
-                                <i class="fas fa-clock"></i>
-                                4 días / 3 noches
+                    <div class="package-background" style="background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+                        <div class="package-overlay">
+                            <p class="package-description">
+                                Relájate en las playas más hermosas del Caribe colombiano. Incluye snorkeling y tour por la isla.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="package-footer">
+                        <div class="footer-row">
+                            <div class="package-badge">Popular</div>
+                        </div>
+                        <div class="footer-row">
+                            <div class="package-title">San Andrés - Paraíso caribeño colombiano</div>
+                        </div>
+                        <div class="footer-row">
+                            
+                            <div class="package-validity">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Válido hasta 15 Ene 2025</span>
                             </div>
+                        </div>
+                        <div class="footer-row">
                             <div class="package-price">
                                 <span class="price-currency">$</span>
                                 <span class="price-amount">1,800,000</span>
                                 <span class="price-period">por persona</span>
                             </div>
                         </div>
-                        <button class="btn btn-primary package-btn" onclick="viewPackageDetails('san-andres-4-dias')">
-                            Ver Detalles
-                        </button>
                     </div>
+                    <button class="btn btn-primary package-btn" onclick="viewPackageDetails('san-andres-4-dias')">
+                        Ver Detalles
+                    </button>
                 </div>
 
                 <!-- Paquete 3 -->
                 <div class="package-card" data-package="cartagena-3-dias">
-                    <div class="package-image">
-                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Cartagena, Colombia">
-                        <div class="package-badge">Histórico</div>
+                    <div class="package-header">
+                        <div class="agency-logo">
+                            <img src="https://via.placeholder.com/50x25/F59E0B/FFFFFF?text=CT" alt="Agencia Logo" class="logo-img">
+                        </div>
                     </div>
-                    <div class="package-content">
-                        <h3 class="package-title">Cartagena - Ciudad Amurallada</h3>
-                        <p class="package-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            Cartagena, Bolívar, Colombia
-                        </p>
-                        <p class="package-description">
-                            Recorre la ciudad patrimonio de la humanidad. Incluye tour por la ciudad amurallada y playas.
-                        </p>
-                        <div class="package-details">
-                            <div class="package-duration">
-                                <i class="fas fa-clock"></i>
-                                3 días / 2 noches
+                    <div class="package-background" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+                        <div class="package-overlay">
+                            <h3 class="package-title">Cartagena - Ciudad Amurallada</h3>
+                            <p class="package-description">
+                                Recorre la ciudad patrimonio de la humanidad. Incluye tour por la ciudad amurallada y playas.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="package-footer">
+                        <div class="footer-row">
+                            <div class="package-badge">Histórico</div>
+                        </div>
+                        <div class="footer-row">
+                            <div class="package-validity">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Válido hasta 28 Feb 2025</span>
                             </div>
+                        </div>
+                        <div class="footer-row">
                             <div class="package-price">
                                 <span class="price-currency">$</span>
                                 <span class="price-amount">1,400,000</span>
                                 <span class="price-period">por persona</span>
                             </div>
                         </div>
-                        <button class="btn btn-primary package-btn" onclick="viewPackageDetails('cartagena-3-dias')">
-                            Ver Detalles
-                        </button>
                     </div>
+                    <button class="btn btn-primary package-btn" onclick="viewPackageDetails('cartagena-3-dias')">
+                        Ver Detalles
+                    </button>
                 </div>
 
                 <!-- Paquete 4 -->
                 <div class="package-card" data-package="madrid-5-dias">
-                    <div class="package-image">
-                        <img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Madrid, España">
-                        <div class="package-badge">Internacional</div>
+                    <div class="package-header">
+                        <div class="agency-logo">
+                            <img src="https://via.placeholder.com/50x25/EF4444/FFFFFF?text=MD" alt="Agencia Logo" class="logo-img">
+                        </div>
                     </div>
-                    <div class="package-content">
-                        <h3 class="package-title">Madrid - Capital de España</h3>
-                        <p class="package-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            Madrid, España
-                        </p>
-                        <p class="package-description">
-                            Explora la capital española con sus museos, plazas y gastronomía. Incluye tour por el Prado y Retiro.
-                        </p>
-                        <div class="package-details">
-                            <div class="package-duration">
-                                <i class="fas fa-clock"></i>
-                                5 días / 4 noches
+                    <div class="package-background" style="background-image: url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+                        <div class="package-overlay">
+                            <h3 class="package-title">Madrid - Capital de España</h3>
+                            <p class="package-description">
+                                Explora la capital española con sus museos, plazas y gastronomía. Incluye tour por el Prado y Retiro.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="package-footer">
+                        <div class="footer-row">
+                            <div class="package-badge">Internacional</div>
+                        </div>
+                        <div class="footer-row">
+                            <div class="package-validity">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Válido hasta 30 Mar 2025</span>
                             </div>
+                        </div>
+                        <div class="footer-row">
                             <div class="package-price">
                                 <span class="price-currency">$</span>
                                 <span class="price-amount">3,500,000</span>
                                 <span class="price-period">por persona</span>
                             </div>
                         </div>
-                        <button class="btn btn-primary package-btn" onclick="viewPackageDetails('madrid-5-dias')">
-                            Ver Detalles
-                        </button>
                     </div>
+                    <button class="btn btn-primary package-btn" onclick="viewPackageDetails('madrid-5-dias')">
+                        Ver Detalles
+                    </button>
                 </div>
 
                 <!-- Paquete 5 -->
                 <div class="package-card" data-package="punta-cana-4-dias">
-                    <div class="package-image">
-                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Punta Cana, República Dominicana">
-                        <div class="package-badge">All Inclusive</div>
+                    <div class="package-header">
+                        <div class="agency-logo">
+                            <img src="https://via.placeholder.com/50x25/8B5CF6/FFFFFF?text=PC" alt="Agencia Logo" class="logo-img">
+                        </div>
                     </div>
-                    <div class="package-content">
-                        <h3 class="package-title">Punta Cana - Caribe Dominicano</h3>
-                        <p class="package-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            Punta Cana, República Dominicana
-                        </p>
-                        <p class="package-description">
-                            Disfruta del mejor all inclusive en el Caribe. Resort de lujo con playas paradisíacas.
-                        </p>
-                        <div class="package-details">
-                            <div class="package-duration">
-                                <i class="fas fa-clock"></i>
-                                4 días / 3 noches
+                    <div class="package-background" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+                        <div class="package-overlay">
+                            <h3 class="package-title">Punta Cana - Caribe Dominicano</h3>
+                            <p class="package-description">
+                                Disfruta del mejor all inclusive en el Caribe. Resort de lujo con playas paradisíacas.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="package-footer">
+                        <div class="footer-row">
+                            <div class="package-badge">All Inclusive</div>
+                        </div>
+                        <div class="footer-row">
+                            <div class="package-validity">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Válido hasta 20 Abr 2025</span>
                             </div>
+                        </div>
+                        <div class="footer-row">
                             <div class="package-price">
                                 <span class="price-currency">$</span>
                                 <span class="price-amount">2,800,000</span>
                                 <span class="price-period">por persona</span>
                             </div>
                         </div>
-                        <button class="btn btn-primary package-btn" onclick="viewPackageDetails('punta-cana-4-dias')">
-                            Ver Detalles
-                        </button>
                     </div>
+                    <button class="btn btn-primary package-btn" onclick="viewPackageDetails('punta-cana-4-dias')">
+                        Ver Detalles
+                    </button>
                 </div>
 
                 <!-- Paquete 6 -->
                 <div class="package-card" data-package="bogota-2-dias">
-                    <div class="package-image">
-                        <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Bogotá, Colombia">
-                        <div class="package-badge">Cultural</div>
+                    <div class="package-header">
+                        <div class="agency-logo">
+                            <img src="https://via.placeholder.com/50x25/06B6D4/FFFFFF?text=BG" alt="Agencia Logo" class="logo-img">
+                        </div>
                     </div>
-                    <div class="package-content">
-                        <h3 class="package-title">Bogotá - Capital Cultural</h3>
-                        <p class="package-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            Bogotá, Cundinamarca, Colombia
-                        </p>
-                        <p class="package-description">
-                            Descubre la capital colombiana. Incluye tour por La Candelaria, Monserrate y museos.
-                        </p>
-                        <div class="package-details">
-                            <div class="package-duration">
-                                <i class="fas fa-clock"></i>
-                                2 días / 1 noche
+                    <div class="package-background" style="background-image: url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80')">
+                        <div class="package-overlay">
+                            <h3 class="package-title">Bogotá - Capital Cultural</h3>
+                            <p class="package-description">
+                                Descubre la capital colombiana. Incluye tour por La Candelaria, Monserrate y museos.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="package-footer">
+                        <div class="footer-row">
+                            <div class="package-badge">Cultural</div>
+                        </div>
+                        <div class="footer-row">
+                            <div class="package-validity">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Válido hasta 15 May 2025</span>
                             </div>
+                        </div>
+                        <div class="footer-row">
                             <div class="package-price">
                                 <span class="price-currency">$</span>
                                 <span class="price-amount">850,000</span>
                                 <span class="price-period">por persona</span>
                             </div>
                         </div>
-                        <button class="btn btn-primary package-btn" onclick="viewPackageDetails('bogota-2-dias')">
-                            Ver Detalles
-                        </button>
                     </div>
+                    <button class="btn btn-primary package-btn" onclick="viewPackageDetails('bogota-2-dias')">
+                        Ver Detalles
+                    </button>
                 </div>
             </div>
 
@@ -466,7 +506,7 @@
                     <h4>Enlaces Rápidos</h4>
                     <ul>
                         <li><a href="paquetes.html">Paquetes</a></li>
-                        <li><a href="red-social.html">Red Social</a></li>
+                        <li><a href="muro-agencias.html">Red Social</a></li>
                         <li><a href="mas-vendidos.html">Más Vendidos</a></li>
                         <li><a href="blog.html">Blog</a></li>
                     </ul>
@@ -503,11 +543,12 @@
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>
-    <script src="js/auth.js"></script>
-    <script src="js/auth-system.js"></script>
+    <!-- <script src="js/auth.js"></script> -->
+    <!-- <script src="js/auth-system.js"></script> -->
     <script src="js/api-tester.js"></script>
     <script src="js/api.js"></script>
     <script src="js/forms.js"></script>
+    <script src="js/auth-crm.js"></script>
     
     <!-- JavaScript para funcionalidades de paquetes -->
     <script>

@@ -327,9 +327,9 @@ class SocialDataManager {
             });
             
             // Actualizar contador de likes
-            const package = this.getPackageById(packageId);
-            if (package) {
-                package.likes++;
+            const packageItem = this.getPackageById(packageId);
+            if (packageItem) {
+                packageItem.likes++;
             }
             
             return true;
