@@ -10,6 +10,8 @@
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
     
     <!-- CSS -->
+    <link rel="stylesheet" href="css/logo-effects.css">
+    <link rel="stylesheet" href="css/travel-inspired.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/responsive.css">
@@ -91,28 +93,32 @@
     <!-- Main Content -->
     <main class="main-content-full">
         <!-- Hero Section -->
-        <section class="hero" id="inicio">
+        <section class="hero-section">
             <div class="hero-container">
-                <div class="hero-content">
-                    <h1 class="hero-title">
-                        Bienvenido a <span class="highlight">Red de Agencias 360</span>
-                    </h1>
-                    <p class="hero-subtitle">
-                        La primera red social de agencias de viajes en Colombia. Conecta, descubre y comparte experiencias únicas con las mejores agencias del país.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="paquetes.html" class="btn btn-primary">
-                            <i class="fas fa-suitcase"></i>
-                            Explorar Paquetes
-                        </a>
-                        <a href="agencias.html" class="btn btn-secondary">
-                            <i class="fas fa-building"></i>
-                            Ver Agencias
-                        </a>
+                <!-- Logo exacto como en la imagen -->
+                <div class="logo-container">
+                    <div class="logo-circle">
+                        <div class="logo-text">
+                            <div class="logo-line-1">Red de</div>
+                            <div class="logo-line-2">agencias</div>
+                            <div class="logo-line-3">360</div>
+                        </div>
                     </div>
                 </div>
-                <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop" alt="Red de Agencias 360" class="hero-main-image">
+                
+                <h1 class="hero-title">
+                    DISCOVER
+                </h1>
+                <h2 class="hero-title">
+                    AMAZING PLACES
+                </h2>
+                <p class="hero-subtitle">
+                    Explore the world with us
+                </p>
+                <div class="hero-buttons">
+                    <a href="paquetes-destacados.html" class="hero-btn hero-btn-primary">
+                        Get Started
+                    </a>
                 </div>
             </div>
         </section>
@@ -124,34 +130,58 @@
                     <h2>¿Por qué elegir Red de Agencias 360?</h2>
                     <p>Conectamos agencias de viajes con viajeros de todo Colombia</p>
                 </div>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
                             <i class="fas fa-users"></i>
                         </div>
-                        <h3>Red Social</h3>
-                        <p>Interactúa con otras agencias, comparte experiencias y construye una red profesional sólida.</p>
+                        <h3 class="service-title">Red Social</h3>
+                        <p class="service-description">Interactúa con otras agencias, comparte experiencias y construye una red profesional sólida.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Perfiles de agencias verificadas</li>
+                            <li><i class="fas fa-check"></i> Sistema de calificaciones</li>
+                            <li><i class="fas fa-check"></i> Chat en tiempo real</li>
+                        </ul>
+                        <a href="muro-agencias.html" class="service-btn">Explorar Red</a>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
+                    <div class="service-card">
+                        <div class="service-icon">
                             <i class="fas fa-star"></i>
                         </div>
-                        <h3>Paquetes Verificados</h3>
-                        <p>Todos nuestros paquetes son de agencias verificadas con excelente reputación y calidad garantizada.</p>
+                        <h3 class="service-title">Paquetes Verificados</h3>
+                        <p class="service-description">Todos nuestros paquetes son de agencias verificadas con excelente reputación y calidad garantizada.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Verificación de calidad</li>
+                            <li><i class="fas fa-check"></i> Precios competitivos</li>
+                            <li><i class="fas fa-check"></i> Garantía de satisfacción</li>
+                        </ul>
+                        <a href="paquetes-destacados.html" class="service-btn">Ver Paquetes</a>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
+                    <div class="service-card">
+                        <div class="service-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
-                        <h3>Estadísticas en Tiempo Real</h3>
-                        <p>Mantente al día con las tendencias del mercado y los destinos más populares.</p>
+                        <h3 class="service-title">Estadísticas en Tiempo Real</h3>
+                        <p class="service-description">Mantente al día con las tendencias del mercado y los destinos más populares.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Tendencias del mercado</li>
+                            <li><i class="fas fa-check"></i> Destinos populares</li>
+                            <li><i class="fas fa-check"></i> Análisis de precios</li>
+                        </ul>
+                        <a href="packages.html" class="service-btn">Ver Estadísticas</a>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
+                    <div class="service-card">
+                        <div class="service-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
-                        <h3>Seguridad y Confianza</h3>
-                        <p>Sistema de calificaciones y comentarios para garantizar la mejor experiencia de viaje.</p>
+                        <h3 class="service-title">Seguridad y Confianza</h3>
+                        <p class="service-description">Sistema de calificaciones y comentarios para garantizar la mejor experiencia de viaje.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Sistema de calificaciones</li>
+                            <li><i class="fas fa-check"></i> Comentarios verificados</li>
+                            <li><i class="fas fa-check"></i> Soporte 24/7</li>
+                        </ul>
+                        <a href="packages.html" class="service-btn">Más Información</a>
                     </div>
                 </div>
             </div>
