@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/auth-modal.css">
     <link rel="stylesheet" href="css/images.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/social-feed.css">
@@ -63,13 +64,13 @@
                 </a>
             </nav>
             
-            <div class="user-menu">
-                <div class="user-avatar">U</div>
-                <a href="https://mvpsolutions365.com/login" target="_blank" class="nav-item">
-                    <i class="fas fa-sign-in-alt"></i>
-                    Ingreso
-                </a>
-            </div>
+                <div class="user-menu">
+                    <div class="user-avatar">U</div>
+                    <button class="nav-item auth-button" onclick="authSystem.showLoginModal()">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Ingreso
+                    </button>
+                </div>
         </div>
     </header>
 
@@ -287,6 +288,8 @@
     <!-- JavaScript -->
     <script src="js/main.js"></script>
     <script src="js/auth.js"></script>
+    <script src="js/auth-system.js"></script>
+    <script src="js/page-protection.js"></script>
     <script src="js/api.js"></script>
     <script src="js/forms.js"></script>
     <script src="js/social-data.js"></script>
