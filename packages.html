@@ -53,58 +53,32 @@
     <header class="header" id="header" role="banner">
         <nav class="navbar" role="navigation" aria-label="Navegación principal">
             <div class="nav-container">
-                <a href="index.html" class="nav-brand" aria-label="Red de Agencias 360 - Página de inicio">
-                    <i class="fas fa-globe" aria-hidden="true"></i>
-                    <span>Red de Agencias 360</span>
-                </a>
-                
-                <div class="nav-menu" role="menubar">
-                    <a href="index.html" class="nav-link" role="menuitem">
-                        <i class="fas fa-home" aria-hidden="true"></i>
-                        <span>Inicio</span>
-                    </a>
-                    <a href="packages.html" class="nav-link active" role="menuitem" aria-current="page">
-                        <i class="fas fa-suitcase" aria-hidden="true"></i>
-                        <span>Paquetes</span>
-                    </a>
-                    <a href="muro-agencias.html" class="nav-link" role="menuitem">
-                        <i class="fas fa-users" aria-hidden="true"></i>
-                        <span>Red Social</span>
-                    </a>
-                    <a href="mas-vendidos.html" class="nav-link" role="menuitem">
-                        <i class="fas fa-star" aria-hidden="true"></i>
-                        <span>Más Vendidos</span>
-                    </a>
-                    <a href="blog.html" class="nav-link" role="menuitem">
-                        <i class="fas fa-newspaper" aria-hidden="true"></i>
-                        <span>Blog</span>
-                    </a>
-                    <a href="contacto.html" class="nav-link" role="menuitem">
-                        <i class="fas fa-envelope" aria-hidden="true"></i>
-                        <span>Contacto</span>
+                <div class="logo">
+                    <a href="index.html" class="logo-link" aria-label="Red de Agencias 360 - Página de inicio">
+                        <div class="logo-text">
+                            <h6>Red de Agencias 360</h6>
+                        </div>
                     </a>
                 </div>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li><a href="index.html" class="nav-link" role="menuitem">Inicio</a></li>
+                    <li><a href="packages.html" class="nav-link active" role="menuitem" aria-current="page">Paquetes</a></li>
+                    <li><a href="muro-agencias.html" class="nav-link" role="menuitem">Red Social</a></li>
+                    <li><a href="mas-vendidos.html" class="nav-link" role="menuitem">Más Vendidos</a></li>
+                    <li><a href="blog.html" class="nav-link" role="menuitem">Blog</a></li>
+                    <li><a href="sobre-nosotros.html" class="nav-link" role="menuitem">Sobre Nosotros</a></li>
+                    <li><a href="contacto.html" class="nav-link" role="menuitem">Contacto</a></li>
+                    <li><a href="#" class="nav-link login-btn" role="menuitem" onclick="authSystem.showLoginModal()">Ingreso Agencias</a></li>
+                </ul>
                 
                 <div class="nav-actions">
-                    <a href="index.html" class="btn btn-primary">
-                        <i class="fas fa-handshake"></i>
-                        Únete
-                    </a>
-                </div>
-                
-                <div class="header-auth">
-                    <div class="user-info" id="user-info" style="display: none;">
-                        <img src="" alt="" class="user-avatar" id="user-avatar">
-                        <span class="user-name" id="user-name"></span>
-                    </div>
-                    <button class="auth-button" onclick="authSystem.showLoginModal()">
-                        <i class="fas fa-building"></i>
-                        Ingreso Agencias
+                    <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">
+                        <i class="fas fa-moon" id="theme-icon"></i>
                     </button>
-                    <div id="user-menu" class="user-menu"></div>
                 </div>
                 
-                <div class="nav-toggle" id="nav-toggle">
+                <div class="hamburger" id="hamburger">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>

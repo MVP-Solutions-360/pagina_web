@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - Red de Agencias 360</title>
+    <meta name="description" content="Conoce la historia y propósito de Red de Agencias 360. Somos la brújula confiable que guía a las agencias de viajes en su crecimiento y expansión.">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme-dark.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* ===== ESTILOS ESPECÍFICOS PARA SOBRE NOSOTROS ===== */
+        .about-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 8rem 0 6rem;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .about-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .about-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .about-hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .about-hero .hero-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .mission-section {
+            padding: 6rem 0;
+            background: var(--bg-primary);
+        }
+
+        .mission-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .mission-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .mission-text p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-text .highlight {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        .mission-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .visual-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .visual-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .visual-card .icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .visual-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .visual-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .archetypes-section {
+            padding: 6rem 0;
+            background: var(--bg-secondary);
+        }
+
+        .archetypes-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .archetypes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .archetype-card {
+            background: var(--bg-card);
+            padding: 3rem 2rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .archetype-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .archetype-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .archetype-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .archetype-card.sage .icon {
+            color: var(--primary-color);
+        }
+
+        .archetype-card.explorer .icon {
+            color: var(--secondary-color);
+        }
+
+        .archetype-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .archetype-card h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .archetype-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .commitment-section {
+            padding: 6rem 0;
+            background: var(--bg-primary);
+        }
+
+        .commitment-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .commitment-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        .commitment-content p {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .commitment-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-item .icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-item p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .cta-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline-white {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-outline-white:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-hero p {
+                font-size: 1.1rem;
+            }
+
+            .mission-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .archetypes-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .commitment-features {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-white,
+            .btn-outline-white {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-hero {
+                padding: 6rem 0 4rem;
+            }
+
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+
+            .mission-text h2,
+            .commitment-content h2,
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+
+            .visual-card,
+            .archetype-card,
+            .feature-item {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header role="banner">
+        <nav class="navbar" role="navigation" aria-label="Navegación principal">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html" class="logo-link" aria-label="Red de Agencias 360 - Página de inicio">
+                        <div class="logo-text">
+                            <h6>Red de Agencias 360</h6>
+                        </div>
+                    </a>
+                </div>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li><a href="index.html" class="nav-link" role="menuitem">Inicio</a></li>
+                    <li><a href="packages.html" class="nav-link" role="menuitem">Paquetes</a></li>
+                    <li><a href="muro-agencias.html" class="nav-link" role="menuitem">Red Social</a></li>
+                    <li><a href="mas-vendidos.html" class="nav-link" role="menuitem">Más Vendidos</a></li>
+                    <li><a href="blog.html" class="nav-link" role="menuitem">Blog</a></li>
+                    <li><a href="sobre-nosotros.html" class="nav-link active" role="menuitem" aria-current="page">Sobre Nosotros</a></li>
+                    <li><a href="contacto.html" class="nav-link" role="menuitem">Contacto</a></li>
+                    <li><a href="#" class="nav-link login-btn" role="menuitem" onclick="authSystem.showLoginModal()">Ingreso Agencias</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">
+                        <i class="fas fa-moon" id="theme-icon"></i>
+                    </button>
+                </div>
+                
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="about-hero">
+            <div class="about-hero-content">
+                <i class="fas fa-compass hero-icon"></i>
+                <h1>Nuestra Historia</h1>
+                <p>Somos la brújula confiable que guía a las agencias de viajes en su crecimiento y expansión hacia nuevos horizontes.</p>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="mission-section">
+            <div class="mission-content">
+                <div class="mission-grid">
+                    <div class="mission-text">
+                        <h2>Nuestro Propósito</h2>
+                        <p>Nuestro sistema nació con un propósito claro: <span class="highlight">convertirse en la brújula confiable que guía a las agencias de viajes en su crecimiento</span>.</p>
+                        
+                        <p>Fuimos creados para ofrecer conocimiento, orden y certeza en cada decisión, y al mismo tiempo para inspirar a las agencias a explorar nuevos mercados, servicios y oportunidades sin fronteras.</p>
+                    </div>
+                    
+                    <div class="mission-visual">
+                        <div class="visual-card">
+                            <i class="fas fa-lightbulb icon"></i>
+                            <h3>Innovación</h3>
+                            <p>Desarrollamos soluciones tecnológicas avanzadas para el sector turístico</p>
+                        </div>
+                        
+                        <div class="visual-card">
+                            <i class="fas fa-handshake icon"></i>
+                            <h3>Confianza</h3>
+                            <p>Construimos relaciones sólidas basadas en la transparencia y el compromiso</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Archetypes Section -->
+        <section class="archetypes-section">
+            <div class="archetypes-content">
+                <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; color: var(--primary-color); margin-bottom: 1rem;">Nuestros Arquetipos</h2>
+                <p style="text-align: center; font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">Combinamos la sabiduría del conocimiento con el espíritu explorador para ofrecer una experiencia única</p>
+                
+                <div class="archetypes-grid">
+                    <div class="archetype-card sage">
+                        <i class="fas fa-graduation-cap icon"></i>
+                        <h3>El Sabio</h3>
+                        <h4>Conocimiento y Orden</h4>
+                        <p>Ofrecemos conocimiento, orden y certeza en cada decisión. Nuestro sistema está diseñado para brindar la información precisa y las herramientas necesarias para que las agencias tomen decisiones informadas y estratégicas.</p>
+                    </div>
+                    
+                    <div class="archetype-card explorer">
+                        <i class="fas fa-rocket icon"></i>
+                        <h3>El Explorador</h3>
+                        <h4>Innovación y Expansión</h4>
+                        <p>Inspiramos a las agencias a explorar nuevos mercados, servicios y oportunidades sin fronteras. Fomentamos la innovación y el crecimiento hacia territorios inexplorados del turismo tradicional y médico.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Commitment Section -->
+        <section class="commitment-section">
+            <div class="commitment-content">
+                <h2>Nuestro Compromiso</h2>
+                <p>Más que un CRM, somos una plataforma estratégica diseñada para transformar la manera en que las agencias gestionan su operación, expanden su portafolio y alcanzan sus metas.</p>
+                
+                <p>Nuestro compromiso es brindarles las herramientas necesarias para que puedan aprender, crecer y descubrir nuevas posibilidades en el turismo tradicional y médico, con confianza y visión de futuro.</p>
+                
+                <div class="commitment-features">
+                    <div class="feature-item">
+                        <i class="fas fa-cogs icon"></i>
+                        <h3>Gestión Estratégica</h3>
+                        <p>Transformamos la manera en que las agencias gestionan su operación diaria</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <i class="fas fa-chart-line icon"></i>
+                        <h3>Expansión de Portafolio</h3>
+                        <p>Facilitamos el crecimiento hacia nuevos mercados y servicios</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <i class="fas fa-target icon"></i>
+                        <h3>Alcance de Metas</h3>
+                        <p>Proporcionamos las herramientas para alcanzar objetivos ambiciosos</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <i class="fas fa-heartbeat icon"></i>
+                        <h3>Turismo Médico</h3>
+                        <p>Especialización en el creciente mercado del turismo de salud</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>¿Listo para Crecer?</h2>
+                <p>Únete a la red de agencias que ya están transformando su operación y expandiendo sus horizontes con nuestra plataforma.</p>
+                
+                <div class="cta-buttons">
+                    <a href="packages.html" class="btn-white">
+                        <i class="fas fa-suitcase"></i>
+                        Explorar Paquetes
+                    </a>
+                    <a href="contacto.html" class="btn-outline-white">
+                        <i class="fas fa-envelope"></i>
+                        Contactar
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Red de Agencias 360</h3>
+                    <p>La brújula confiable que guía a las agencias de viajes en su crecimiento y expansión hacia nuevos horizontes.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="packages.html">Paquetes</a></li>
+                        <li><a href="muro-agencias.html">Red Social</a></li>
+                        <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li>Gestión Estratégica</li>
+                        <li>Expansión de Portafolio</li>
+                        <li>Turismo Médico</li>
+                        <li>Plataforma CRM</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-envelope"></i> info@redagencias360.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Red de Agencias 360. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Función para cambiar tema
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Actualizar icono
+            const themeIcon = document.getElementById('theme-icon');
+            if (themeIcon) {
+                themeIcon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        }
+
+        // Aplicar tema guardado al cargar la página
+        function applyTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            const themeIcon = document.getElementById('theme-icon');
+            if (themeIcon) {
+                themeIcon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        }
+
+        // Aplicar tema al cargar
+        document.addEventListener('DOMContentLoaded', function() {
+            applyTheme();
+            
+            // Manejo del menú hamburguesa
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+
+                // Cerrar menú al hacer clic en un enlace
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    });
+                });
+
+                // Cerrar menú al hacer clic fuera
+                document.addEventListener('click', function(e) {
+                    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                        navMenu.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

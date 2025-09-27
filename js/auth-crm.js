@@ -137,6 +137,11 @@ class AuthSystemCRM {
                 // Mostrar notificación de éxito
                 this.showNotification(`¡Bienvenido, ${this.user.name}!`, 'success');
                 
+                // Redireccionar al inicio después del login exitoso
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1500);
+                
                 return { success: true, user: this.user };
             } else {
                 throw new Error('Credenciales incorrectas');
@@ -246,18 +251,53 @@ class AuthSystemCRM {
             // Actualizar información del usuario
             userInfo.forEach(info => {
                 info.innerHTML = `
-                    <div class="user-profile-info" style="display: flex; align-items: center; gap: 10px;">
-                        <img src="${this.getUserAvatar()}" alt="Avatar" class="user-avatar" style="width: 40px; height: 40px; border-radius: 50%;">
+                    <div class="user-profile-info" style="display: flex; align-items: center; gap: 10px; position: relative;">
+                        <img src="${this.getUserAvatar()}" alt="Avatar" class="user-avatar" style="width: 40px; height: 40px; border-radius: 50%; cursor: pointer;" onclick="this.nextElementSibling.classList.toggle('show')">
                         <div class="user-details">
-                            <div class="user-name" style="font-weight: 600; color: #1f2937;">${this.user.name}</div>
-                            <div class="user-email" style="font-size: 0.9rem; color: #6b7280;">${this.user.email}</div>
+                            <div class="user-name" style="font-weight: 600; color: #1f2937; cursor: pointer;" onclick="this.parentElement.nextElementSibling.classList.toggle('show')">${this.user.name}</div>
                             ${this.hasAgency() ? `<div class="user-agency" style="font-size: 0.8rem; color: #3b82f6;">${this.getAgencyName()}</div>` : ''}
+                        </div>
+                        <div class="user-dropdown" style="position: absolute; top: 100%; right: 0; background: white; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); min-width: 200px; z-index: 1000; display: none;">
+                            <div class="dropdown-header" style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">
+                                <div class="user-name" style="font-weight: 600; color: #1f2937;">${this.user.name}</div>
+                                ${this.hasAgency() ? `<div class="user-agency" style="font-size: 0.8rem; color: #3b82f6;">${this.getAgencyName()}</div>` : ''}
+                            </div>
+                            <div class="dropdown-menu" style="padding: 8px 0;">
+                                <a href="dashboard.html" class="dropdown-item" style="display: block; padding: 8px 16px; color: #374151; text-decoration: none; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#f3f4f6'" onmouseout="this.style.backgroundColor='transparent'">
+                                    <i class="fas fa-tachometer-alt" style="margin-right: 8px; width: 16px;"></i>Dashboard
+                                </a>
+                                <a href="packages.html" class="dropdown-item" style="display: block; padding: 8px 16px; color: #374151; text-decoration: none; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#f3f4f6'" onmouseout="this.style.backgroundColor='transparent'">
+                                    <i class="fas fa-suitcase" style="margin-right: 8px; width: 16px;"></i>Mis Paquetes
+                                </a>
+                                <div class="dropdown-divider" style="height: 1px; background: #e5e7eb; margin: 8px 0;"></div>
+                                <button onclick="authSystem.logout()" class="dropdown-item" style="display: block; width: 100%; padding: 8px 16px; color: #dc2626; text-decoration: none; background: none; border: none; text-align: left; cursor: pointer; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#fef2f2'" onmouseout="this.style.backgroundColor='transparent'">
+                                    <i class="fas fa-sign-out-alt" style="margin-right: 8px; width: 16px;"></i>Cerrar Sesión
+                                </button>
+                            </div>
                         </div>
                     </div>
                 `;
                 info.style.display = 'block';
             });
+
+            // Agregar event listener para cerrar dropdown al hacer clic fuera
+            this.setupUserDropdownListeners();
         }
+    }
+
+    setupUserDropdownListeners() {
+        // Cerrar dropdown al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            const userDropdowns = document.querySelectorAll('.user-dropdown');
+            const userProfiles = document.querySelectorAll('.user-profile-info');
+            
+            userDropdowns.forEach(dropdown => {
+                const profileInfo = dropdown.closest('.user-profile-info');
+                if (profileInfo && !profileInfo.contains(e.target)) {
+                    dropdown.classList.remove('show');
+                }
+            });
+        });
     }
 
     updateUIForUnauthenticated() {

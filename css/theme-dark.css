@@ -1,0 +1,160 @@
+/* ===== MODO CLARO - TECNOLOGÍA SUAVE ===== */
+/* Estilos para el modo claro con fondo blanco */
+
+:root {
+    /* Colores de fondo claros - Blancos y grises suaves */
+    --bg-primary: #ffffff;           /* Blanco - Principal */
+    --bg-secondary: #f8f9fa;         /* Gris Muy Claro - Secundario */
+    --bg-tertiary: #e9ecef;          /* Gris Claro - Terciario */
+    --bg-card: #ffffff;              /* Blanco - Tarjetas */
+    --border-color: #dee2e6;         /* Bordes Claros */
+    
+    /* Colores de texto claros - Oscuros sobre fondo claro */
+    --text-color: #212529;           /* Negro Suave - Principal */
+    --text-muted: #6c757d;           /* Gris Medio - Secundario */
+    --text-light: #adb5bd;           /* Gris Claro - Terciario */
+    
+    /* Sombras suaves para modo claro */
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+    
+    /* Sombras de acento - Azules suaves */
+    --shadow-primary: 0 4px 15px rgba(44, 90, 160, 0.2);
+    --shadow-secondary: 0 4px 15px rgba(52, 152, 219, 0.2);
+}
+
+/* ===== MODO OSCURO - TECNOLOGÍA NOCTURNA ===== */
+/* Estilos específicos para el modo oscuro con colores suaves */
+
+[data-theme="dark"] {
+    /* Colores de fondo oscuros - Elegantes */
+    --bg-primary: #1a1a1a;           /* Negro Suave - Principal */
+    --bg-secondary: #2d2d2d;         /* Gris Oscuro - Secundario */
+    --bg-tertiary: #3a3a3a;          /* Gris Medio - Terciario */
+    --bg-card: #2d2d2d;              /* Gris Oscuro - Tarjetas */
+    --border-color: #404040;         /* Bordes Oscuros */
+    
+    /* Colores de texto oscuros - Legibles */
+    --text-color: #f8f9fa;           /* Blanco Suave - Principal */
+    --text-muted: #adb5bd;           /* Gris Claro - Secundario */
+    --text-light: #6c757d;           /* Gris Medio - Terciario */
+    
+    /* Sombras ajustadas para modo oscuro - Profundas */
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
+    --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.3);
+    
+    /* Sombras de acento - Azules brillantes */
+    --shadow-primary: 0 4px 15px rgba(44, 90, 160, 0.4);
+    --shadow-secondary: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
+/* Toggle de modo oscuro */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-md);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-hover);
+}
+
+.theme-toggle i {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.theme-toggle:hover i {
+    color: var(--primary-color);
+}
+
+/* Animación suave para el cambio de tema */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Mejoras específicas para modo oscuro */
+[data-theme="dark"] .header {
+    background: rgba(26, 26, 26, 0.95);
+    border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .header.scrolled {
+    background: rgba(26, 26, 26, 0.98);
+    border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .hero {
+    background: linear-gradient(135deg, 
+        rgba(44, 90, 160, 0.1) 0%, 
+        rgba(52, 152, 219, 0.1) 50%, 
+        rgba(243, 156, 18, 0.1) 100%);
+}
+
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .destination-card,
+[data-theme="dark"] .testimonial-card,
+[data-theme="dark"] .team-member {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .footer {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .footer-bottom {
+    border-top: 1px solid var(--border-color);
+}
+
+/* Efectos de vidrio para modo oscuro */
+[data-theme="dark"] .glass-effect {
+    background: rgba(45, 45, 45, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Scrollbar personalizada para modo oscuro */
+[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 4px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
+}
+
+/* Selección de texto para modo oscuro */
+[data-theme="dark"] ::selection {
+    background: var(--primary-color);
+    color: white;
+}
+
+[data-theme="dark"] ::-moz-selection {
+    background: var(--primary-color);
+    color: white;
+}

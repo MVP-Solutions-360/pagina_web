@@ -26,50 +26,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header Facebook Style -->
-    <header class="facebook-header">
-        <div class="header-container">
-            <div class="logo-section">
-                <div class="logo-icon">R</div>
-                <a href="index.html" class="logo-text">Red de Agencias 360</a>
+    <!-- Header -->
+    <header class="header" id="header" role="banner">
+        <nav class="navbar" role="navigation" aria-label="Navegación principal">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html" class="logo-link" aria-label="Red de Agencias 360 - Página de inicio">
+                        <div class="logo-text">
+                            <h6>Red de Agencias 360</h6>
+                        </div>
+                    </a>
+                </div>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li><a href="index.html" class="nav-link" role="menuitem">Inicio</a></li>
+                    <li><a href="packages.html" class="nav-link" role="menuitem">Paquetes</a></li>
+                    <li><a href="muro-agencias.html" class="nav-link" role="menuitem">Red Social</a></li>
+                    <li><a href="mas-vendidos.html" class="nav-link" role="menuitem">Más Vendidos</a></li>
+                    <li><a href="blog.html" class="nav-link" role="menuitem">Blog</a></li>
+                    <li><a href="sobre-nosotros.html" class="nav-link" role="menuitem">Sobre Nosotros</a></li>
+                    <li><a href="contacto.html" class="nav-link active" role="menuitem" aria-current="page">Contacto</a></li>
+                    <li><a href="#" class="nav-link login-btn" role="menuitem" onclick="authSystem.showLoginModal()">Ingreso Agencias</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">
+                        <i class="fas fa-moon" id="theme-icon"></i>
+                    </button>
+                </div>
+                
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
-            
-            <div class="search-bar">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" class="search-input" placeholder="Buscar...">
-            </div>
-            
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-item">
-                    <i class="fas fa-home"></i>
-                    Inicio
-                </a>
-                <a href="paquetes-destacados-nuevos.html" class="nav-item">
-                    <i class="fas fa-suitcase"></i>
-                    Paquetes
-                </a>
-                <a href="muro-agencias.html" class="nav-item">
-                    <i class="fas fa-building"></i>
-                    Agencias
-                </a>
-                <a href="paquetes-destacados-nuevos.html" class="nav-item">
-                    <i class="fas fa-chart-line"></i>
-                    Destacados
-                </a>
-                <a href="blog.html" class="nav-item">
-                    <i class="fas fa-newspaper"></i>
-                    Blog
-                </a>
-            </nav>
-            
-            <div class="user-menu">
-                <div class="user-avatar">U</div>
-                <a href="https://mvpsolutions365.com/login" target="_blank" class="nav-item">
-                    <i class="fas fa-sign-in-alt"></i>
-                    Ingreso
-                </a>
-            </div>
-        </div>
+        </nav>
     </header>
 
     <!-- Main Layout -->

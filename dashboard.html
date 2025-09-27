@@ -20,36 +20,42 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="header" id="header">
-        <nav class="navbar">
+    <header class="header" id="header" role="banner">
+        <nav class="navbar" role="navigation" aria-label="Navegación principal">
             <div class="nav-container">
-                <div class="nav-logo">
-                    <img src="images/logo.png" alt="Agencia Principal" class="logo-img">
-                    <span class="logo-text">Agencia Principal</span>
+                <div class="logo">
+                    <a href="index.html" class="logo-link" aria-label="Red de Agencias 360 - Página de inicio">
+                        <div class="logo-text">
+                            <h6>Red de Agencias 360</h6>
+                        </div>
+                    </a>
                 </div>
                 
-                <div class="nav-menu" id="nav-menu">
-                    <ul class="nav-list">
-                        <li class="nav-item">
-                            <a href="index.html" class="nav-link">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.html#servicios" class="nav-link">Servicios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.html#destinos" class="nav-link">Destinos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.html#sobre-nosotros" class="nav-link">Nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.html#contacto" class="nav-link">Contacto</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.html#cotizacion" class="nav-link btn-cotizacion">Nueva Cotización</a>
-                        </li>
-                    </ul>
+                <ul class="nav-menu" role="menubar">
+                    <li><a href="index.html" class="nav-link" role="menuitem">Inicio</a></li>
+                    <li><a href="packages.html" class="nav-link" role="menuitem">Paquetes</a></li>
+                    <li><a href="muro-agencias.html" class="nav-link" role="menuitem">Red Social</a></li>
+                    <li><a href="mas-vendidos.html" class="nav-link" role="menuitem">Más Vendidos</a></li>
+                    <li><a href="blog.html" class="nav-link" role="menuitem">Blog</a></li>
+                    <li><a href="sobre-nosotros.html" class="nav-link" role="menuitem">Sobre Nosotros</a></li>
+                    <li><a href="contacto.html" class="nav-link" role="menuitem">Contacto</a></li>
+                    <li><a href="#" class="nav-link login-btn" role="menuitem" onclick="authSystem.showLoginModal()">Ingreso Agencias</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">
+                        <i class="fas fa-moon" id="theme-icon"></i>
+                    </button>
                 </div>
+                
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
                 
                 <div class="header-auth">
                     <button id="auth-button" class="auth-button">
